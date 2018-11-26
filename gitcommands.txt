@@ -1,0 +1,9 @@
+git status
+git remote -v
+git remote add origin url
+git add filename
+git add .
+git commit -ma "commit msg"
+git commit -m "commit msg"
+git pull url
+git push url
