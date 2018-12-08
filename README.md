@@ -58,7 +58,17 @@ You can create a new paragraph by leaving a blank line between lines of text.
 
 :shipit:
 
-:+2:
+:-1:
+- :0:
+- :dog:
+- :ball:
+- :ant:
+- :girl:
+- :boy:
 
 :cat:
                              
+## selection
+- [] \Rajendra
+- [] \manoher
+- [X] \yogeswer
