@@ -74,3 +74,6 @@ You can create a new paragraph by leaving a blank line between lines of text.
 - [X] \yogeswer
 - [x] \ yogi
 - [Y] rajayogi 
+- [x] buggi
+- [X] racherla yogi
+- [x] Finish my changes
