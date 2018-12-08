@@ -36,18 +36,29 @@ You can create a new paragraph by leaving a blank line between lines of text.
     - yogeswer
 ## link
 (https://help.github.com/articles/basic-writing-and-formatting-syntax/#using-emoji)
+
 [Git loverajarani](https://github.com/loverajarani/devops)
 ## words
 ** Rajendra
+
 * * Rajendra
+
 `` `` Rajendra
+
 ** ** Rajendra
+
 > Rajendra
+
 - Hai `Rajendra` how are you ?
+
 @github:Adikesavulu
+
 ## Emonji
 :+1:
+
 :shipit:
+
 :+2:
+
 :cat:
                              
