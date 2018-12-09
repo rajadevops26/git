@@ -83,4 +83,4 @@ You can create a new paragraph by leaving a blank line between lines of text.
 - [X] racherla yogi
 - [x] Finish my changes
 ## logo
-![logo](https://www.google.co.in/url?sa=i&source=images&cd=&ved=2ahUKEwjp-r7HmpLfAhVIcCsKHbfQAx8QjRx6BAgBEAU&url=https%3A%2F%2Fgarywoodfine.com%2Fsetting-up-ssh-keys-for-github-access%2F&psig=AOvVaw22HhijJu2YILO-Qmjl4ZbO&ust=1544426320128795)
+![logo](https://i0.wp.com/garywoodfine.com/wp-content/uploads/2015/09/github.png?w=725&ssl=1)
