@@ -39,13 +39,13 @@ You can create a new paragraph by leaving a blank line between lines of text.
 
 [Git loverajarani](https://github.com/loverajarani/devops)
 ## words
-** Rajendra
+** Rajendra------------ ** Rajendra **
 
-* * Rajendra
+* * Rajendra--------- * * Rajendra * *
 
-`` `` Rajendra
+`` `` Rajendra-------- `` Rajendra ``
 
-** ** Rajendra
+** ** Rajendra--------- ** Rajendra **
 
 > Rajendra
 
@@ -77,3 +77,5 @@ You can create a new paragraph by leaving a blank line between lines of text.
 - [x] buggi
 - [X] racherla yogi
 - [x] Finish my changes
+## logo
+![logo](http://ipengineer.net/wp-content/uploads/2015/04/git-logo.jpg)
