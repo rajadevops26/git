@@ -49,10 +49,10 @@ You can create a new paragraph by leaving a blank line between lines of text.
 
 > Rajendra
 
-** Rajendra **
-* * Rajendra * *
-`` Rajendra``
-** ** Rajendra ** **
+- **Rajendra**
+- * *Rajendra* *
+- ``Rajendra``
+- ** **Rajendra** **
 
 - Hai `Rajendra` how are you ?
 
@@ -84,3 +84,7 @@ You can create a new paragraph by leaving a blank line between lines of text.
 - [x] Finish my changes
 ## logo
 ![logo](https://i0.wp.com/garywoodfine.com/wp-content/uploads/2015/09/github.png?w=725&ssl=1)
+
+**open link in new tab once geeting .png link use it**
+
+![logo](https://trellis.co/wp-content/uploads/2015/09/hidden_meanings_facts_within_famous_logos_cover_image.jpg)
