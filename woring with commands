@@ -1,0 +1,156 @@
+******************** getting data from remote location to local ****************************************
+git pull origin master
+(or)
+git fetch origin master
+git fetch git@github.com:loverajarani/dell3520.git
+git merge FETCH_HEAD
+git merge FETCH_HEAD --allow-unrelated-histories
+*********************** getting data directly from remote location to local ********************************
+ git pull git@github.com:loverajarani/dell3520.git
+ ****************** deleting a file from git repo*****************************
+ git rm file1
+ git commit -m "file1"
+ ***************** directly push and pull work with through ssh intigrating with github settings**************
+ git push git@github.com:loverajarani/dell3520.git
+ git pull git@github.com:loverajarani/dell3520.git
+*********************************************************************************************************
+******************* save point of a file ***************************************************************
+[root@ip-172-31-95-233 linuxrepo]# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   sampletest.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[root@ip-172-31-95-233 linuxrepo]# git stash
+Saved working directory and index state WIP on master: d404f9b testpull
+[root@ip-172-31-95-233 linuxrepo]# git status
+On branch master
+nothing to commit, working tree clean
+********************************* after apply stash point**************************
+[root@ip-172-31-95-233 linuxrepo]# git stash list
+stash@{0}: WIP on master: d404f9b testpull
+[root@ip-172-31-95-233 linuxrepo]# git stash apply
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   sampletest.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[root@ip-172-31-95-233 linuxrepo]# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   sampletest.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+***********************************
+commands
+git stash
+git stash list
+git stash apply
+(or)
+git stash pop
+git stash drop
+******************** for m ultiple save points******************
+git stash save -a
+git stash pop stash@{1}
+************* CHECKING LOGS AND COMMITS *******************************************************************
+git log
+git show 9c27d1b8b30820148421b093cbe8025c7effd7fb
+git log --oneline
+git log --pretty=oneline
+git log --pretty=format:"%h - %an, %ar : %s"
+******************* MERGE VS REBASE IN BRANCHES*****************************
+---------- BOTH ARE SAME FUNCTIONALLITY BUT REBASE MERGE THE DATA WITHOUT COMMIT CAN DONE-----------
+git merge master            -------------ON DEV BRANCH
+git merge dev                  -----------ON MASTER BRANCH
+git rebase master               ------------ ON DEV BRANCH
+git rebase dev             -----------------ON MASTER BRANCH
+****************************** REVERT VS REBASE ON OLD AND NEW COMMITS IN HEAD(staged or commited)***********
+git reflog
+git revert 03e2e21
+git reset t1file
+git reset HEAD CONTRIBUTING.md
+************************* to check the spaces in git*********************
+git gc --auto
+git gc
+git count-objects -v
+******************************************************************************
+Data Recovery
+**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+https://git-scm.com/book/en/v2/Git-Internals-Maintenance-and-Data-Recovery#_data_recovery
+
+At some point in your Git journey, you may accidentally lose a commit. Generally, this happens because you force-delete a branch that had work on it, and it turns out you wanted the branch after all; or you hard-reset a branch, thus abandoning commits that you wanted something from. Assuming this happens, how can you get your commits back?
+
+Here’s an example that hard-resets the master branch in your test repository to an older commit and then recovers the lost commits. First, let’s review where your repository is at this point:
+
+$ git log --pretty=oneline
+ab1afef80fac8e34258ff41fc1b867c702daa24b modified repo a bit
+484a59275031909e19aadb7c92262719cfcdf19a added repo.rb
+1a410efbd13591db07496601ebc7a059dd55cfe9 third commit
+cac0cab538b970a37ea1e769cbbde608743bc96d second commit
+fdf4fc3344e67ab068f836878b6c4951e3b15f3d first commit
+Now, move the master branch back to the middle commit:
+
+$ git reset --hard 1a410efbd13591db07496601ebc7a059dd55cfe9
+HEAD is now at 1a410ef third commit
+$ git log --pretty=oneline
+1a410efbd13591db07496601ebc7a059dd55cfe9 third commit
+cac0cab538b970a37ea1e769cbbde608743bc96d second commit
+fdf4fc3344e67ab068f836878b6c4951e3b15f3d first commit
+You’ve effectively lost the top two commits – you have no branch from which those commits are reachable. You need to find the latest commit SHA-1 and then add a branch that points to it. The trick is finding that latest commit SHA-1 – it’s not like you’ve memorized it, right?
+
+Often, the quickest way is to use a tool called git reflog. As you’re working, Git silently records what your HEAD is every time you change it. Each time you commit or change branches, the reflog is updated. The reflog is also updated by the git update-ref command, which is another reason to use it instead of just writing the SHA-1 value to your ref files, as we covered in Git References. You can see where you’ve been at any time by running git reflog:
+
+$ git reflog
+1a410ef HEAD@{0}: reset: moving to 1a410ef
+ab1afef HEAD@{1}: commit: modified repo.rb a bit
+484a592 HEAD@{2}: commit: added repo.rb
+Here we can see the two commits that we have had checked out, however there is not much information here. To see the same information in a much more useful way, we can run git log -g, which will give you a normal log output for your reflog.
+
+$ git log -g
+commit 1a410efbd13591db07496601ebc7a059dd55cfe9
+Reflog: HEAD@{0} (Scott Chacon <schacon@gmail.com>)
+Reflog message: updating HEAD
+Author: Scott Chacon <schacon@gmail.com>
+Date:   Fri May 22 18:22:37 2009 -0700
+
+		third commit
+
+commit ab1afef80fac8e34258ff41fc1b867c702daa24b
+Reflog: HEAD@{1} (Scott Chacon <schacon@gmail.com>)
+Reflog message: updating HEAD
+Author: Scott Chacon <schacon@gmail.com>
+Date:   Fri May 22 18:15:24 2009 -0700
+
+       modified repo.rb a bit
+It looks like the bottom commit is the one you lost, so you can recover it by creating a new branch at that commit. For example, you can start a branch named recover-branch at that commit (ab1afef):
+
+$ git branch recover-branch ab1afef
+$ git log --pretty=oneline recover-branch
+ab1afef80fac8e34258ff41fc1b867c702daa24b modified repo a bit
+484a59275031909e19aadb7c92262719cfcdf19a added repo.rb
+1a410efbd13591db07496601ebc7a059dd55cfe9 third commit
+cac0cab538b970a37ea1e769cbbde608743bc96d second commit
+fdf4fc3344e67ab068f836878b6c4951e3b15f3d first commit
+Cool – now you have a branch named recover-branch that is where your master branch used to be, making the first two commits reachable again. Next, suppose your loss was for some reason not in the reflog – you can simulate that by removing recover-branch and deleting the reflog. Now the first two commits aren’t reachable by anything:
+
+$ git branch -D recover-branch
+$ rm -Rf .git/logs/
+Because the reflog data is kept in the .git/logs/ directory, you effectively have no reflog. How can you recover that commit at this point? One way is to use the git fsck utility, which checks your database for integrity. If you run it with the --full option, it shows you all objects that aren’t pointed to by another object:
+
+$ git fsck --full
+Checking object directories: 100% (256/256), done.
+Checking objects: 100% (18/18), done.
+dangling blob d670460b4b4aece5915caf5c68d12f560a9fe3e4
+dangling commit ab1afef80fac8e34258ff41fc1b867c702daa24b
+dangling tree aea790b9a58f6cf6f2804eeac9f0abbe9631e4c9
+dangling blob 7108f7ecb345ee9d0084193f147cdad4d2998293
+In this case, you can see your missing commit after the string “dangling commit”. You can recover it the same way, by adding a branch that points to that SHA-1.
