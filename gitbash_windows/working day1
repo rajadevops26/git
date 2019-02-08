@@ -1,0 +1,1390 @@
+
+user@Rajamanoheryogi MINGW64 ~
+$ ssh -i "nv_rajendra.pem" ec2-user@ec2-3-82-223-160.compute-1.amazonaws.com
+The authenticity of host 'ec2-3-82-223-160.compute-1.amazonaws.com (3.82.223.160)' can't be established.
+ECDSA key fingerprint is SHA256:4SGCVcC99jSlgybHsAGPC/itkTlE8C7BmYPY1FyjFyg.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'ec2-3-82-223-160.compute-1.amazonaws.com,3.82.223.160' (ECDSA) to the list of known hosts.
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+3 package(s) needed for security, out of 3 available
+Run "sudo yum update" to apply all updates.
+[ec2-user@ip-172-31-95-233 ~]$ sudo -i
+[root@ip-172-31-95-233 ~]# apt-get update
+-bash: apt-get: command not found
+[root@ip-172-31-95-233 ~]# yum update
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+Resolving Dependencies
+--> Running transaction check
+---> Package kernel.x86_64 0:4.14.94-89.73.amzn2 will be installed
+---> Package openssl.x86_64 1:1.0.2k-16.amzn2.0.1 will be updated
+---> Package openssl.x86_64 1:1.0.2k-16.amzn2.0.2 will be an update
+---> Package openssl-libs.x86_64 1:1.0.2k-16.amzn2.0.1 will be updated
+---> Package openssl-libs.x86_64 1:1.0.2k-16.amzn2.0.2 will be an update
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+===========================================================================================
+ Package             Arch          Version                         Repository         Size
+===========================================================================================
+Installing:
+ kernel              x86_64        4.14.94-89.73.amzn2             amzn2-core         19 M
+Updating:
+ openssl             x86_64        1:1.0.2k-16.amzn2.0.2           amzn2-core        496 k
+ openssl-libs        x86_64        1:1.0.2k-16.amzn2.0.2           amzn2-core        1.2 M
+
+Transaction Summary
+===========================================================================================
+Install  1 Package
+Upgrade  2 Packages
+
+Total download size: 21 M
+Is this ok [y/d/N]: y
+Downloading packages:
+Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+(1/3): openssl-1.0.2k-16.amzn2.0.2.x86_64.rpm                       | 496 kB  00:00:00
+(2/3): openssl-libs-1.0.2k-16.amzn2.0.2.x86_64.rpm                  | 1.2 MB  00:00:00
+(3/3): kernel-4.14.94-89.73.amzn2.x86_64.rpm                        |  19 MB  00:00:00
+-------------------------------------------------------------------------------------------
+Total                                                       29 MB/s |  21 MB  00:00:00
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Updating   : 1:openssl-libs-1.0.2k-16.amzn2.0.2.x86_64                               1/5
+  Updating   : 1:openssl-1.0.2k-16.amzn2.0.2.x86_64                                    2/5
+  Installing : kernel-4.14.94-89.73.amzn2.x86_64                                       3/5
+  Cleanup    : 1:openssl-1.0.2k-16.amzn2.0.1.x86_64                                    4/5
+  Cleanup    : 1:openssl-libs-1.0.2k-16.amzn2.0.1.x86_64                               5/5
+  Verifying  : 1:openssl-libs-1.0.2k-16.amzn2.0.2.x86_64                               1/5
+  Verifying  : kernel-4.14.94-89.73.amzn2.x86_64                                       2/5
+  Verifying  : 1:openssl-1.0.2k-16.amzn2.0.2.x86_64                                    3/5
+  Verifying  : 1:openssl-libs-1.0.2k-16.amzn2.0.1.x86_64                               4/5
+  Verifying  : 1:openssl-1.0.2k-16.amzn2.0.1.x86_64                                    5/5
+
+Installed:
+  kernel.x86_64 0:4.14.94-89.73.amzn2
+
+Updated:
+  openssl.x86_64 1:1.0.2k-16.amzn2.0.2      openssl-libs.x86_64 1:1.0.2k-16.amzn2.0.2
+
+Complete!
+[root@ip-172-31-95-233 ~]# java -version
+-bash: java: command not found
+[root@ip-172-31-95-233 ~]# java --version
+-bash: java: command not found
+[root@ip-172-31-95-233 ~]# cat /etc/issue
+\S
+Kernel \r on an \m
+
+[root@ip-172-31-95-233 ~]# ls /var/log/
+amazon    chrony                 dmesg               lastlog   secure    yum.log
+audit     cloud-init.log         grubby              maillog   spooler
+boot.log  cloud-init-output.log  grubby_prune_debug  messages  tallylog
+btmp      cron                   journal             sa        wtmp
+[root@ip-172-31-95-233 ~]# ls /var
+account  cache  empty  gopher    lib    lock  mail  opt       run    tmp
+adm      db     games  kerberos  local  log   nis   preserve  spool  yp
+[root@ip-172-31-95-233 ~]# ls -a /var/log
+.       boot.log        cloud-init-output.log  grubby_prune_debug  messages  tallylog
+..      btmp            cron                   journal             sa        wtmp
+amazon  chrony          dmesg                  lastlog             secure    yum.log
+audit   cloud-init.log  grubby                 maillog             spooler
+[root@ip-172-31-95-233 ~]# yum install git
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+Resolving Dependencies
+--> Running transaction check
+---> Package git.x86_64 0:2.17.2-2.amzn2 will be installed
+--> Processing Dependency: perl-Git = 2.17.2-2.amzn2 for package: git-2.17.2-2.amzn2.x86_64
+--> Processing Dependency: git-core-doc = 2.17.2-2.amzn2 for package: git-2.17.2-2.amzn2.x86_64
+--> Processing Dependency: git-core = 2.17.2-2.amzn2 for package: git-2.17.2-2.amzn2.x86_64
+--> Processing Dependency: emacs-filesystem >= 25.3 for package: git-2.17.2-2.amzn2.x86_64
+--> Processing Dependency: perl(Term::ReadKey) for package: git-2.17.2-2.amzn2.x86_64
+--> Processing Dependency: perl(Git::I18N) for package: git-2.17.2-2.amzn2.x86_64
+--> Processing Dependency: perl(Git) for package: git-2.17.2-2.amzn2.x86_64
+--> Processing Dependency: libsecret-1.so.0()(64bit) for package: git-2.17.2-2.amzn2.x86_64
+--> Running transaction check
+---> Package emacs-filesystem.noarch 1:25.3-3.amzn2.0.1 will be installed
+---> Package git-core.x86_64 0:2.17.2-2.amzn2 will be installed
+---> Package git-core-doc.noarch 0:2.17.2-2.amzn2 will be installed
+---> Package libsecret.x86_64 0:0.18.5-2.amzn2.0.2 will be installed
+---> Package perl-Git.noarch 0:2.17.2-2.amzn2 will be installed
+--> Processing Dependency: perl(Error) for package: perl-Git-2.17.2-2.amzn2.noarch
+---> Package perl-TermReadKey.x86_64 0:2.30-20.amzn2.0.2 will be installed
+--> Running transaction check
+---> Package perl-Error.noarch 1:0.17020-2.amzn2 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+===========================================================================================
+ Package                 Arch          Version                     Repository         Size
+===========================================================================================
+Installing:
+ git                     x86_64        2.17.2-2.amzn2              amzn2-core        217 k
+Installing for dependencies:
+ emacs-filesystem        noarch        1:25.3-3.amzn2.0.1          amzn2-core         64 k
+ git-core                x86_64        2.17.2-2.amzn2              amzn2-core        4.0 M
+ git-core-doc            noarch        2.17.2-2.amzn2              amzn2-core        2.3 M
+ libsecret               x86_64        0.18.5-2.amzn2.0.2          amzn2-core        153 k
+ perl-Error              noarch        1:0.17020-2.amzn2           amzn2-core         32 k
+ perl-Git                noarch        2.17.2-2.amzn2              amzn2-core         70 k
+ perl-TermReadKey        x86_64        2.30-20.amzn2.0.2           amzn2-core         31 k
+
+Transaction Summary
+===========================================================================================
+Install  1 Package (+7 Dependent packages)
+
+Total download size: 6.8 M
+Installed size: 36 M
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/8): git-2.17.2-2.amzn2.x86_64.rpm                                | 217 kB  00:00:00
+(2/8): emacs-filesystem-25.3-3.amzn2.0.1.noarch.rpm                 |  64 kB  00:00:00
+(3/8): git-core-doc-2.17.2-2.amzn2.noarch.rpm                       | 2.3 MB  00:00:00
+(4/8): git-core-2.17.2-2.amzn2.x86_64.rpm                           | 4.0 MB  00:00:00
+(5/8): libsecret-0.18.5-2.amzn2.0.2.x86_64.rpm                      | 153 kB  00:00:00
+(6/8): perl-Error-0.17020-2.amzn2.noarch.rpm                        |  32 kB  00:00:00
+(7/8): perl-Git-2.17.2-2.amzn2.noarch.rpm                           |  70 kB  00:00:00
+(8/8): perl-TermReadKey-2.30-20.amzn2.0.2.x86_64.rpm                |  31 kB  00:00:00
+-------------------------------------------------------------------------------------------
+Total                                                       22 MB/s | 6.8 MB  00:00:00
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : git-core-2.17.2-2.amzn2.x86_64                                          1/8
+  Installing : git-core-doc-2.17.2-2.amzn2.noarch                                      2/8
+  Installing : libsecret-0.18.5-2.amzn2.0.2.x86_64                                     3/8
+  Installing : 1:perl-Error-0.17020-2.amzn2.noarch                                     4/8
+  Installing : perl-TermReadKey-2.30-20.amzn2.0.2.x86_64                               5/8
+  Installing : 1:emacs-filesystem-25.3-3.amzn2.0.1.noarch                              6/8
+  Installing : perl-Git-2.17.2-2.amzn2.noarch                                          7/8
+  Installing : git-2.17.2-2.amzn2.x86_64                                               8/8
+  Verifying  : 1:emacs-filesystem-25.3-3.amzn2.0.1.noarch                              1/8
+  Verifying  : perl-TermReadKey-2.30-20.amzn2.0.2.x86_64                               2/8
+  Verifying  : 1:perl-Error-0.17020-2.amzn2.noarch                                     3/8
+  Verifying  : libsecret-0.18.5-2.amzn2.0.2.x86_64                                     4/8
+  Verifying  : git-core-2.17.2-2.amzn2.x86_64                                          5/8
+  Verifying  : git-2.17.2-2.amzn2.x86_64                                               6/8
+  Verifying  : perl-Git-2.17.2-2.amzn2.noarch                                          7/8
+  Verifying  : git-core-doc-2.17.2-2.amzn2.noarch                                      8/8
+
+Installed:
+  git.x86_64 0:2.17.2-2.amzn2
+
+Dependency Installed:
+  emacs-filesystem.noarch 1:25.3-3.amzn2.0.1      git-core.x86_64 0:2.17.2-2.amzn2
+  git-core-doc.noarch 0:2.17.2-2.amzn2            libsecret.x86_64 0:0.18.5-2.amzn2.0.2
+  perl-Error.noarch 1:0.17020-2.amzn2             perl-Git.noarch 0:2.17.2-2.amzn2
+  perl-TermReadKey.x86_64 0:2.30-20.amzn2.0.2
+
+Complete!
+[root@ip-172-31-95-233 ~]# ls
+[root@ip-172-31-95-233 ~]# ls -a
+.  ..  .bash_logout  .bash_profile  .bashrc  .cshrc  .ssh  .tcshrc
+[root@ip-172-31-95-233 ~]# ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /root/.ssh/id_rsa.
+Your public key has been saved in /root/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:OZPBNHoPfS9maeqmGhUeFzNDq/MWSwo0qf6MabtZ/1c root@ip-172-31-95-233.ec2.internal
+The key's randomart image is:
++---[RSA 2048]----+
+|        o.*      |
+|       = o *     |
+|      = B + .    |
+|     o + @ . o   |
+|    . . S + * .  |
+|   .   o B B .E  |
+|    . o . =  .   |
+|    .B o o. .    |
+|   .*o+.o+o.     |
++----[SHA256]-----+
+[root@ip-172-31-95-233 ~]# cd .ssh/
+[root@ip-172-31-95-233 .ssh]# ls
+authorized_keys  id_rsa  id_rsa.pub
+[root@ip-172-31-95-233 .ssh]# cat id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6CDDrl+yPW4Mc+LiPxhZUe2T4LwOlG3oVKHkQE+BtvD0BpiPTc2Q+LgWICRUAATtSdqwPb8zvpt6Qp+rbsqy4zfy/tt6l8M8bqrjuMcckF92JiC1KmHJkQSGhtlcza4a+7Ebmtow7FeMMjo7p+ZsQeKbVICFUSkMjtl46Su3UdkIc+h+pISpzb0A52zZk6v3k7BWfxsr9IDuaFKohudhoEwq2W8DFz93T72zLYI6XtFHT47FF5qZRYkbooBT7aEo3e654dbDtSJegeopUb2LReV6gy+jlWHehlWghZqt0xedOAAoAcpslqMw5D/u6/IHMTZKXahP27UVwNoIXVQRV root@ip-172-31-95-233.ec2.internal
+[root@ip-172-31-95-233 .ssh]# cat>>authorized_keys
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6CDDrl+yPW4Mc+LiPxhZUe2T4LwOlG3oVKHkQE+BtvD0BpiPTc2Q+LgWICRUAATtSdqwPb8zvpt6Qp+rbsqy4zfy/tt6l8M8bqrjuMcckF92JiC1KmHJkQSGhtlcza4a+7Ebmtow7FeMMjo7p+ZsQeKbVICFUSkMjtl46Su3UdkIc+h+pISpzb0A52zZk6v3k7BWfxsr9IDuaFKohudhoEwq2W8DFz93T72zLYI6XtFHT47FF5qZRYkbooBT7aEo3e654dbDtSJegeopUb2LReV6gy+jlWHehlWghZqt0xedOAAoAcpslqMw5D/u6/IHMTZKXahP27UVwNoIXVQRV root@ip-172-31-95-233.ec2.internal
+[root@ip-172-31-95-233 .ssh]# cd
+[root@ip-172-31-95-233 ~]# cd /opt/
+[root@ip-172-31-95-233 opt]# ls
+aws  rh
+[root@ip-172-31-95-233 opt]# mkdir linuxrepo
+[root@ip-172-31-95-233 opt]# cd linuxrepo/
+[root@ip-172-31-95-233 linuxrepo]# git init
+Initialized empty Git repository in /opt/linuxrepo/.git/
+[root@ip-172-31-95-233 linuxrepo]# ls -a
+.  ..  .git
+[root@ip-172-31-95-233 linuxrepo]# cd .git/
+[root@ip-172-31-95-233 .git]# ls
+branches  config  description  HEAD  hooks  info  objects  refs
+[root@ip-172-31-95-233 .git]# ls -a
+.  ..  branches  config  description  HEAD  hooks  info  objects  refs
+[root@ip-172-31-95-233 .git]# cd hooks/
+[root@ip-172-31-95-233 hooks]# ls
+applypatch-msg.sample      pre-applypatch.sample      pre-rebase.sample
+commit-msg.sample          pre-commit.sample          pre-receive.sample
+fsmonitor-watchman.sample  prepare-commit-msg.sample  update.sample
+post-update.sample         pre-push.sample
+[root@ip-172-31-95-233 hooks]# cat update.sample
+#!/bin/sh
+#
+# An example hook script to block unannotated tags from entering.
+# Called by "git receive-pack" with arguments: refname sha1-old sha1-new
+#
+# To enable this hook, rename this file to "update".
+#
+# Config
+# ------
+# hooks.allowunannotated
+#   This boolean sets whether unannotated tags will be allowed into the
+#   repository.  By default they won't be.
+# hooks.allowdeletetag
+#   This boolean sets whether deleting tags will be allowed in the
+#   repository.  By default they won't be.
+# hooks.allowmodifytag
+#   This boolean sets whether a tag may be modified after creation. By default
+#   it won't be.
+# hooks.allowdeletebranch
+#   This boolean sets whether deleting branches will be allowed in the
+#   repository.  By default they won't be.
+# hooks.denycreatebranch
+#   This boolean sets whether remotely creating branches will be denied
+#   in the repository.  By default this is allowed.
+#
+
+# --- Command line
+refname="$1"
+oldrev="$2"
+newrev="$3"
+
+# --- Safety check
+if [ -z "$GIT_DIR" ]; then
+        echo "Don't run this script from the command line." >&2
+        echo " (if you want, you could supply GIT_DIR then run" >&2
+        echo "  $0 <ref> <oldrev> <newrev>)" >&2
+        exit 1
+fi
+
+if [ -z "$refname" -o -z "$oldrev" -o -z "$newrev" ]; then
+        echo "usage: $0 <ref> <oldrev> <newrev>" >&2
+        exit 1
+fi
+
+# --- Config
+allowunannotated=$(git config --bool hooks.allowunannotated)
+allowdeletebranch=$(git config --bool hooks.allowdeletebranch)
+denycreatebranch=$(git config --bool hooks.denycreatebranch)
+allowdeletetag=$(git config --bool hooks.allowdeletetag)
+allowmodifytag=$(git config --bool hooks.allowmodifytag)
+
+# check for no description
+projectdesc=$(sed -e '1q' "$GIT_DIR/description")
+case "$projectdesc" in
+"Unnamed repository"* | "")
+        echo "*** Project description file hasn't been set" >&2
+        exit 1
+        ;;
+esac
+
+# --- Check types
+# if $newrev is 0000...0000, it's a commit to delete a ref.
+zero="0000000000000000000000000000000000000000"
+if [ "$newrev" = "$zero" ]; then
+        newrev_type=delete
+else
+        newrev_type=$(git cat-file -t $newrev)
+fi
+
+case "$refname","$newrev_type" in
+        refs/tags/*,commit)
+                # un-annotated tag
+                short_refname=${refname##refs/tags/}
+                if [ "$allowunannotated" != "true" ]; then
+                        echo "*** The un-annotated tag, $short_refname, is not allowed in this repository" >&2
+                        echo "*** Use 'git tag [ -a | -s ]' for tags you want to propagate." >&2
+                        exit 1
+                fi
+                ;;
+        refs/tags/*,delete)
+                # delete tag
+                if [ "$allowdeletetag" != "true" ]; then
+                        echo "*** Deleting a tag is not allowed in this repository" >&2
+                        exit 1
+                fi
+                ;;
+        refs/tags/*,tag)
+                # annotated tag
+                if [ "$allowmodifytag" != "true" ] && git rev-parse $refname > /dev/null 2>&1
+                then
+                        echo "*** Tag '$refname' already exists." >&2
+                        echo "*** Modifying a tag is not allowed in this repository." >&2
+                        exit 1
+                fi
+                ;;
+        refs/heads/*,commit)
+                # branch
+                if [ "$oldrev" = "$zero" -a "$denycreatebranch" = "true" ]; then
+                        echo "*** Creating a branch is not allowed in this repository" >&2
+                        exit 1
+                fi
+                ;;
+        refs/heads/*,delete)
+                # delete branch
+                if [ "$allowdeletebranch" != "true" ]; then
+                        echo "*** Deleting a branch is not allowed in this repository" >&2
+                        exit 1
+                fi
+                ;;
+        refs/remotes/*,commit)
+                # tracking branch
+                ;;
+        refs/remotes/*,delete)
+                # delete tracking branch
+                if [ "$allowdeletebranch" != "true" ]; then
+                        echo "*** Deleting a tracking branch is not allowed in this repository" >&2
+                        exit 1
+                fi
+                ;;
+        *)
+                # Anything else (is there anything else?)
+                echo "*** Update hook: unknown type of update to ref $refname of type $newrev_type" >&2
+                exit 1
+                ;;
+esac
+
+# --- Finished
+exit 0
+[root@ip-172-31-95-233 hooks]# dld
+-bash: dld: command not found
+[root@ip-172-31-95-233 hooks]# ls -a
+.                      fsmonitor-watchman.sample  prepare-commit-msg.sample  update.sample
+..                     post-update.sample         pre-push.sample
+applypatch-msg.sample  pre-applypatch.sample      pre-rebase.sample
+commit-msg.sample      pre-commit.sample          pre-receive.sample
+[root@ip-172-31-95-233 hooks]# free -m
+              total        used        free      shared  buff/cache   available
+Mem:            985          51         448           0         485         774
+Swap:             0           0           0
+[root@ip-172-31-95-233 hooks]# top
+top - 07:24:01 up 7 min,  1 user,  load average: 0.00, 0.05, 0.02
+Tasks:  83 total,   1 running,  47 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :  1009388 total,   458344 free,    53344 used,   497700 buff/cache
+KiB Swap:        0 total,        0 free,        0 used.   792696 avail Mem
+
+  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
+    1 root      20   0  125532   5524   4156 S  0.0  0.5   0:01.46 systemd
+    2 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kthreadd
+    3 root      20   0       0      0      0 I  0.0  0.0   0:00.06 kworker/0:0
+    4 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 kworker/0:0H
+    5 root      20   0       0      0      0 I  0.0  0.0   0:00.09 kworker/u30:0
+    6 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 mm_percpu_wq
+    7 root      20   0       0      0      0 S  0.0  0.0   0:00.07 ksoftirqd/0
+    8 root      20   0       0      0      0 I  0.0  0.0   0:00.17 rcu_sched
+    9 root      20   0       0      0      0 I  0.0  0.0   0:00.00 rcu_bh
+   10 root      rt   0       0      0      0 S  0.0  0.0   0:00.00 migration/0
+   11 root      rt   0       0      0      0 S  0.0  0.0   0:00.00 watchdog/0
+   12 root      20   0       0      0      0 S  0.0  0.0   0:00.00 cpuhp/0
+   13 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kdevtmpfs
+   14 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 netns
+   15 root      20   0       0      0      0 I  0.0  0.0   0:00.02 kworker/u30:1
+   20 root      20   0       0      0      0 S  0.0  0.0   0:00.00 xenbus
+   21 root      20   0       0      0      0 S  0.0  0.0   0:00.01 xenwatch
+  170 root      20   0       0      0      0 S  0.0  0.0   0:00.00 khungtaskd
+  171 root      20   0       0      0      0 S  0.0  0.0   0:00.00 oom_reaper
+  172 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 writeback
+  174 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kcompactd0
+  175 root      25   5       0      0      0 S  0.0  0.0   0:00.00 ksmd
+  176 root      39  19       0      0      0 S  0.0  0.0   0:00.00 khugepaged
+  177 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 crypto
+  178 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 kintegrityd
+[root@ip-172-31-95-233 hooks]# cd ..
+[root@ip-172-31-95-233 .git]# ls -a
+.  ..  branches  config  description  HEAD  hooks  info  objects  refs
+[root@ip-172-31-95-233 .git]# cd objects/
+[root@ip-172-31-95-233 objects]# ls
+info  pack
+[root@ip-172-31-95-233 objects]# cd ..
+[root@ip-172-31-95-233 .git]# cd refs
+[root@ip-172-31-95-233 refs]# ls
+heads  tags
+[root@ip-172-31-95-233 refs]# cd ..
+[root@ip-172-31-95-233 .git]# ls branches/
+[root@ip-172-31-95-233 .git]# ls -a branches/
+.  ..
+[root@ip-172-31-95-233 .git]# top
+top - 07:40:02 up 23 min,  1 user,  load average: 0.00, 0.00, 0.00
+Tasks:  83 total,   1 running,  47 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.7 sy,  0.0 ni, 99.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :  1009388 total,   457800 free,    53796 used,   497792 buff/cache
+KiB Swap:        0 total,        0 free,        0 used.   792188 avail Mem
+
+  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
+    1 root      20   0  125532   5532   4156 S  0.3  0.5   0:01.47 systemd
+ 2667 chrony    20   0  122644   4064   3544 S  0.3  0.4   0:00.02 chronyd
+ 2670 root      20   0   28520   3068   2708 S  0.3  0.3   0:00.01 systemd-logind
+    2 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kthreadd
+    4 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 kworker/0:0H
+    5 root      20   0       0      0      0 I  0.0  0.0   0:00.10 kworker/u30:0
+    6 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 mm_percpu_wq
+    7 root      20   0       0      0      0 S  0.0  0.0   0:00.08 ksoftirqd/0
+    8 root      20   0       0      0      0 I  0.0  0.0   0:00.18 rcu_sched
+    9 root      20   0       0      0      0 I  0.0  0.0   0:00.00 rcu_bh
+   10 root      rt   0       0      0      0 S  0.0  0.0   0:00.00 migration/0
+   11 root      rt   0       0      0      0 S  0.0  0.0   0:00.00 watchdog/0
+   12 root      20   0       0      0      0 S  0.0  0.0   0:00.00 cpuhp/0
+   13 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kdevtmpfs
+   14 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 netns
+   15 root      20   0       0      0      0 I  0.0  0.0   0:00.02 kworker/u30:1
+   20 root      20   0       0      0      0 S  0.0  0.0   0:00.00 xenbus
+   21 root      20   0       0      0      0 S  0.0  0.0   0:00.01 xenwatch
+  170 root      20   0       0      0      0 S  0.0  0.0   0:00.00 khungtaskd
+  171 root      20   0       0      0      0 S  0.0  0.0   0:00.00 oom_reaper
+  172 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 writeback
+  174 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kcompactd0
+  175 root      25   5       0      0      0 S  0.0  0.0   0:00.00 ksmd
+  176 root      39  19       0      0      0 S  0.0  0.0   0:00.00 khugepaged
+  177 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 crypto
+[root@ip-172-31-95-233 .git]# cd
+[root@ip-172-31-95-233 ~]# ls -a
+.  ..  .bash_logout  .bash_profile  .bashrc  .cshrc  .ssh  .tcshrc
+[root@ip-172-31-95-233 ~]# cat .ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6CDDrl+yPW4Mc+LiPxhZUe2T4LwOlG3oVKHkQE+BtvD0BpiPTc2Q+LgWICRUAATtSdqwPb8zvpt6Qp+rbsqy4zfy/tt6l8M8bqrjuMcckF92JiC1KmHJkQSGhtlcza4a+7Ebmtow7FeMMjo7p+ZsQeKbVICFUSkMjtl46Su3UdkIc+h+pISpzb0A52zZk6v3k7BWfxsr9IDuaFKohudhoEwq2W8DFz93T72zLYI6XtFHT47FF5qZRYkbooBT7aEo3e654dbDtSJegeopUb2LReV6gy+jlWHehlWghZqt0xedOAAoAcpslqMw5D/u6/IHMTZKXahP27UVwNoIXVQRV root@ip-172-31-95-233.ec2.internal
+[root@ip-172-31-95-233 ~]# top
+top - 07:45:28 up 28 min,  1 user,  load average: 0.00, 0.00, 0.00
+Tasks:  83 total,   1 running,  47 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :  1009388 total,   458204 free,    53424 used,   497760 buff/cache
+KiB Swap:        0 total,        0 free,        0 used.   792592 avail Mem
+
+  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
+    1 root      20   0  125532   5532   4156 S  0.0  0.5   0:01.47 systemd
+    2 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kthreadd
+    4 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 kworker/0:0H
+    5 root      20   0       0      0      0 I  0.0  0.0   0:00.10 kworker/u30:0
+    6 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 mm_percpu_wq
+    7 root      20   0       0      0      0 S  0.0  0.0   0:00.08 ksoftirqd/0
+    8 root      20   0       0      0      0 I  0.0  0.0   0:00.18 rcu_sched
+    9 root      20   0       0      0      0 I  0.0  0.0   0:00.00 rcu_bh
+   10 root      rt   0       0      0      0 S  0.0  0.0   0:00.00 migration/0
+   11 root      rt   0       0      0      0 S  0.0  0.0   0:00.00 watchdog/0
+   12 root      20   0       0      0      0 S  0.0  0.0   0:00.00 cpuhp/0
+   13 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kdevtmpfs
+   14 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 netns
+   15 root      20   0       0      0      0 I  0.0  0.0   0:00.02 kworker/u30:1
+   20 root      20   0       0      0      0 S  0.0  0.0   0:00.00 xenbus
+   21 root      20   0       0      0      0 S  0.0  0.0   0:00.01 xenwatch
+  170 root      20   0       0      0      0 S  0.0  0.0   0:00.00 khungtaskd
+  171 root      20   0       0      0      0 S  0.0  0.0   0:00.00 oom_reaper
+  172 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 writeback
+  174 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kcompactd0
+  175 root      25   5       0      0      0 S  0.0  0.0   0:00.00 ksmd
+  176 root      39  19       0      0      0 S  0.0  0.0   0:00.00 khugepaged
+  177 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 crypto
+  178 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 kintegrityd
+  180 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 kblockd
+[root@ip-172-31-95-233 ~]# git config --global user.name "raja"
+[root@ip-172-31-95-233 ~]# git config --global user.email "rajarani@love.com"
+[root@ip-172-31-95-233 ~]# git remote -v
+fatal: not a git repository (or any of the parent directories): .git
+[root@ip-172-31-95-233 ~]# cd /opt/linuxrepo/
+[root@ip-172-31-95-233 linuxrepo]#
+[root@ip-172-31-95-233 linuxrepo]# git remote -v
+[root@ip-172-31-95-233 linuxrepo]# git remote add origin https://github.com/loverajarani/dell3520.git
+[root@ip-172-31-95-233 linuxrepo]# git remote -v
+origin  https://github.com/loverajarani/dell3520.git (fetch)
+origin  https://github.com/loverajarani/dell3520.git (push)
+[root@ip-172-31-95-233 linuxrepo]# git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+[root@ip-172-31-95-233 linuxrepo]# ls
+[root@ip-172-31-95-233 linuxrepo]# ls -a
+.  ..  .git
+[root@ip-172-31-95-233 linuxrepo]# cd .git/
+[root@ip-172-31-95-233 .git]# ls -a
+.  ..  branches  config  description  HEAD  hooks  info  objects  refs
+[root@ip-172-31-95-233 .git]# cat HEAD
+ref: refs/heads/master
+[root@ip-172-31-95-233 .git]# cd ..
+[root@ip-172-31-95-233 linuxrepo]# cat>sampletest.txt
+hai raJA HOW ARE U
+I AM FINE
+WATSUP
+BRO
+[root@ip-172-31-95-233 linuxrepo]# git add sampletest.txt
+[root@ip-172-31-95-233 linuxrepo]# git staus
+git: 'staus' is not a git command. See 'git --help'.
+
+The most similar command is
+        status
+[root@ip-172-31-95-233 linuxrepo]# git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   sampletest.txt
+
+[root@ip-172-31-95-233 linuxrepo]# git commit sampletest.txt
+Aborting commit due to empty commit message.
+[root@ip-172-31-95-233 linuxrepo]# git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   sampletest.txt
+
+[root@ip-172-31-95-233 linuxrepo]# git commit -m sampletest.txt
+[master (root-commit) 9c27d1b] sampletest.txt
+ 1 file changed, 4 insertions(+)
+ create mode 100644 sampletest.txt
+[root@ip-172-31-95-233 linuxrepo]# git status
+On branch master
+nothing to commit, working tree clean
+[root@ip-172-31-95-233 linuxrepo]# git branch
+* master
+[root@ip-172-31-95-233 linuxrepo]# git pull origin
+warning: no common commits
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/loverajarani/dell3520
+ * [new branch]      master     -> origin/master
+You asked to pull from the remote 'origin', but did not specify
+a branch. Because this is not the default configured remote
+for your current branch, you must specify a branch on the command line.
+[root@ip-172-31-95-233 linuxrepo]# ls
+sampletest.txt
+[root@ip-172-31-95-233 linuxrepo]# ls -a
+.  ..  .git  sampletest.txt
+[root@ip-172-31-95-233 linuxrepo]# git pull origin master
+From https://github.com/loverajarani/dell3520
+ * branch            master     -> FETCH_HEAD
+fatal: refusing to merge unrelated histories
+[root@ip-172-31-95-233 linuxrepo]# ls
+sampletest.txt
+[root@ip-172-31-95-233 linuxrepo]# ls .git/
+branches        config       FETCH_HEAD  hooks  info  objects    refs
+COMMIT_EDITMSG  description  HEAD        index  logs  ORIG_HEAD
+[root@ip-172-31-95-233 linuxrepo]# ls .git/FETCH_HEAD
+.git/FETCH_HEAD
+[root@ip-172-31-95-233 linuxrepo]# LS
+-bash: LS: command not found
+[root@ip-172-31-95-233 linuxrepo]# ls
+sampletest.txt
+[root@ip-172-31-95-233 linuxrepo]#
+[root@ip-172-31-95-233 linuxrepo]# git fetch origin master
+From https://github.com/loverajarani/dell3520
+ * branch            master     -> FETCH_HEAD
+[root@ip-172-31-95-233 linuxrepo]# ls
+sampletest.txt
+[root@ip-172-31-95-233 linuxrepo]# git fech HEAD
+git: 'fech' is not a git command. See 'git --help'.
+
+The most similar command is
+        fetch
+[root@ip-172-31-95-233 linuxrepo]# git fetch HEAD
+fatal: 'HEAD' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+[root@ip-172-31-95-233 linuxrepo]# git pull origin master
+From https://github.com/loverajarani/dell3520
+ * branch            master     -> FETCH_HEAD
+fatal: refusing to merge unrelated histories
+[root@ip-172-31-95-233 linuxrepo]# ls
+sampletest.txt
+[root@ip-172-31-95-233 linuxrepo]# cd .git
+[root@ip-172-31-95-233 .git]# ls
+branches        config       FETCH_HEAD  hooks  info  objects    refs
+COMMIT_EDITMSG  description  HEAD        index  logs  ORIG_HEAD
+[root@ip-172-31-95-233 .git]# cat FETCH_HEAD
+2554f5df8187dc8052ab927f35f96dde1e08cc27                branch 'master' of https://github.com/loverajarani/dell3520
+[root@ip-172-31-95-233 .git]# cat HEAD
+ref: refs/heads/master
+[root@ip-172-31-95-233 .git]# cd ..
+[root@ip-172-31-95-233 linuxrepo]# git push origin master
+Username for 'https://github.com': loverajarani
+Password for 'https://loverajarani@github.com':
+To https://github.com/loverajarani/dell3520.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/loverajarani/dell3520.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+[root@ip-172-31-95-233 linuxrepo]# git pull origin master
+From https://github.com/loverajarani/dell3520
+ * branch            master     -> FETCH_HEAD
+fatal: refusing to merge unrelated histories
+[root@ip-172-31-95-233 linuxrepo]# git merge FETCH_HEAFD
+merge: FETCH_HEAFD - not something we can merge
+[root@ip-172-31-95-233 linuxrepo]# git merge FETCH_HEAD
+fatal: refusing to merge unrelated histories
+[root@ip-172-31-95-233 linuxrepo]# git merge FETCH_HEAD --unrelated-histories
+error: unknown option `unrelated-histories'
+usage: git merge [<options>] [<commit>...]
+   or: git merge --abort
+   or: git merge --continue
+
+    -n                    do not show a diffstat at the end of the merge
+    --stat                show a diffstat at the end of the merge
+    --summary             (synonym to --stat)
+    --log[=<n>]           add (at most <n>) entries from shortlog to merge commit message
+    --squash              create a single commit instead of doing a merge
+    --commit              perform a commit if the merge succeeds (default)
+    -e, --edit            edit message before committing
+    --ff                  allow fast-forward (default)
+    --ff-only             abort if fast-forward is not possible
+    --rerere-autoupdate   update the index with reused conflict resolution if possible
+    --verify-signatures   verify that the named commit has a valid GPG signature
+    -s, --strategy <strategy>
+                          merge strategy to use
+    -X, --strategy-option <option=value>
+                          option for selected merge strategy
+    -m, --message <message>
+                          merge commit message (for a non-fast-forward merge)
+    -v, --verbose         be more verbose
+    -q, --quiet           be more quiet
+    --abort               abort the current in-progress merge
+    --continue            continue the current in-progress merge
+    --allow-unrelated-histories
+                          allow merging unrelated histories
+    --progress            force progress reporting
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+    --overwrite-ignore    update ignored files (default)
+    --signoff             add Signed-off-by:
+    --verify              verify commit-msg hook
+
+[root@ip-172-31-95-233 linuxrepo]# git merge FETCH_HEAD --allow-unrelated-historie
+Merge made by the 'recursive' strategy.
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 README.md
+[root@ip-172-31-95-233 linuxrepo]# git merge FETCH_HEAD --allow-unrelated-histories
+Already up to date.
+[root@ip-172-31-95-233 linuxrepo]# ls
+README.md  sampletest.txt
+[root@ip-172-31-95-233 linuxrepo]# top
+top - 08:10:05 up 53 min,  1 user,  load average: 0.00, 0.00, 0.00
+Tasks:  84 total,   1 running,  48 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :  1009388 total,   456148 free,    54736 used,   498504 buff/cache
+KiB Swap:        0 total,        0 free,        0 used.   791076 avail Mem
+
+  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
+    2 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kthreadd
+    4 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 kworker/0:0H
+    5 root      20   0       0      0      0 I  0.0  0.0   0:00.11 kworker/u30:0
+    6 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 mm_percpu_wq
+    7 root      20   0       0      0      0 S  0.0  0.0   0:00.08 ksoftirqd/0
+    8 root      20   0       0      0      0 I  0.0  0.0   0:00.19 rcu_sched
+    9 root      20   0       0      0      0 I  0.0  0.0   0:00.00 rcu_bh
+   10 root      rt   0       0      0      0 S  0.0  0.0   0:00.00 migration/0
+   11 root      rt   0       0      0      0 S  0.0  0.0   0:00.00 watchdog/0
+   12 root      20   0       0      0      0 S  0.0  0.0   0:00.00 cpuhp/0
+   13 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kdevtmpfs
+   14 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 netns
+   15 root      20   0       0      0      0 I  0.0  0.0   0:00.02 kworker/u30:1
+   20 root      20   0       0      0      0 S  0.0  0.0   0:00.00 xenbus
+   21 root      20   0       0      0      0 S  0.0  0.0   0:00.01 xenwatch
+  170 root      20   0       0      0      0 S  0.0  0.0   0:00.00 khungtaskd
+  171 root      20   0       0      0      0 S  0.0  0.0   0:00.00 oom_reaper
+  172 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 writeback
+  174 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kcompactd0
+  175 root      25   5       0      0      0 S  0.0  0.0   0:00.00 ksmd
+  176 root      39  19       0      0      0 S  0.0  0.0   0:00.00 khugepaged
+  177 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 crypto
+  178 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 kintegrityd
+  180 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 kblockd
+  533 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 md
+[root@ip-172-31-95-233 linuxrepo]# git pull git@github.com:loverajarani/dell3520.git
+The authenticity of host 'github.com (192.30.253.113)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+RSA key fingerprint is MD5:16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,192.30.253.113' (RSA) to the list of known hosts.
+From github.com:loverajarani/dell3520
+ * branch            HEAD       -> FETCH_HEAD
+Already up to date.
+[root@ip-172-31-95-233 linuxrepo]# ls
+README.md  sampletest.txt
+[root@ip-172-31-95-233 linuxrepo]# git pull git@github.com:loverajarani/dell3520.git
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From github.com:loverajarani/dell3520
+ * branch            HEAD       -> FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ testpull | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 testpull
+[root@ip-172-31-95-233 linuxrepo]# ls
+README.md  sampletest.txt  testpull
+[root@ip-172-31-95-233 linuxrepo]# git rm testpull
+rm 'testpull'
+[root@ip-172-31-95-233 linuxrepo]# git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        deleted:    testpull
+
+[root@ip-172-31-95-233 linuxrepo]# git commit -m testpull
+[master d404f9b] testpull
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 testpull
+[root@ip-172-31-95-233 linuxrepo]# ls
+README.md  sampletest.txt
+[root@ip-172-31-95-233 linuxrepo]# git push origin master
+Username for 'https://github.com': ^C
+[root@ip-172-31-95-233 linuxrepo]# git push git@github.com:loverajarani/dell3520.git
+Counting objects: 8, done.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (8/8), 875 bytes | 875.00 KiB/s, done.
+Total 8 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), done.
+To github.com:loverajarani/dell3520.git
+   784f8a4..d404f9b  master -> master
+[root@ip-172-31-95-233 linuxrepo]# cat>>sampletest.txt
+sdfasdf
+fsadfsdf
+as
+adsfsaf
+[root@ip-172-31-95-233 linuxrepo]# top
+top - 08:53:12 up  1:36,  1 user,  load average: 0.00, 0.00, 0.00
+Tasks:  84 total,   1 running,  48 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :  1009388 total,   396168 free,    62700 used,   550520 buff/cache
+KiB Swap:        0 total,        0 free,        0 used.   776368 avail Mem
+
+  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
+    1 root      20   0  125532   5532   4156 S  0.0  0.5   0:01.49 systemd
+    2 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kthreadd
+    4 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 kworker/0:0H
+    5 root      20   0       0      0      0 I  0.0  0.0   0:00.13 kworker/u30:0
+    6 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 mm_percpu_wq
+    7 root      20   0       0      0      0 S  0.0  0.0   0:00.18 ksoftirqd/0
+    8 root      20   0       0      0      0 I  0.0  0.0   0:00.22 rcu_sched
+    9 root      20   0       0      0      0 I  0.0  0.0   0:00.00 rcu_bh
+   10 root      rt   0       0      0      0 S  0.0  0.0   0:00.00 migration/0
+   11 root      rt   0       0      0      0 S  0.0  0.0   0:00.01 watchdog/0
+   12 root      20   0       0      0      0 S  0.0  0.0   0:00.00 cpuhp/0
+   13 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kdevtmpfs
+   14 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 netns
+   15 root      20   0       0      0      0 I  0.0  0.0   0:00.02 kworker/u30:1
+   20 root      20   0       0      0      0 S  0.0  0.0   0:00.00 xenbus
+   21 root      20   0       0      0      0 S  0.0  0.0   0:00.01 xenwatch
+  170 root      20   0       0      0      0 S  0.0  0.0   0:00.00 khungtaskd
+  171 root      20   0       0      0      0 S  0.0  0.0   0:00.00 oom_reaper
+  172 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 writeback
+  174 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kcompactd0
+  175 root      25   5       0      0      0 S  0.0  0.0   0:00.00 ksmd
+  176 root      39  19       0      0      0 S  0.0  0.0   0:00.00 khugepaged
+  177 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 crypto
+  178 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 kintegrityd
+  180 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 kblockd
+[root@ip-172-31-95-233 linuxrepo]# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   sampletest.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[root@ip-172-31-95-233 linuxrepo]# git stash
+Saved working directory and index state WIP on master: d404f9b testpull
+[root@ip-172-31-95-233 linuxrepo]# git status'
+> ;
+> q
+> ^C
+[root@ip-172-31-95-233 linuxrepo]# git status
+On branch master
+nothing to commit, working tree clean
+[root@ip-172-31-95-233 linuxrepo]# cd .git/
+[root@ip-172-31-95-233 .git]# ls
+branches        config       FETCH_HEAD  hooks  info  objects    refs
+COMMIT_EDITMSG  description  HEAD        index  logs  ORIG_HEAD
+[root@ip-172-31-95-233 .git]# cd ..
+[root@ip-172-31-95-233 linuxrepo]# git stash list
+stash@{0}: WIP on master: d404f9b testpull
+[root@ip-172-31-95-233 linuxrepo]# git stash apply
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   sampletest.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[root@ip-172-31-95-233 linuxrepo]# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   sampletest.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[root@ip-172-31-95-233 linuxrepo]# sit stash list
+-bash: sit: command not found
+[root@ip-172-31-95-233 linuxrepo]# git stash list
+stash@{0}: WIP on master: d404f9b testpull
+[root@ip-172-31-95-233 linuxrepo]# git stash drop
+Dropped refs/stash@{0} (3de31d93ba83db7c7d07152f1ff565efb6073ec0)
+[root@ip-172-31-95-233 linuxrepo]# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   sampletest.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[root@ip-172-31-95-233 linuxrepo]# git stash
+Saved working directory and index state WIP on master: d404f9b testpull
+[root@ip-172-31-95-233 linuxrepo]# cat>file2
+dflkfsjdlflsadf
+sdfsdf
+[root@ip-172-31-95-233 linuxrepo]# git stash list
+stash@{0}: WIP on master: d404f9b testpull
+[root@ip-172-31-95-233 linuxrepo]# git stash
+No local changes to save
+[root@ip-172-31-95-233 linuxrepo]# git stash list
+stash@{0}: WIP on master: d404f9b testpull
+[root@ip-172-31-95-233 linuxrepo]# git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        file2
+
+nothing added to commit but untracked files present (use "git add" to track)
+[root@ip-172-31-95-233 linuxrepo]# git stash file2
+usage: git stash list [<options>]
+   or: git stash show [<stash>]
+   or: git stash drop [-q|--quiet] [<stash>]
+   or: git stash ( pop | apply ) [--index] [-q|--quiet] [<stash>]
+   or: git stash branch <branchname> [<stash>]
+   or: git stash save [--patch] [-k|--[no-]keep-index] [-q|--quiet]
+                      [-u|--include-untracked] [-a|--all] [<message>]
+   or: git stash [push [--patch] [-k|--[no-]keep-index] [-q|--quiet]
+                       [-u|--include-untracked] [-a|--all] [-m <message>]
+                       [-- <pathspec>...]]
+   or: git stash clear
+[root@ip-172-31-95-233 linuxrepo]# git stash save -a
+Saved working directory and index state WIP on master: d404f9b testpull
+[root@ip-172-31-95-233 linuxrepo]# git status
+On branch master
+nothing to commit, working tree clean
+[root@ip-172-31-95-233 linuxrepo]# git stash list
+stash@{0}: WIP on master: d404f9b testpull
+stash@{1}: WIP on master: d404f9b testpull
+[root@ip-172-31-95-233 linuxrepo]# git stash pop --{1}
+unknown option: --{1}
+[root@ip-172-31-95-233 linuxrepo]# git stash pop --stash@{1}
+unknown option: --stash@{1}
+[root@ip-172-31-95-233 linuxrepo]# git stash pop stash@{1}
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   sampletest.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped stash@{1} (af90b2da0c24ee5aa60fddf31dc65e369f284970)
+[root@ip-172-31-95-233 linuxrepo]# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   sampletest.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[root@ip-172-31-95-233 linuxrepo]# git stash list
+stash@{0}: WIP on master: d404f9b testpull
+[root@ip-172-31-95-233 linuxrepo]# git log
+commit d404f9bc025059cedc1783078763273ecee56fc2 (HEAD -> master)
+Author: raja <rajarani@love.com>
+Date:   Fri Feb 8 08:12:35 2019 +0000
+
+    testpull
+
+commit 2b2d6d467905f3998774d4b09cffae4116e42b0b
+Merge: 56a5018 784f8a4
+Author: raja <rajarani@love.com>
+Date:   Fri Feb 8 08:11:26 2019 +0000
+
+    Merge github.com:loverajarani/dell3520
+
+commit 784f8a4d354d9193e73a033bb381fb952ab7a21f
+Author: yogi <42689451+loverajarani@users.noreply.github.com>
+Date:   Fri Feb 8 13:41:18 2019 +0530
+
+    done
+
+commit 56a5018f086161597779a0c0f2e867f86f05f11c
+Merge: 9c27d1b 2554f5d
+Author: raja <rajarani@love.com>
+Date:   Fri Feb 8 08:04:12 2019 +0000
+
+    Merge branch 'master' of https://github.com/loverajarani/dell3520
+
+commit 9c27d1b8b30820148421b093cbe8025c7effd7fb
+Author: raja <rajarani@love.com>
+Date:   Fri Feb 8 07:50:21 2019 +0000
+
+    sampletest.txt
+[root@ip-172-31-95-233 linuxrepo]# git show 9c27d1b8b30820148421b093cbe8025c7effd7fb
+commit 9c27d1b8b30820148421b093cbe8025c7effd7fb
+Author: raja <rajarani@love.com>
+Date:   Fri Feb 8 07:50:21 2019 +0000
+
+    sampletest.txt
+
+diff --git a/sampletest.txt b/sampletest.txt
+new file mode 100644
+index 0000000..ad09cd9
+--- /dev/null
++++ b/sampletest.txt
+@@ -0,0 +1,4 @@
++hai raJA HOW ARE U
++I AM FINE
++WATSUP
++BRO
+[root@ip-172-31-95-233 linuxrepo]# git --oneline
+unknown option: --oneline
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+[root@ip-172-31-95-233 linuxrepo]# git --online
+unknown option: --online
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+[root@ip-172-31-95-233 linuxrepo]#
+[root@ip-172-31-95-233 linuxrepo]#
+[root@ip-172-31-95-233 linuxrepo]# git fetch git@github.com:loverajarani/dell3520.git
+From github.com:loverajarani/dell3520
+ * branch            HEAD       -> FETCH_HEAD
+[root@ip-172-31-95-233 linuxrepo]# git merge FETCH_HEAD
+Already up to date.
+[root@ip-172-31-95-233 linuxrepo]# LS
+-bash: LS: command not found
+[root@ip-172-31-95-233 linuxrepo]# ls
+README.md  sampletest.txt
+[root@ip-172-31-95-233 linuxrepo]# git rebase FETCH_HEAD
+Cannot rebase: You have unstaged changes.
+Please commit or stash them.
+[root@ip-172-31-95-233 linuxrepo]# git reset --soft
+[root@ip-172-31-95-233 linuxrepo]# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   sampletest.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[root@ip-172-31-95-233 linuxrepo]# git revert -n master -5..master -2
+fatal: '5..master': not a non-negative integer
+[root@ip-172-31-95-233 linuxrepo]# git revert -n master-5..master-2
+fatal: bad revision 'master-5..master-2'
+[root@ip-172-31-95-233 linuxrepo]# git revert HEAD~3
+error: Your local changes to the following files would be overwritten by merge:
+        sampletest.txt
+Please commit your changes or stash them before you merge.
+Aborting
+fatal: revert failed
+[root@ip-172-31-95-233 linuxrepo]# top
+top - 09:33:48 up  2:17,  1 user,  load average: 0.00, 0.00, 0.00
+Tasks:  83 total,   1 running,  47 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.3 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :  1009388 total,   396176 free,    62412 used,   550800 buff/cache
+KiB Swap:        0 total,        0 free,        0 used.   776760 avail Mem
+
+  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
+    1 root      20   0  125532   5532   4156 S  0.0  0.5   0:01.51 systemd
+    2 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kthreadd
+    4 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 kworker/0:0H
+    5 root      20   0       0      0      0 I  0.0  0.0   0:00.16 kworker/u30:0
+    6 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 mm_percpu_wq
+    7 root      20   0       0      0      0 S  0.0  0.0   0:00.19 ksoftirqd/0
+    8 root      20   0       0      0      0 I  0.0  0.0   0:00.23 rcu_sched
+    9 root      20   0       0      0      0 I  0.0  0.0   0:00.00 rcu_bh
+   10 root      rt   0       0      0      0 S  0.0  0.0   0:00.00 migration/0
+   11 root      rt   0       0      0      0 S  0.0  0.0   0:00.02 watchdog/0
+   12 root      20   0       0      0      0 S  0.0  0.0   0:00.00 cpuhp/0
+   13 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kdevtmpfs
+   14 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 netns
+   15 root      20   0       0      0      0 I  0.0  0.0   0:00.02 kworker/u30:1
+   20 root      20   0       0      0      0 S  0.0  0.0   0:00.00 xenbus
+   21 root      20   0       0      0      0 S  0.0  0.0   0:00.01 xenwatch
+  170 root      20   0       0      0      0 S  0.0  0.0   0:00.00 khungtaskd
+  171 root      20   0       0      0      0 S  0.0  0.0   0:00.00 oom_reaper
+  172 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 writeback
+  174 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kcompactd0
+  175 root      25   5       0      0      0 S  0.0  0.0   0:00.00 ksmd
+  176 root      39  19       0      0      0 S  0.0  0.0   0:00.00 khugepaged
+  177 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 crypto
+  178 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 kintegrityd
+  180 root       0 -20       0      0      0 I  0.0  0.0   0:00.00 kblockd
+[root@ip-172-31-95-233 linuxrepo]# git --online
+unknown option: --online
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+[root@ip-172-31-95-233 linuxrepo]#  git log --pretty=oneline
+d404f9bc025059cedc1783078763273ecee56fc2 (HEAD -> master) testpull
+2b2d6d467905f3998774d4b09cffae4116e42b0b Merge github.com:loverajarani/dell3520
+784f8a4d354d9193e73a033bb381fb952ab7a21f done
+56a5018f086161597779a0c0f2e867f86f05f11c Merge branch 'master' of https://github.com/loverajarani/dell3520
+9c27d1b8b30820148421b093cbe8025c7effd7fb sampletest.txt
+2554f5df8187dc8052ab927f35f96dde1e08cc27 (origin/master) Initial commit
+[root@ip-172-31-95-233 linuxrepo]# git log --oneline
+d404f9b (HEAD -> master) testpull
+2b2d6d4 Merge github.com:loverajarani/dell3520
+784f8a4 done
+56a5018 Merge branch 'master' of https://github.com/loverajarani/dell3520
+9c27d1b sampletest.txt
+2554f5d (origin/master) Initial commit
+[root@ip-172-31-95-233 linuxrepo]#  git log --pretty=format:"%h - %an, %ar : %s"
+d404f9b - raja, 84 minutes ago : testpull
+2b2d6d4 - raja, 86 minutes ago : Merge github.com:loverajarani/dell3520
+784f8a4 - yogi, 86 minutes ago : done
+56a5018 - raja, 2 hours ago : Merge branch 'master' of https://github.com/loverajarani/dell3520
+9c27d1b - raja, 2 hours ago : sampletest.txt
+2554f5d - yogi, 2 hours ago : Initial commit
+[root@ip-172-31-95-233 linuxrepo]# git log --pretty=format:"%h %s" --graph
+* d404f9b testpull
+*   2b2d6d4 Merge github.com:loverajarani/dell3520
+|\
+| * 784f8a4 done
+* |   56a5018 Merge branch 'master' of https://github.com/loverajarani/dell3520
+|\ \
+| |/
+| * 2554f5d Initial commit
+* 9c27d1b sampletest.txt
+[root@ip-172-31-95-233 linuxrepo]# git log --stat
+commit d404f9bc025059cedc1783078763273ecee56fc2 (HEAD -> master)
+Author: raja <rajarani@love.com>
+Date:   Fri Feb 8 08:12:35 2019 +0000
+
+    testpull
+
+ testpull | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 2b2d6d467905f3998774d4b09cffae4116e42b0b
+Merge: 56a5018 784f8a4
+Author: raja <rajarani@love.com>
+Date:   Fri Feb 8 08:11:26 2019 +0000
+
+    Merge github.com:loverajarani/dell3520
+
+commit 784f8a4d354d9193e73a033bb381fb952ab7a21f
+Author: yogi <42689451+loverajarani@users.noreply.github.com>
+Date:   Fri Feb 8 13:41:18 2019 +0530
+
+    done
+
+ testpull | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 56a5018f086161597779a0c0f2e867f86f05f11c
+Merge: 9c27d1b 2554f5d
+Author: raja <rajarani@love.com>
+Date:   Fri Feb 8 08:04:12 2019 +0000
+
+    Merge branch 'master' of https://github.com/loverajarani/dell3520
+
+commit 9c27d1b8b30820148421b093cbe8025c7effd7fb
+Author: raja <rajarani@love.com>
+Date:   Fri Feb 8 07:50:21 2019 +0000
+
+    sampletest.txt
+
+ sampletest.txt | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+commit 2554f5df8187dc8052ab927f35f96dde1e08cc27 (origin/master)
+Author: yogi <42689451+loverajarani@users.noreply.github.com>
+Date:   Fri Feb 8 12:55:58 2019 +0530
+
+    Initial commit
+
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+[root@ip-172-31-95-233 linuxrepo]# git log -p -2
+commit d404f9bc025059cedc1783078763273ecee56fc2 (HEAD -> master)
+Author: raja <rajarani@love.com>
+Date:   Fri Feb 8 08:12:35 2019 +0000
+
+    testpull
+
+diff --git a/testpull b/testpull
+deleted file mode 100644
+index 19f86f4..0000000
+--- a/testpull
++++ /dev/null
+@@ -1 +0,0 @@
+-done
+
+commit 2b2d6d467905f3998774d4b09cffae4116e42b0b
+Merge: 56a5018 784f8a4
+Author: raja <rajarani@love.com>
+Date:   Fri Feb 8 08:11:26 2019 +0000
+
+    Merge github.com:loverajarani/dell3520
+[root@ip-172-31-95-233 linuxrepo]# git log --shortstat
+commit d404f9bc025059cedc1783078763273ecee56fc2 (HEAD -> master)
+Author: raja <rajarani@love.com>
+Date:   Fri Feb 8 08:12:35 2019 +0000
+
+    testpull
+
+ 1 file changed, 1 deletion(-)
+
+commit 2b2d6d467905f3998774d4b09cffae4116e42b0b
+Merge: 56a5018 784f8a4
+Author: raja <rajarani@love.com>
+Date:   Fri Feb 8 08:11:26 2019 +0000
+
+    Merge github.com:loverajarani/dell3520
+
+commit 784f8a4d354d9193e73a033bb381fb952ab7a21f
+Author: yogi <42689451+loverajarani@users.noreply.github.com>
+Date:   Fri Feb 8 13:41:18 2019 +0530
+
+    done
+
+ 1 file changed, 1 insertion(+)
+
+commit 56a5018f086161597779a0c0f2e867f86f05f11c
+Merge: 9c27d1b 2554f5d
+Author: raja <rajarani@love.com>
+Date:   Fri Feb 8 08:04:12 2019 +0000
+
+    Merge branch 'master' of https://github.com/loverajarani/dell3520
+
+commit 9c27d1b8b30820148421b093cbe8025c7effd7fb
+Author: raja <rajarani@love.com>
+[root@ip-172-31-95-233 linuxrepo]# git log --name-only
+commit d404f9bc025059cedc1783078763273ecee56fc2 (HEAD -> master)
+Author: raja <rajarani@love.com>
+Date:   Fri Feb 8 08:12:35 2019 +0000
+
+    testpull
+
+testpull
+
+commit 2b2d6d467905f3998774d4b09cffae4116e42b0b
+Merge: 56a5018 784f8a4
+Author: raja <rajarani@love.com>
+Date:   Fri Feb 8 08:11:26 2019 +0000
+
+    Merge github.com:loverajarani/dell3520
+
+commit 784f8a4d354d9193e73a033bb381fb952ab7a21f
+Author: yogi <42689451+loverajarani@users.noreply.github.com>
+Date:   Fri Feb 8 13:41:18 2019 +0530
+
+    done
+
+testpull
+
+commit 56a5018f086161597779a0c0f2e867f86f05f11c
+Merge: 9c27d1b 2554f5d
+Author: raja <rajarani@love.com>
+Date:   Fri Feb 8 08:04:12 2019 +0000
+
+    Merge branch 'master' of https://github.com/loverajarani/dell3520
+
+commit 9c27d1b8b30820148421b093cbe8025c7effd7fb
+Author: raja <rajarani@love.com>
+[root@ip-172-31-95-233 linuxrepo]# git log --relative-date
+commit d404f9bc025059cedc1783078763273ecee56fc2 (HEAD -> master)
+Author: raja <rajarani@love.com>
+Date:   88 minutes ago
+
+    testpull
+
+commit 2b2d6d467905f3998774d4b09cffae4116e42b0b
+Merge: 56a5018 784f8a4
+Author: raja <rajarani@love.com>
+Date:   2 hours ago
+
+    Merge github.com:loverajarani/dell3520
+
+commit 784f8a4d354d9193e73a033bb381fb952ab7a21f
+Author: yogi <42689451+loverajarani@users.noreply.github.com>
+Date:   2 hours ago
+
+    done
+
+commit 56a5018f086161597779a0c0f2e867f86f05f11c
+Merge: 9c27d1b 2554f5d
+Author: raja <rajarani@love.com>
+Date:   2 hours ago
+
+    Merge branch 'master' of https://github.com/loverajarani/dell3520
+
+commit 9c27d1b8b30820148421b093cbe8025c7effd7fb
+Author: raja <rajarani@love.com>
+Date:   2 hours ago
+
+    sampletest.txt
+
+[root@ip-172-31-95-233 linuxrepo]#  git log --since=2.weeks
+commit d404f9bc025059cedc1783078763273ecee56fc2 (HEAD -> master)
+Author: raja <rajarani@love.com>
+Date:   Fri Feb 8 08:12:35 2019 +0000
+
+    testpull
+
+commit 2b2d6d467905f3998774d4b09cffae4116e42b0b
+Merge: 56a5018 784f8a4
+Author: raja <rajarani@love.com>
+Date:   Fri Feb 8 08:11:26 2019 +0000
+
+    Merge github.com:loverajarani/dell3520
+
+commit 784f8a4d354d9193e73a033bb381fb952ab7a21f
+Author: yogi <42689451+loverajarani@users.noreply.github.com>
+Date:   Fri Feb 8 13:41:18 2019 +0530
+
+    done
+
+commit 56a5018f086161597779a0c0f2e867f86f05f11c
+Merge: 9c27d1b 2554f5d
+Author: raja <rajarani@love.com>
+Date:   Fri Feb 8 08:04:12 2019 +0000
+
+    Merge branch 'master' of https://github.com/loverajarani/dell3520
+
+commit 9c27d1b8b30820148421b093cbe8025c7effd7fb
+Author: raja <rajarani@love.com>
+Date:   Fri Feb 8 07:50:21 2019 +0000
+
+    sampletest.txt
+[root@ip-172-31-95-233 linuxrepo]# git log --pretty="%h - %s" --author='Junio C Hamano' --since="2008-10-01" \
+>    --before="2008-11-01" --no-merges -- t/
+[root@ip-172-31-95-233 linuxrepo]# git log --pretty="%h - %s" --author='Junio C Hamano' --since="2008-10-01"    --before="2008-11-01" --no-merges -- t
+[root@ip-172-31-95-233 linuxrepo]# git log --pretty="%h - %s" --author='Junio C Hamano' --since="2008-10-01"    --before="2008-11-01" --no-merges
+[root@ip-172-31-95-233 linuxrepo]# git log --pretty="%h - %s" --author='raja' --since="2008-10-01"    --before="2008-11-01" --no-merges
+[root@ip-172-31-95-233 linuxrepo]# git gc --auto
+[root@ip-172-31-95-233 linuxrepo]# find .git/refs -type f
+.git/refs/heads/master
+.git/refs/remotes/origin/master
+.git/refs/stash
+[root@ip-172-31-95-233 linuxrepo]# git gc
+Counting objects: 19, done.
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (19/19), done.
+Total 19 (delta 4), reused 0 (delta 0)
+[root@ip-172-31-95-233 linuxrepo]# git count-objects -v
+count: 6
+size: 24
+in-pack: 19
+packs: 1
+size-pack: 4
+prune-packable: 0
+garbage: 0
+size-garbage: 0
+[root@ip-172-31-95-233 linuxrepo]# git verify-pack -v .git/objects/pack/pack-29…69.idx \
+>   | sort -k 3 -n \
+>   | tail -3
+fatal: Cannot open existing pack file '.git/objects/pack/pack-29…69.idx'
+.git/objects/pack/pack-29…69.pack: bad
+[root@ip-172-31-95-233 linuxrepo]# git rev-list --objects --all
+0e12376a879373fed17d15d675c811c7fe64b843
+1afea95d092371d24477ca755f8ab434c00b8fd0
+394202ab4dc1d6082c3a3d1b4a3b21f4af6be6cc
+d404f9bc025059cedc1783078763273ecee56fc2
+2b2d6d467905f3998774d4b09cffae4116e42b0b
+784f8a4d354d9193e73a033bb381fb952ab7a21f
+56a5018f086161597779a0c0f2e867f86f05f11c
+9c27d1b8b30820148421b093cbe8025c7effd7fb
+2554f5df8187dc8052ab927f35f96dde1e08cc27
+7a0c8b1b199a655639d7062e78ca41eee1d2c028
+b731300abb475f65ec79fbe18e4a71af591e0aaf README.md
+ad09cd992c7d8a547f9109d3cc80b7d081ff53b6 sampletest.txt
+053e0a9d2ad2733086a2149d2f10121931fed226
+7a813d1f43ea9ecc418f7450cfe60c377b8c6f49 file2
+a35ea5ab6bfc8f5dc66b4d0beb7445f7a2123957
+19f86f493ab110b8dc8279a024880e44203968d8 testpull
+12c98f9ed0b12377b6ea871ed043eb6de6358461
+2edb6718220f1dcb574d436376b9f82bac4c5ea8
+727b86b5c563d3f89098ad84e4372be3827fed42
+[root@ip-172-31-95-233 linuxrepo]# git verify-pack -v .git/objects/pack/pack-793ad7bd5fc643cc72d2dddbb36577c9321a1502.idx \  | sort -k 3 -n \
+>   | tail -3
+fatal: Cannot open existing pack file ' .idx'
+0e12376a879373fed17d15d675c811c7fe64b843 commit 324 213 12
+2554f5df8187dc8052ab927f35f96dde1e08cc27 commit 667 515 1546
+784f8a4d354d9193e73a033bb381fb952ab7a21f commit 705 545 882
+[root@ip-172-31-95-233 linuxrepo]# git rev-list --objects --all | grep 2554f5              2554f5df8187dc8052ab927f35f96dde1e08cc27
+[root@ip-172-31-95-233 linuxrepo]#  git prune --expire no
+usage: git prune [-n] [-v] [--progress] [--expire <time>] [--] [<head>...]
+
+    -n, --dry-run         do not remove, show only
+    -v, --verbose         report pruned objects
+    --progress            show progress
+    --expire <expiry-date>
+                          expire objects older than <time>
+    --exclude-promisor-objects
+                          limit traversal to objects outside promisor packfiles
+
+[root@ip-172-31-95-233 linuxrepo]#  git prune --expire now
+[root@ip-172-31-95-233 linuxrepo]# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   sampletest.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[root@ip-172-31-95-233 linuxrepo]# git count-objects -v
+count: 0
+size: 0
+in-pack: 19
+packs: 1
+size-pack: 4
+prune-packable: 0
+garbage: 0
+size-garbage: 0
+[root@ip-172-31-95-233 linuxrepo]#
