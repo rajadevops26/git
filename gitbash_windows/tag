@@ -1,0 +1,511 @@
+Tagging
+Like most VCSs, Git has the ability to tag specific points in a repository’s history as being important. Typically, people use this functionality to mark release points (v1.0, v2.0 and so on). In this section, you’ll learn how to list existing tags, how to create and delete tags, and what the different types of tags are.
+
+Listing Your Tags
+Listing the existing tags in Git is straightforward. Just type git tag (with optional -l or --list):
+
+$ git tag
+v1.0
+v2.0
+This command lists the tags in alphabetical order; the order in which they are displayed has no real importance.
+
+You can also search for tags that match a particular pattern. The Git source repo, for instance, contains more than 500 tags. If you’re interested only in looking at the 1.8.5 series, you can run this:
+
+$ git tag -l "v1.8.5*"
+v1.8.5
+v1.8.5-rc0
+v1.8.5-rc1
+v1.8.5-rc2
+v1.8.5-rc3
+v1.8.5.1
+v1.8.5.2
+v1.8.5.3
+v1.8.5.4
+v1.8.5.5
+Note
+Listing tag wildcards requires -l or --list option
+If you want just the entire list of tags, running the command git tag implicitly assumes you want a listing and provides one; the use of -l or --list in this case is optional.
+
+If, however, you’re supplying a wildcard pattern to match tag names, the use of -l or --list is mandatory.
+
+Creating Tags
+Git supports two types of tags: lightweight and annotated.
+
+A lightweight tag is very much like a branch that doesn’t change — it’s just a pointer to a specific commit.
+
+Annotated tags, however, are stored as full objects in the Git database. They’re checksummed; contain the tagger name, email, and date; have a tagging message; and can be signed and verified with GNU Privacy Guard (GPG). It’s generally recommended that you create annotated tags so you can have all this information; but if you want a temporary tag or for some reason don’t want to keep the other information, lightweight tags are available too.
+
+Annotated Tags
+Creating an annotated tag in Git is simple. The easiest way is to specify -a when you run the tag command:
+
+$ git tag -a v1.4 -m "my version 1.4"
+$ git tag
+v0.1
+v1.3
+v1.4
+The -m specifies a tagging message, which is stored with the tag. If you don’t specify a message for an annotated tag, Git launches your editor so you can type it in.
+
+You can see the tag data along with the commit that was tagged by using the git show command:
+
+$ git show v1.4
+tag v1.4
+Tagger: Ben Straub <ben@straub.cc>
+Date:   Sat May 3 20:19:12 2014 -0700
+
+my version 1.4
+
+commit ca82a6dff817ec66f44342007202690a93763949
+Author: Scott Chacon <schacon@gee-mail.com>
+Date:   Mon Mar 17 21:52:11 2008 -0700
+
+    changed the version number
+That shows the tagger information, the date the commit was tagged, and the annotation message before showing the commit information.
+
+Lightweight Tags
+Another way to tag commits is with a lightweight tag. This is basically the commit checksum stored in a file — no other information is kept. To create a lightweight tag, don’t supply any of the -a, -s, or -m options, just provide a tag name:
+
+$ git tag v1.4-lw
+$ git tag
+v0.1
+v1.3
+v1.4
+v1.4-lw
+v1.5
+This time, if you run git show on the tag, you don’t see the extra tag information. The command just shows the commit:
+
+$ git show v1.4-lw
+commit ca82a6dff817ec66f44342007202690a93763949
+Author: Scott Chacon <schacon@gee-mail.com>
+Date:   Mon Mar 17 21:52:11 2008 -0700
+
+    changed the version number
+Tagging Later
+You can also tag commits after you’ve moved past them. Suppose your commit history looks like this:
+
+$ git log --pretty=oneline
+15027957951b64cf874c3557a0f3547bd83b3ff6 Merge branch 'experiment'
+a6b4c97498bd301d84096da251c98a07c7723e65 beginning write support
+0d52aaab4479697da7686c15f77a3d64d9165190 one more thing
+6d52a271eda8725415634dd79daabbc4d9b6008e Merge branch 'experiment'
+0b7434d86859cc7b8c3d5e1dddfed66ff742fcbc added a commit function
+4682c3261057305bdd616e23b64b0857d832627b added a todo file
+166ae0c4d3f420721acbb115cc33848dfcc2121a started write support
+9fceb02d0ae598e95dc970b74767f19372d61af8 updated rakefile
+964f16d36dfccde844893cac5b347e7b3d44abbc commit the todo
+8a5cbc430f1a9c3d00faaeffd07798508422908a updated readme
+Now, suppose you forgot to tag the project at v1.2, which was at the “updated rakefile” commit. You can add it after the fact. To tag that commit, you specify the commit checksum (or part of it) at the end of the command:
+
+$ git tag -a v1.2 9fceb02
+You can see that you’ve tagged the commit:
+
+$ git tag
+v0.1
+v1.2
+v1.3
+v1.4
+v1.4-lw
+v1.5
+
+$ git show v1.2
+tag v1.2
+Tagger: Scott Chacon <schacon@gee-mail.com>
+Date:   Mon Feb 9 15:32:16 2009 -0800
+
+version 1.2
+commit 9fceb02d0ae598e95dc970b74767f19372d61af8
+Author: Magnus Chacon <mchacon@gee-mail.com>
+Date:   Sun Apr 27 20:43:35 2008 -0700
+
+    updated rakefile
+...
+Sharing Tags
+By default, the git push command doesn’t transfer tags to remote servers. You will have to explicitly push tags to a shared server after you have created them. This process is just like sharing remote branches — you can run git push origin <tagname>.
+
+$ git push origin v1.5
+Counting objects: 14, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (14/14), 2.05 KiB | 0 bytes/s, done.
+Total 14 (delta 3), reused 0 (delta 0)
+To git@github.com:schacon/simplegit.git
+ * [new tag]         v1.5 -> v1.5
+If you have a lot of tags that you want to push up at once, you can also use the --tags option to the git push command. This will transfer all of your tags to the remote server that are not already there.
+
+$ git push origin --tags
+Counting objects: 1, done.
+Writing objects: 100% (1/1), 160 bytes | 0 bytes/s, done.
+Total 1 (delta 0), reused 0 (delta 0)
+To git@github.com:schacon/simplegit.git
+ * [new tag]         v1.4 -> v1.4
+ * [new tag]         v1.4-lw -> v1.4-lw
+Now, when someone else clones or pulls from your repository, they will get all your tags as well.
+
+Note
+git push pushes both types of tags
+Pushing tags using git push <remote> --tags does not distinguish between lightweight and annotated tags; there is no simple option that allows you to select just one type for pushing.
+
+Deleting Tags
+To delete a tag on your local repository, you can use git tag -d <tagname>. For example, we could remove our lightweight tag above as follows:
+
+$ git tag -d v1.4-lw
+Deleted tag 'v1.4-lw' (was e7d5add)
+Note that this does not remove the tag from any remote servers. There are two common variations for deleting a tag from a remote server.
+
+The first variation is git push <remote> :refs/tags/<tagname>:
+
+$ git push origin :refs/tags/v1.4-lw
+To /git@github.com:schacon/simplegit.git
+ - [deleted]         v1.4-lw
+The way to interpret the above is to read it as the null value before the colon is being pushed to the remote tag name, effectively deleting it.
+
+The second (and more intuitive) way to delete a remote tag is with:
+
+$ git push origin --delete <tagname>
+Checking out Tags
+If you want to view the versions of files a tag is pointing to, you can do a git checkout of that tag, although this puts your repository in “detached HEAD” state, which has some ill side effects:
+
+$ git checkout 2.0.0
+Note: checking out '2.0.0'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch>
+
+HEAD is now at 99ada87... Merge pull request #89 from schacon/appendix-final
+
+$ git checkout 2.0-beta-0.1
+Previous HEAD position was 99ada87... Merge pull request #89 from schacon/appendix-final
+HEAD is now at df3f601... add atlas.json and cover image
+In “detached HEAD” state, if you make changes and then create a commit, the tag will stay the same, but your new commit won’t belong to any branch and will be unreachable, except by the exact commit hash. Thus, if you need to make changes — say you’re fixing a bug on an older version, for instance — you will generally want to create a branch:
+
+$ git checkout -b version2 v2.0.0
+Switched to a new branch 'version2'
+If you do this and make a commit, your version2 branch will be slightly different than your v2.0.0 tag since it will move forward with your new changes, so do be careful.
+*****************************************************
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ ls -a
+./   .git/     .gitignore  docs/                   lxd-provisioning/  rancher/   vagrant-provisioning/
+../  .github/  dashboard/  kubespray-vagrant-env/  misc/              README.md  yamls/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git tag
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ ls -a
+./   .git/     .gitignore  docs/                   lxd-provisioning/  rancher/   vagrant-provisioning/
+../  .github/  dashboard/  kubespray-vagrant-env/  misc/              README.md  yamls/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git tag --list
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git tag show
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git tag -l v1.0
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git tag --list
+show
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git tag -a v1.0 -m " k8s first version"
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'Rajamanoheryogi@RamullakotaRajendra.(none)')
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git config --global user.email "you@example.com"
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$   git config --global user.name "Your Name"
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git tag -a v1.0 -m " k8s first version"
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git tag
+show
+v1.0
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git show v1.0
+tag v1.0
+Tagger: Your Name <you@example.com>
+Date:   Mon Jun 10 12:59:10 2019 +0530
+
+ k8s first version
+
+commit bf83c0a84b33757a35547ebc239a80f19e9f3a0c (HEAD -> master, tag: v1.0, tag: show, dev)
+Author: Venkat <wenkatn@gmail.com>
+Date:   Fri May 10 20:28:21 2019 +0100
+
+    Yamls for cert-manager demo
+
+diff --git a/yamls/cert-manager-demo/ClusterIssuer.yaml b/yamls/cert-manager-demo/ClusterIssuer.yaml
+new file mode 100644
+index 0000000..cdd3ba1
+--- /dev/null
++++ b/yamls/cert-manager-demo/ClusterIssuer.yaml
+@@ -0,0 +1,11 @@
++apiVersion: certmanager.k8s.io/v1alpha1
++kind: ClusterIssuer
++metadata:
++  name: letsencrypt-staging
++spec:
++  acme:
++    server: https://acme-staging-v02.api.letsencrypt.org/directory
++    email: user@example.com
++    privateKeySecretRef:
++      name: letsencrypt-staging
++    http01: {}
+diff --git a/yamls/cert-manager-demo/haproxy.cfg b/yamls/cert-manager-demo/haproxy.cfg
+new file mode 100644
+index 0000000..671c1ca
+--- /dev/null
++++ b/yamls/cert-manager-demo/haproxy.cfg
+@@ -0,0 +1,11 @@
++frontend http_front
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git show show
+commit bf83c0a84b33757a35547ebc239a80f19e9f3a0c (HEAD -> master, tag: v1.0, tag: show, dev)
+Author: Venkat <wenkatn@gmail.com>
+Date:   Fri May 10 20:28:21 2019 +0100
+
+    Yamls for cert-manager demo
+
+diff --git a/yamls/cert-manager-demo/ClusterIssuer.yaml b/yamls/cert-manager-demo/ClusterIssuer.yaml
+new file mode 100644
+index 0000000..cdd3ba1
+--- /dev/null
++++ b/yamls/cert-manager-demo/ClusterIssuer.yaml
+@@ -0,0 +1,11 @@
++apiVersion: certmanager.k8s.io/v1alpha1
++kind: ClusterIssuer
++metadata:
++  name: letsencrypt-staging
++spec:
++  acme:
++    server: https://acme-staging-v02.api.letsencrypt.org/directory
++    email: user@example.com
++    privateKeySecretRef:
++      name: letsencrypt-staging
++    http01: {}
+diff --git a/yamls/cert-manager-demo/haproxy.cfg b/yamls/cert-manager-demo/haproxy.cfg
+new file mode 100644
+index 0000000..671c1ca
+--- /dev/null
++++ b/yamls/cert-manager-demo/haproxy.cfg
+@@ -0,0 +1,11 @@
++frontend http_front
++  bind *:443
++  mode tcp
++  option tcplog
++  default_backend http_back
++
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$  git log --pretty=oneline
+bf83c0a84b33757a35547ebc239a80f19e9f3a0c (HEAD -> master, tag: v1.0, tag: show, dev) Yamls for cert-manager demo
+a49583b9ff91e52c7b67b0f8ca78694617d23502 Added pod disruption budget yaml for the demo
+b0d6c82d3aee095455d2856efbab9e88ada00fd5 Added Vagrant environment for kubespray demo
+cffd0ca07468df107ec4e2889a10a641fbd037d1 Updated hpa yaml
+96a60120621680263b7ba0263b9270ec1174f822 Added yaml example for Horizontal Pod Autoscaler
+1a62aee483c9afd2fe3790da6e6862ca29aa13dd Updated lxd kubernetes bootstrap script
+faf107b84adffed344949b3cb74455b2c759e7b3 Added lxd stuff
+58da7c7ba7b5fc75dddb03fce7214fbc7bb60374 Added note to vagrant users
+5f7ad3de346616b1069843b66b9a6e6eac16f162 Added rancher docker-compose file
+bfd0a3ffb4eda3f294a4bb79c0195b8f24ba80e2 Added stuff for nginx ingress demo
+7912918f6154a7d0d5780d36402b16e899b72f3b Vagrant provisioning files for specific version of Kubernetes eg 1.9.0
+18416995350149e84a7ec4959fb46d3bc05f50fc Added yaml example for making it default storage class with annotations
+6a4a95df9ba377cd931ce614bf60a0483063298e Added nfs-client provisioner yamls
+a3a9f95518368672e99e43f87a14806ba1ba07d8 Modified Statefulset nginx yaml to remove the hardcoded ip address
+30d698455b5cb74f4a696154745f0e6274ab78bf Modified NFS Persistent Volume yamls to remove the IP address
+4994a6786dd98547879f9797e578fa259a60f001 Added statefulset demo yamls
+cad7b99bdb6304b769ea42b2c9d09a3f416f33d9 Added nfs persistent volume and claim yamls
+ded5148ff758dd42bbc233889cf8ef64e312aaf7 Updated the yaml file for rolling updates demo
+4152386c7a9abab6128c91953312f91348ab47cc Updated the yaml file for rolling updates demo
+4dd6dc4ff3db3357439de0130ab685fd013e24e7 Added a yaml file for rolling updates demo
+7e560dc32e6a3580ad881d38ec8bd4b2d16278fe Added extra resource quota yamls
+6a095305682b83c396e38a781665d3aa12d51e65 Added resource quota yamls
+91204ad5bc79ceb4b4d06dd8a0587829581313f2 Added configmap yamls
+977103a2d2775c542bf6a5719fc601c330d00923 Added secrets yaml
+a96eef88d4c9231dc89fdaf701074d266a43a344 Added persistent volumes yamls
+04ef31a9d9d7e152e647253718e3e572f9a67459 Added init container yaml
+5ee24787446d1d57955e90a434c9f792d993fe2f Added Cronjob example yaml
+2f6421e9b9b88a9e4faedfb86211b9f2b3736094 Update 2-job.yaml
+74e2c37b8515a8413cfb04a50331648165133304 Added Jobs example yaml
+1b079df998add95c9072807606135a2ef50e3a13 Added nginx-daemonset demo yaml
+f68828cea2e908553d3e9e6b6926db58936689ad Update bootstrap_kworker.sh
+efa9515de08f1e33c6b94066003a061df8188887 Update bootstrap_kmaster.sh
+f8531f248e67dcf2f953b6d2ecf17c47dc7da6ae Docker install commands updated
+b53b258f546b59839bf9cd39ae58d9581fb07256 Docker install commands updated
+d5c1c15542b5b3abc14d3f16c185742ede87ca2a Update issue templates
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git tag -a v1.2 04ef31
+fatal: no tag message?
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git show
+commit bf83c0a84b33757a35547ebc239a80f19e9f3a0c (HEAD -> master, tag: v1.0, tag: show, dev)
+Author: Venkat <wenkatn@gmail.com>
+Date:   Fri May 10 20:28:21 2019 +0100
+
+    Yamls for cert-manager demo
+
+diff --git a/yamls/cert-manager-demo/ClusterIssuer.yaml b/yamls/cert-manager-demo/ClusterIssuer.yaml
+new file mode 100644
+index 0000000..cdd3ba1
+--- /dev/null
++++ b/yamls/cert-manager-demo/ClusterIssuer.yaml
+@@ -0,0 +1,11 @@
++apiVersion: certmanager.k8s.io/v1alpha1
++kind: ClusterIssuer
++metadata:
++  name: letsencrypt-staging
++spec:
++  acme:
++    server: https://acme-staging-v02.api.letsencrypt.org/directory
++    email: user@example.com
++    privateKeySecretRef:
++      name: letsencrypt-staging
++    http01: {}
+diff --git a/yamls/cert-manager-demo/haproxy.cfg b/yamls/cert-manager-demo/haproxy.cfg
+new file mode 100644
+index 0000000..671c1ca
+--- /dev/null
++++ b/yamls/cert-manager-demo/haproxy.cfg
+@@ -0,0 +1,11 @@
++frontend http_front
++  bind *:443
++  mode tcp
++  option tcplog
++  default_backend http_back
++
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git tag
+show
+v1.0
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$  git log --pretty=oneline
+bf83c0a84b33757a35547ebc239a80f19e9f3a0c (HEAD -> master, tag: v1.0, tag: show, dev) Yamls for cert-manager demo
+a49583b9ff91e52c7b67b0f8ca78694617d23502 Added pod disruption budget yaml for the demo
+b0d6c82d3aee095455d2856efbab9e88ada00fd5 Added Vagrant environment for kubespray demo
+cffd0ca07468df107ec4e2889a10a641fbd037d1 Updated hpa yaml
+96a60120621680263b7ba0263b9270ec1174f822 Added yaml example for Horizontal Pod Autoscaler
+1a62aee483c9afd2fe3790da6e6862ca29aa13dd Updated lxd kubernetes bootstrap script
+faf107b84adffed344949b3cb74455b2c759e7b3 Added lxd stuff
+58da7c7ba7b5fc75dddb03fce7214fbc7bb60374 Added note to vagrant users
+5f7ad3de346616b1069843b66b9a6e6eac16f162 Added rancher docker-compose file
+bfd0a3ffb4eda3f294a4bb79c0195b8f24ba80e2 Added stuff for nginx ingress demo
+7912918f6154a7d0d5780d36402b16e899b72f3b Vagrant provisioning files for specific version of Kubernetes eg 1.9.0
+18416995350149e84a7ec4959fb46d3bc05f50fc Added yaml example for making it default storage class with annotations
+6a4a95df9ba377cd931ce614bf60a0483063298e Added nfs-client provisioner yamls
+a3a9f95518368672e99e43f87a14806ba1ba07d8 Modified Statefulset nginx yaml to remove the hardcoded ip address
+30d698455b5cb74f4a696154745f0e6274ab78bf Modified NFS Persistent Volume yamls to remove the IP address
+4994a6786dd98547879f9797e578fa259a60f001 Added statefulset demo yamls
+cad7b99bdb6304b769ea42b2c9d09a3f416f33d9 Added nfs persistent volume and claim yamls
+ded5148ff758dd42bbc233889cf8ef64e312aaf7 Updated the yaml file for rolling updates demo
+4152386c7a9abab6128c91953312f91348ab47cc Updated the yaml file for rolling updates demo
+4dd6dc4ff3db3357439de0130ab685fd013e24e7 Added a yaml file for rolling updates demo
+7e560dc32e6a3580ad881d38ec8bd4b2d16278fe Added extra resource quota yamls
+6a095305682b83c396e38a781665d3aa12d51e65 Added resource quota yamls
+91204ad5bc79ceb4b4d06dd8a0587829581313f2 Added configmap yamls
+977103a2d2775c542bf6a5719fc601c330d00923 Added secrets yaml
+a96eef88d4c9231dc89fdaf701074d266a43a344 Added persistent volumes yamls
+04ef31a9d9d7e152e647253718e3e572f9a67459 Added init container yaml
+5ee24787446d1d57955e90a434c9f792d993fe2f Added Cronjob example yaml
+2f6421e9b9b88a9e4faedfb86211b9f2b3736094 Update 2-job.yaml
+74e2c37b8515a8413cfb04a50331648165133304 Added Jobs example yaml
+1b079df998add95c9072807606135a2ef50e3a13 Added nginx-daemonset demo yaml
+f68828cea2e908553d3e9e6b6926db58936689ad Update bootstrap_kworker.sh
+efa9515de08f1e33c6b94066003a061df8188887 Update bootstrap_kmaster.sh
+f8531f248e67dcf2f953b6d2ecf17c47dc7da6ae Docker install commands updated
+b53b258f546b59839bf9cd39ae58d9581fb07256 Docker install commands updated
+d5c1c15542b5b3abc14d3f16c185742ede87ca2a Update issue templates
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git tag -a v2.0 5ee2478 -m "cronjos"
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git tag
+show
+v1.0
+v2.0
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git show v2.0
+tag v2.0
+Tagger: Your Name <you@example.com>
+Date:   Mon Jun 10 13:04:41 2019 +0530
+
+cronjos
+
+commit 5ee24787446d1d57955e90a434c9f792d993fe2f (tag: v2.0)
+Author: Venkat Nagappan <venagappan@gmail.com>
+Date:   Wed Dec 12 10:10:55 2018 +0000
+
+    Added Cronjob example yaml
+
+diff --git a/yamls/2-cronjob.yaml b/yamls/2-cronjob.yaml
+new file mode 100644
+index 0000000..cafbad3
+--- /dev/null
++++ b/yamls/2-cronjob.yaml
+@@ -0,0 +1,15 @@
++apiVersion: batch/v1beta1
++kind: CronJob
++metadata:
++  name: helloworld-cron
++spec:
++  schedule: "* * * * *"
++  jobTemplate:
++    spec:
++      template:
++        spec:
++          containers:
++          - name: busybox
++            image: busybox
++            command: ["echo", "Hello Kubernetes!!!"]
++          restartPolicy: Never
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git push origin master
+
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git remote -v
+origin  https://github.com/rajadevops26/tesst.git (fetch)
+origin  https://github.com/rajadevops26/tesst.git (push)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$
