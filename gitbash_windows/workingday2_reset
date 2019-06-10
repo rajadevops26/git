@@ -1,0 +1,491 @@
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ ls
+dashboard/  docs/  kubespray-vagrant-env/  lxd-provisioning/  misc/  rancher/  test  vagrant-provisioning/  yamls/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ cd .git/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$ ls
+COMMIT_EDITMSG  config  description  FETCH_HEAD  HEAD  hooks/  index  info/  logs/  objects/  ORIG_HEAD  refs/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$ cd HEAD
+bash: cd: HEAD: Not a directory
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$ ls
+COMMIT_EDITMSG  config  description  FETCH_HEAD  HEAD  hooks/  index  info/  logs/  objects/  ORIG_HEAD  refs/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$ ls HEAD
+HEAD
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$ cat COMMIT_EDITMSG2
+cat: COMMIT_EDITMSG2: No such file or directory
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$ cat COMMIT_EDITMSG
+deleted
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$ cd objects/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git/objects (GIT_DIR!)
+$ ls
+16/  1e/  2b/  4b/  e6/  fb/  info/  pack/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git/objects (GIT_DIR!)
+$ cd ..
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$ cd ..
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset --soft HEAD^
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ ls
+dashboard/  docs/  kubespray-vagrant-env/  lxd-provisioning/  misc/  rancher/  test  vagrant-provisioning/  yamls/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ ls .git/HEAD
+.git/HEAD
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset --hard HEAD~3
+HEAD is now at eb91fc1 k8s
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ cd docs/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/docs (master)
+$ ls
+install-cluster.md
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/docs (master)
+$ touch file1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/docs (master)
+$ git add .
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/docs (master)
+$ git commit "file"
+error: pathspec 'file' did not match any file(s) known to git
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/docs (master)
+$ git commit -m "file"
+[master 96e8222] file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 docs/file1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/docs (master)
+$ git reset --hard HEAD~3
+fatal: ambiguous argument 'HEAD~3': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/docs (master)
+$ cd ..
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ touch file2 file3 file4
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git add .
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   file2
+        new file:   file3
+        new file:   file4
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset HEAD file2
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   file3
+        new file:   file4
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        file2
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git revert file2
+fatal: bad revision 'file2'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   file3
+        new file:   file4
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        file2
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git commit file3 -m "file3"
+[master 2ba3607] file3
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file3
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git staus
+git: 'staus' is not a git command. See 'git --help'.
+
+The most similar command is
+        status
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   file4
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        file2
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git add file2
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   file2
+        new file:   file4
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset HEAD~2
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        docs/file1
+        file2
+        file3
+        file4
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git add .
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset --hard HEAD~1
+fatal: ambiguous argument 'HEAD~1': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git staus
+git: 'staus' is not a git command. See 'git --help'.
+
+The most similar command is
+        status
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   docs/file1
+        new file:   file2
+        new file:   file3
+        new file:   file4
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset --hard HEAD~2
+fatal: ambiguous argument 'HEAD~2': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset HEAD~1
+fatal: ambiguous argument 'HEAD~1': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset HEAD docs/file1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset HEAD file2
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset HEAD file3
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   file4
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        docs/file1
+        file2
+        file3
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset --hard HEAD~3
+fatal: ambiguous argument 'HEAD~3': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset --hard HEAD~2
+fatal: ambiguous argument 'HEAD~2': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset  HEAD~2
+fatal: ambiguous argument 'HEAD~2': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset --soft HEAD~2
+fatal: ambiguous argument 'HEAD~2': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset --hard
+HEAD is now at eb91fc1 k8s
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git staus
+git: 'staus' is not a git command. See 'git --help'.
+
+The most similar command is
+        status
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        docs/file1
+        file2
+        file3
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ ls
+dashboard/  file2  kubespray-vagrant-env/  misc/  rancher/               yamls/
+docs/       file3  lxd-provisioning/       ra.md  vagrant-provisioning/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset --soft
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ ls
+dashboard/  file2  kubespray-vagrant-env/  misc/  rancher/               yamls/
+docs/       file3  lxd-provisioning/       ra.md  vagrant-provisioning/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset --hard HEAD~2
+fatal: ambiguous argument 'HEAD~2': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset --hard HEAD~1
+fatal: ambiguous argument 'HEAD~1': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset --hard HEAD
+HEAD is now at eb91fc1 k8s
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ ls
+dashboard/  file2  kubespray-vagrant-env/  misc/  rancher/               yamls/
+docs/       file3  lxd-provisioning/       ra.md  vagrant-provisioning/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset --hard ORIG_HEAD
+HEAD is now at eb91fc1 k8s
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git staus
+git: 'staus' is not a git command. See 'git --help'.
+
+The most similar command is
+        status
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        docs/file1
+        file2
+        file3
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git add file2
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset --hard ORIG_HEAD
+HEAD is now at eb91fc1 k8s
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git add file3
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset --hard ORIG_HEAD
+HEAD is now at eb91fc1 k8s
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git commit file3
+error: pathspec 'file3' did not match any file(s) known to git
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git commit file3 -m "dsfs"
+error: pathspec 'file3' did not match any file(s) known to git
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        docs/file1
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git commit docs/file1 -m "dsfs"
+error: pathspec 'docs/file1' did not match any file(s) known to git
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset --hard ORIG_HEAD
+HEAD is now at eb91fc1 k8s
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        docs/file1
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git add .
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   docs/file1
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git commit docs/file1 -m "dsfs"
+[master 940b777] dsfs
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 docs/file1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset --hard ORIG_HEAD
+HEAD is now at eb91fc1 k8s
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset --hard HEAD
+HEAD is now at eb91fc1 k8s
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ ls
+dashboard/  docs/  kubespray-vagrant-env/  lxd-provisioning/  misc/  ra.md  rancher/  vagrant-provisioning/  yamls/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset --soft HEAD^
+fatal: ambiguous argument 'HEAD^': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset --soft HEAD^;
+fatal: ambiguous argument 'HEAD^': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset --soft docs/file1
+fatal: ambiguous argument 'docs/file1': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset --soft file2
+fatal: ambiguous argument 'file2': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git stash
+No local changes to save
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$
