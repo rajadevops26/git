@@ -1,0 +1,240 @@
+git-remote - manage set of tracked repositories
+
+Synopsis
+git remote [-v | --verbose]
+git remote add [-t <branch>] [-m <master>] [-f] [--mirror] <name> <url>
+git remote rename <old> <new>
+git remote rm <name>
+git remote set-head <name> (-a | -d | <branch>)
+git remote set-url [--push] <name> <newurl> [<oldurl>]
+git remote set-url --add [--push] <name> <newurl>
+git remote set-url --delete [--push] <name> <url>
+git remote [-v | --verbose] show [-n] <name>
+git remote prune [-n | --dry-run] <name>
+git remote [-v | --verbose] update [-p | --prune] [group | remote]...
+Description
+
+ 
+Manage the set of repositories ("remotes") whose branches you track.
+
+Options
+-v, --verbose
+
+Be a little more verbose and show remote url after name. NOTE: This must be placed between remote and subcommand.
+Commands
+With no arguments, shows a list of existing remotes. Several subcommands are available to perform operations on the remotes.
+
+add
+
+Adds a remote named <name> for the repository at <url>. The command git fetch <name> can then be used to create and update remote-tracking branches <name>/<branch>.
+With -f option, git fetch <name> is run immediately after the remote information is set up.
+
+With -t <branch> option, instead of the default glob refspec for the remote to track all branches under $GIT_DIR/remotes/<name>/, a refspec to track only <branch> is created. You can give more than one -t <branch> to track multiple branches without grabbing all branches.
+
+With -m <master> option, $GIT_DIR/remotes/<name>/HEAD is set up to point at remote's <master> branch. See also the set-head command.
+
+In mirror mode, enabled with --mirror, the refs will not be stored in the refs/remotes/ namespace, but in refs/heads/. This option only makes sense in bare repositories. If a remote uses mirror mode, furthermore, git push will always behave as if --mirror was passed.
+
+rename
+Rename the remote named <old> to <new>. All remote tracking branches and configuration settings for the remote are updated.
+In case <old> and <new> are the same, and <old> is a file under $GIT_DIR/remotes or $GIT_DIR/branches, the remote is converted to the configuration file format.
+
+rm
+Remove the remote named <name>. All remote tracking branches and configuration settings for the remote are removed.
+set-head
+Sets or deletes the default branch ($GIT_DIR/remotes/<name>/HEAD) for the named remote. Having a default branch for a remote is not required, but allows the name of the remote to be specified in lieu of a specific branch. For example, if the default branch for origin is set to master, then origin may be specified wherever you would normally specify origin/master.
+With -d, $GIT_DIR/remotes/<name>/HEAD is deleted.
+
+With -a, the remote is queried to determine its HEAD, then $GIT_DIR/remotes/<name>/HEAD is set to the same branch. e.g., if the remote HEAD is pointed at next, "git remote set-head origin -a" will set $GIT_DIR/refs/remotes/origin/HEAD to refs/remotes/origin/next. This will only work if refs/remotes/origin/next already exists; if not it must be fetched first.
+
+Use <branch> to set $GIT_DIR/remotes/<name>/HEAD explicitly. e.g., "git remote set-head origin master" will set $GIT_DIR/refs/remotes/origin/HEAD to refs/remotes/origin/master. This will only work if refs/remotes/origin/master already exists; if not it must be fetched first.
+
+set-url
+Changes URL remote points to. Sets first URL remote points to matching regex <oldurl> (first URL if no <oldurl> is given) to <newurl>. If <oldurl> doesn't match any URL, error occurs and nothing is changed.
+With --push, push URLs are manipulated instead of fetch URLs.
+
+With --add, instead of changing some URL, new URL is added.
+
+With --delete, instead of changing some URL, all URLs matching regex <url> are deleted. Trying to delete all non-push URLs is an error.
+
+show
+Gives some information about the remote <name>.
+With -n option, the remote heads are not queried first with git ls-remote <name>; cached information is used instead.
+
+prune
+Deletes all stale tracking branches under <name>. These stale branches have already been removed from the remote repository referenced by <name>, but are still locally available in "remotes/<name>".
+With --dry-run option, report what branches will be pruned, but do not actually prune them.
+
+update
+Fetch updates for a named set of remotes in the repository as defined by remotes.<group>. If a named group is not specified on the command line, the configuration parameter remotes.default will be used; if remotes.default is not defined, all remotes which do not have the configuration parameter remote.<name>.skipDefaultUpdate set to true will be updated. (See git-config(1)).
+With --prune option, prune all the remotes that are update******************************************
+*****************************************
+
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ ls -a
+./   .git/     .gitignore  docs/                   lxd-provisioning/  rancher/   vagrant-provisioning/
+../  .github/  dashboard/  kubespray-vagrant-env/  misc/              README.md  yamls/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git remote show
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git remote add origi https://github.com/rajadevops26/tesst.git
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git remote get-url origin
+fatal: No such remote 'origin'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git remote get-url origi
+https://github.com/rajadevops26/tesst.git
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git remote -v
+origi   https://github.com/rajadevops26/tesst.git (fetch)
+origi   https://github.com/rajadevops26/tesst.git (push)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git remote rename origi origin
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git remote get-url origin
+https://github.com/rajadevops26/tesst.git
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git remote -v
+origin  https://github.com/rajadevops26/tesst.git (fetch)
+origin  https://github.com/rajadevops26/tesst.git (push)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git remote set-head -a origin
+error: Not a valid ref: refs/remotes/origin/master
+origin/HEAD set to master
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git remote set-head  origin -a
+error: Not a valid ref: refs/remotes/origin/master
+origin/HEAD set to master
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git remote set-head  origin -d
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git remote set-head  origin
+usage: git remote set-head <name> (-a | --auto | -d | --delete | <branch>)
+
+    -a, --auto            set refs/remotes/<name>/HEAD according to remote
+    -d, --delete          delete refs/remotes/<name>/HEAD
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git remote set-head  origin -a master
+usage: git remote set-head <name> (-a | --auto | -d | --delete | <branch>)
+
+    -a, --auto            set refs/remotes/<name>/HEAD according to remote
+    -d, --delete          delete refs/remotes/<name>/HEAD
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git remote set-head  origin -a
+error: Not a valid ref: refs/remotes/origin/master
+origin/HEAD set to master
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ cd .git/refs/remotes/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.git/refs/remotes (GIT_DIR!)
+$ ls -a
+./  ../
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.git/refs/remotes (GIT_DIR!)
+$ edit emergency fix
+bash: edit: command not found
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.git/refs/remotes (GIT_DIR!)
+$ git remote set-head  origin master
+error: Not a valid ref: refs/remotes/origin/master
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.git/refs/remotes (GIT_DIR!)
+$ ls
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.git/refs/remotes (GIT_DIR!)
+$ ls -a
+./  ../
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.git/refs/remotes (GIT_DIR!)
+$ cd ..
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.git/refs (GIT_DIR!)
+$ cd ..
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.git (GIT_DIR!)
+$ cd ..
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git symbolic-ref HEAD refs/heads/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes ()
+$ git symbolic-ref HEAD refs/heads/master
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git checkout -b dev
+Switched to a new branch 'dev'
+M       vagrant-provisioning/Vagrantfile
+M       vagrant-provisioning/bootstrap_kworker.sh
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (dev)
+$ git symbolic-ref HEAD refs/heads/master
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git branch
+  dev
+* master
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git remote set-head  origin dev
+error: Not a valid ref: refs/remotes/origin/dev
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git remote set-head  origin master
+error: Not a valid ref: refs/remotes/origin/master
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git remote set-head  origin -d dev
+usage: git remote set-head <name> (-a | --auto | -d | --delete | <branch>)
+
+    -a, --auto            set refs/remotes/<name>/HEAD according to remote
+    -d, --delete          delete refs/remotes/<name>/HEAD
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git remote set-head  origin -d
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git branch -r
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git branch
+  dev
+* master
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git remote set-brances
+error: Unknown subcommand: set-brances
+usage: git remote [-v | --verbose]
+   or: git remote add [-t <branch>] [-m <master>] [-f] [--tags | --no-tags] [--mirror=<fetch|push>] <name> <url>
+   or: git remote rename <old> <new>
+   or: git remote remove <name>
+   or: git remote set-head <name> (-a | --auto | -d | --delete | <branch>)
+   or: git remote [-v | --verbose] show [-n] <name>
+   or: git remote prune [-n | --dry-run] <name>
+   or: git remote [-v | --verbose] update [-p | --prune] [(<group> | <remote>)...]
+   or: git remote set-branches [--add] <name> <branch>...
+   or: git remote get-url [--push] [--all] <name>
+   or: git remote set-url [--push] <name> <newurl> [<oldurl>]
+   or: git remote set-url --add <name> <newurl>
+   or: git remote set-url --delete <name> <url>
+
+    -v, --verbose         be verbose; must be placed before a subcommand
