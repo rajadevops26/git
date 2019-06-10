@@ -1,0 +1,100 @@
+Name
+git-fetch - Download objects and refs from another repository
+
+Synopsis
+git fetch [<options>] [<repository> [<refspec>...]]
+
+git fetch [<options>] <group>
+
+git fetch --multiple [<options>] [<repository> | <group>]...
+
+git fetch --all [<options>]
+
+Description
+
+ 
+Fetches named heads or tags from one or more other repositories, along with the objects necessary to complete them.
+
+The ref names and their object names of fetched refs are stored in .git/FETCH_HEAD. This information is left for a later merge operation done by git merge.
+
+When <refspec> stores the fetched result in tracking branches, the tags that point at these branches are automatically followed. This is done by first fetching from the remote using the given <refspec>s, and if the repository has objects that are pointed by remote tags that it does not yet have, then fetch those missing tags. If the other end has tags that point at branches you are not interested in, you will not get them.
+
+git fetch can fetch from either a single named repository, or or from several repositories at once if <group> is given and there is a remotes.<group> entry in the configuration file. (See git-config(1)).
+
+Options
+--all
+
+Fetch all remotes.
+-a, --append
+Append ref names and object names of fetched refs to the existing contents of .git/FETCH_HEAD. Without this option old data in .git/FETCH_HEAD will be overwritten.
+--depth=<depth>
+Deepen the history of a shallow repository created by git clone with --depth=<depth> option (see git-clone(1)) by the specified number of commits.
+--dry-run
+Show what would be done, without making any changes.
+-f, --force
+When git fetch is used with <rbranch>:<lbranch> refspec, it refuses to update the local branch <lbranch> unless the remote branch <rbranch> it fetches is a descendant of <lbranch>. This option overrides that check.
+-k, --keep
+Keep downloaded pack.
+--multiple
+Allow several <repository> and <group> arguments to be specified. No <refspec>s may be specified.
+--prune
+After fetching, remove any remote tracking branches which no longer exist on the remote.
+-n, --no-tags
+By default, tags that point at objects that are downloaded from the remote repository are fetched and stored locally. This option disables this automatic tag following.
+-t, --tags
+Most of the tags are fetched automatically as branch heads are downloaded, but tags that do not point at objects reachable from the branch heads that are being tracked will not be fetched by this mechanism. This flag lets all tags and their associated objects be downloaded.
+-u, --update-head-ok
+By default git fetch refuses to update the head which corresponds to the current branch. This flag disables the check. This is purely for the internal use for git pull to communicate with git fetch, and unless you are implementing your own Porcelain you are not supposed to use it.
+--upload-pack <upload-pack>
+When given, and the repository to fetch from is handled by git fetch-pack, --exec=<upload-pack> is passed to the command to specify non-default path for the command run on the other end.
+-q, --quiet
+Pass --quiet to git-fetch-pack and silence any other internally used git commands. Progress is not reported to the standard error stream.
+-v, --verbose
+Be verbose.
+--progress
+Progress status is reported on the standard error stream by default when it is attached to a terminal, unless -q is specified. This flag forces progress status even if the standard error stream is not directed to a terminal.
+<repository>
+The "remote" repository that is the source of a fetch or pull operation. This parameter can be either a URL (see the section GIT URLS below) or the name of a remote (see the section REMOTES below).
+<group>
+A name referring to a list of repositories as the value of remotes.<group> in the configuration file. (See git-config(1)).
+<refspec>
+The format of a <refspec> parameter is an optional plus +, followed by the source ref <src>, followed by a colon :, followed by the destination ref <dst>.
+The remote ref that matches <src> is fetched, and if <dst> is not empty string, the local ref that matches it is fast-forwarded using <src>. If the optional plus + is used, the local ref is updated even if it does not result in a fast-forward update.
+
+
+********************************************
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git fetch origin
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git fetch origin +pu:pu maint:tmp
+fatal: couldn't find remote ref pu
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git fetch origin +pu:master maint:dev
+fatal: couldn't find remote ref pu
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git fetch origin +master:master maint:dev
+fatal: couldn't find remote ref maint
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git fetch origin +master:master dev:dev
+fatal: couldn't find remote ref dev
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git fetch origin maint
+fatal: couldn't find remote ref maint
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git log FETCH_HEAD
+fatal: ambiguous argument 'FETCH_HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git merge FETCH_HEAD
+Already up to date.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$
