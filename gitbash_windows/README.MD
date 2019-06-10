@@ -1,14 +1,14 @@
-Name
+# Name
 git - the stupid content tracker
 
-Synopsis
+## Synopsis
 git [--version] [--exec-path[=GIT_EXEC_PATH]] [--html-path]
     [-p|--paginate|--no-pager] [--no-replace-objects]
     [--bare] [--git-dir=GIT_DIR] [--work-tree=GIT_WORK_TREE]
     [--help] COMMAND [ARGS]
-Description
+#### Description
 
- 
+ ```
 Git is a fast, scalable, distributed revision control system with an unusually rich command set that provides both high-level operations and full access to internals.
 
 See gittutorial(7) to get started, then see Everyday Git [1] for a useful minimum set of commands, and "man git-commandname" for documentation of each command. CVS users may also want to read gitcvs-migration(7). See the Git User's Manual [2] for a more in-depth introduction.
@@ -51,8 +51,9 @@ See gitworkflows(7) for an overview of recommended workflows.
 See also the howto [4] documents for some useful examples.
 
 The internals are documented in the GIT API documentation [5] .
-
-Git Commands
+```
+# Git Commands
+```
 We divide git into high level ("porcelain") commands and low level ("plumbing") commands.
 
 HIGH-LEVEL COMMANDS (PORCELAIN)
@@ -134,8 +135,9 @@ git-tag(1)
 Create, list, delete or verify a tag object signed with GPG.
 gitk(1)
 The git repository browser.
-Ancillary Commands
-
+```
+# Ancillary Commands
+```
 Manipulators:
 git-config(1)
 
@@ -226,9 +228,9 @@ Although git includes its own porcelain layer, its low-level commands are suffic
 The interface (input, output, set of options and the semantics) to these low-level commands are meant to be a lot more stable than Porcelain level commands, because these commands are primarily for scripted use. The interface to Porcelain commands on the other hand are subject to change in order to improve the end user experience.
 
 The following description divides the low-level commands into commands that manipulate objects (in the repository, index, and working tree), commands that interrogate and compare objects, and commands that move objects and references between repositories.
-
-Manipulation commands
-
+```
+# Manipulation commands
+```
 git-apply(1)
 Apply a patch to files and/or to the index.
 git-checkout-index(1)
@@ -263,8 +265,9 @@ git-update-ref(1)
 Update the object name stored in a ref safely.
 git-write-tree(1)
 Create a tree object from the current index.
-Interrogation commands
-
+```
+# Interrogation commands
+```
 git-cat-file(1)
 Provide content or type and size information for repository objects.
 git-diff-files(1)
@@ -354,9 +357,10 @@ git-sh-setup(1)
 Common git shell script setup code.
 git-stripspace(1)
 Filter out empty lines.
-Configuration Mechanism
+```
+# Configuration Mechanism
 Starting from 0.99.9 (actually mid 0.99.8.GIT), .git/config file is used to hold per-repository configuration options. It is a simple text file modeled after .ini format familiar to some people. Here is an example:
-
+```
 #
 # A '#' or ';' character indicates a comment.
 #
@@ -402,12 +406,13 @@ a valid head name (i.e. the contents of $GIT_DIR/refs/heads/<head>).
 For a more complete list of ways to spell object names, see "SPECIFYING REVISIONS" section in git-rev-parse(1).
 FILE/DIRECTORY STRUCTURE
 Please see the gitrepository-layout(5) document.
-
+```
 Read githooks(5) for more details about each hook.
-
+```
 Higher level SCMs may provide and manage additional information in the $GIT_DIR.
-
-Terminology
+```
+# Terminology
+```
 Please see gitglossary(7).
 
 Environment Variables
@@ -484,3 +489,4 @@ Named pointers called refs mark interesting points in history. A ref may contain
 The index file is initialized with a list of all paths and, for each path, a blob object and a set of attributes. The blob object represents the contents of the file as of the head of the current branch. The attributes (last modified time, size, etc.) are taken from the corresponding file in the working tree. Subsequent changes to the working tree can be found by comparing these attributes. The index may be updated with new content, and new commits may be created from the content stored in the index.
 
 The index is also capable of storing multiple entries (called "stages") for a given pathname. These stages are used to hold the various unmerged version of a file when a merge is in progress.
+```
