@@ -1,0 +1,981 @@
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git pull origin
+warning: no common commits
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/rajadevops26/tesst
+ * [new branch]      master     -> origin/master
+You asked to pull from the remote 'origin', but did not specify
+a branch. Because this is not the default configured remote
+for your current branch, you must specify a branch on the command line.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ la -a
+bash: la: command not found
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ ls -a
+./   .git/     .gitignore  docs/                   lxd-provisioning/  rancher/   vagrant-provisioning/
+../  .github/  dashboard/  kubespray-vagrant-env/  misc/              README.md  yamls/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git push origin master
+To https://github.com/rajadevops26/tesst.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/rajadevops26/tesst.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git push --help
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git push --force-with-lease origin
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$  git push --set-upstream origin master
+To https://github.com/rajadevops26/tesst.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/rajadevops26/tesst.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   vagrant-provisioning/Vagrantfile
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git add .
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git commit .
+Aborting commit due to empty commit message.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git commit -m "rajak8s"
+[master 9bc986b] rajak8s
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git pull origin
+You asked to pull from the remote 'origin', but did not specify
+a branch. Because this is not the default configured remote
+for your current branch, you must specify a branch on the command line.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git pull origin master
+From https://github.com/rajadevops26/tesst
+ * branch            master     -> FETCH_HEAD
+fatal: refusing to merge unrelated histories
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git push prigin master
+fatal: 'prigin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git push origin master
+To https://github.com/rajadevops26/tesst.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/rajadevops26/tesst.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git fetch origin
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git push --force-with-lease origin-push
+fatal: 'origin-push' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git push --force-with-lease origin
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git tag base master
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git rebase -i master
+Successfully rebased and updated refs/heads/master.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git push --force-with-lease=master:base master:master
+ssh: Could not resolve hostname master: Name or service not known
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git push --force-with-lease=origin:base master:master
+ssh: Could not resolve hostname master: Name or service not known
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git push origin master
+To https://github.com/rajadevops26/tesst.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/rajadevops26/tesst.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git push origin https://github.com/rajadevops26/tesst.git
+fatal: invalid refspec 'https://github.com/rajadevops26/tesst.git'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git push https://github.com/rajadevops26/tesst.git
+To https://github.com/rajadevops26/tesst.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/rajadevops26/tesst.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git branch
+  dev
+* master
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git push https://github.com/rajadevops26/tesst.git --unrelated-histories
+error: unknown option `unrelated-histories'
+usage: git push [<options>] [<repository> [<refspec>...]]
+
+    -v, --verbose         be more verbose
+    -q, --quiet           be more quiet
+    --repo <repository>   repository
+    --all                 push all refs
+    --mirror              mirror all refs
+    -d, --delete          delete refs
+    --tags                push tags (can't be used with --all or --mirror)
+    -n, --dry-run         dry run
+    --porcelain           machine-readable output
+    -f, --force           force updates
+    --force-with-lease[=<refname>:<expect>]
+                          require old value of ref to be at this value
+    --recurse-submodules[=(check|on-demand|no)]
+                          control recursive pushing of submodules
+    --thin                use thin pack
+    --receive-pack <receive-pack>
+                          receive pack program
+    --exec <receive-pack>
+                          receive pack program
+    -u, --set-upstream    set upstream for git pull/status
+    --progress            force progress reporting
+    --prune               prune locally removed refs
+    --no-verify           bypass pre-push hook
+    --follow-tags         push missing but relevant tags
+    --signed[=(yes|no|if-asked)]
+                          GPG sign the push
+    --atomic              request atomic transaction on remote side
+    -o, --push-option <server-specific>
+                          option to transmit
+    -4, --ipv4            use IPv4 addresses only
+    -6, --ipv6            use IPv6 addresses only
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git tag
+base
+show
+v1.0
+v2.0
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git tag -d base
+Deleted tag 'base' (was 9bc986b)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git tag -d show
+Deleted tag 'show' (was bf83c0a)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git tag -d v1.0
+Deleted tag 'v1.0' (was 9f0ff35)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git tag -d v2.0
+Deleted tag 'v2.0' (was ea85423)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git push https://github.com/rajadevops26/tesst.git
+To https://github.com/rajadevops26/tesst.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/rajadevops26/tesst.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ cd .git
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.git (GIT_DIR!)
+$ cd refs/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.git/refs (GIT_DIR!)
+$ ls
+heads/  remotes/  tags/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.git/refs (GIT_DIR!)
+$ ls heads/
+dev  master
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.git/refs (GIT_DIR!)
+$ ls heads/master
+heads/master
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.git/refs (GIT_DIR!)
+$ ls remotes/
+origin/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.git/refs (GIT_DIR!)
+$ ls remotes/origin/
+master
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.git/refs (GIT_DIR!)
+$ ls remotes/origin/master
+remotes/origin/master
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.git/refs (GIT_DIR!)
+$ ls tags/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.git/refs (GIT_DIR!)
+$ rm -rf .
+rm: refusing to remove '.' or '..' directory: skipping '.'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.git/refs (GIT_DIR!)
+$ ls
+heads/  remotes/  tags/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.git/refs (GIT_DIR!)
+$ rm -rf heads/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.git/refs (GIT_DIR!)
+$ rm -rf remotes/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.git/refs (GIT_DIR!)
+$ rm -rf tags/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.git/refs (GIT_DIR!)
+$ git status
+fatal: this operation must be run in a work tree
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.git/refs (GIT_DIR!)
+$ cd ..
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.git (GIT_DIR!)
+$ cd ..
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git push origin master
+error: src refspec master does not match any
+error: failed to push some refs to 'https://github.com/rajadevops26/tesst.git'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git remote -v
+origin  https://github.com/rajadevops26/tesst.git (fetch)
+origin  https://github.com/rajadevops26/tesst.git (push)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git push origin 'https://github.com/rajadevops26/tesst.git
+> '
+fatal: invalid refspec 'https://github.com/rajadevops26/tesst.git
+'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git push origin https://github.com/rajadevops26/tesst.git
+
+fatal: invalid refspec 'https://github.com/rajadevops26/tesst.git'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git remote remove origin
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git remote add origin https://github.com/rajadevops26/tesst.git
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git remote -v
+origin  https://github.com/rajadevops26/tesst.git (fetch)
+origin  https://github.com/rajadevops26/tesst.git (push)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git push origin
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$  git push --set-upstream origin master
+error: src refspec master does not match any
+error: failed to push some refs to 'https://github.com/rajadevops26/tesst.git'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ ls .git/refs/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git pull --rebase
+fatal: Updating an unborn branch with changes added to the index.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git push origin
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$  git push --set-upstream origin master
+error: src refspec master does not match any
+error: failed to push some refs to 'https://github.com/rajadevops26/tesst.git'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git pull --rebase origin master
+fatal: Updating an unborn branch with changes added to the index.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git push origin master
+error: src refspec master does not match any
+error: failed to push some refs to 'https://github.com/rajadevops26/tesst.git'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git push -u origin master
+error: src refspec master does not match any
+error: failed to push some refs to 'https://github.com/rajadevops26/tesst.git'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git reset --mixed origin/master
+fatal: ambiguous argument 'origin/master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git add .
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git commit -m "g"
+[master (root-commit) b5b2a32] g
+ 69 files changed, 2089 insertions(+)
+ create mode 100644 .github/ISSUE_TEMPLATE/bug_report.md
+ create mode 100644 .gitignore
+ create mode 100644 README.md
+ create mode 100644 dashboard/dashboard.yaml
+ create mode 100644 dashboard/heapster.yaml
+ create mode 100644 dashboard/influxdb.yaml
+ create mode 100644 dashboard/sa_cluster_admin.yaml
+ create mode 100644 docs/install-cluster.md
+ create mode 100644 kubespray-vagrant-env/Vagrantfile
+ create mode 100644 kubespray-vagrant-env/bootstrap.sh
+ create mode 100644 lxd-provisioning/bootstrap-kube.sh
+ create mode 100644 lxd-provisioning/k8s-profile-config
+ create mode 100644 misc/vagrant-provisioning-by-version/Vagrantfile
+ create mode 100644 misc/vagrant-provisioning-by-version/bootstrap.sh
+ create mode 100644 misc/vagrant-provisioning-by-version/bootstrap_kmaster.sh
+ create mode 100644 misc/vagrant-provisioning-by-version/bootstrap_kworker.sh
+ create mode 100644 misc/vagrant-provisioning-by-version/kube-flannel.yml
+ create mode 100644 rancher/docker-compose.yml
+ create mode 100644 vagrant-provisioning/Vagrantfile
+ create mode 100644 vagrant-provisioning/bootstrap.sh
+ create mode 100644 vagrant-provisioning/bootstrap_kmaster.sh
+ create mode 100644 vagrant-provisioning/bootstrap_kworker.sh
+ create mode 100644 vagrant-provisioning/kube-flannel.yml
+ create mode 100644 yamls/1-nginx-daemonset.yaml
+ create mode 100644 yamls/1-nginx-deployment.yaml
+ create mode 100644 yamls/1-nginx-pod.yaml
+ create mode 100644 yamls/1-nginx-replicaset.yaml
+ create mode 100644 yamls/10-hpa.yaml
+ create mode 100644 yamls/11-pdb.yaml
+ create mode 100644 yamls/2-cronjob.yaml
+ create mode 100644 yamls/2-job.yaml
+ create mode 100644 yamls/3-init-container.yaml
+ create mode 100644 yamls/4-busybox-pv-hostpath.yaml
+ create mode 100644 yamls/4-nfs-nginx.yaml
+ create mode 100644 yamls/4-pv-hostpath.yaml
+ create mode 100644 yamls/4-pv-nfs.yaml
+ create mode 100644 yamls/4-pvc-hostpath.yaml
+ create mode 100644 yamls/4-pvc-nfs.yaml
+ create mode 100644 yamls/5-pod-secret-env.yaml
+ create mode 100644 yamls/5-pod-secret-volume.yaml
+ create mode 100644 yamls/5-secrets.yaml
+ create mode 100644 yamls/6-configmap-1.yaml
+ create mode 100644 yamls/6-configmap-2.yaml
+ create mode 100644 yamls/6-pod-configmap-env.yaml
+ create mode 100644 yamls/6-pod-configmap-mysql-volume.yaml
+ create mode 100644 yamls/6-pod-configmap-volume.yaml
+ create mode 100644 yamls/7-pod-quota-mem-exceed.yaml
+ create mode 100644 yamls/7-pod-quota-mem.yaml
+ create mode 100644 yamls/7-quota-count.yaml
+ create mode 100644 yamls/7-quota-limitrange.yaml
+ create mode 100644 yamls/7-quota-mem.yaml
+ create mode 100644 yamls/8-nginx-rolling-update.yaml
+ create mode 100644 yamls/9-sts-nginx.yaml
+ create mode 100644 yamls/9-sts-pv.yaml
+ create mode 100644 yamls/cert-manager-demo/ClusterIssuer.yaml
+ create mode 100644 yamls/cert-manager-demo/haproxy.cfg
+ create mode 100644 yamls/cert-manager-demo/ingress-resource.yaml
+ create mode 100644 yamls/cert-manager-demo/nginx-deployment.yaml
+ create mode 100644 yamls/ingress-demo/haproxy.cfg
+ create mode 100644 yamls/ingress-demo/ingress-resource-1.yaml
+ create mode 100644 yamls/ingress-demo/ingress-resource-2.yaml
+ create mode 100644 yamls/ingress-demo/nginx-deploy-blue.yaml
+ create mode 100644 yamls/ingress-demo/nginx-deploy-green.yaml
+ create mode 100644 yamls/ingress-demo/nginx-deploy-main.yaml
+ create mode 100644 yamls/misc/my.cnf
+ create mode 100644 yamls/nfs-provisioner/class.yaml
+ create mode 100644 yamls/nfs-provisioner/default-sc.yaml
+ create mode 100644 yamls/nfs-provisioner/deployment.yaml
+ create mode 100644 yamls/nfs-provisioner/rbac.yaml
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git push origin master
+To https://github.com/rajadevops26/tesst.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/rajadevops26/tesst.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git merge origin master
+merge: origin - not something we can merge
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/Rajamanoheryogi/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/Rajamanoheryogi/.ssh/id_rsa.
+Your public key has been saved in /c/Users/Rajamanoheryogi/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:EzN89bopOAca00A1jX1RAt5ZbdSv1Kw38mWtZlLOnz4 Rajamanoheryogi@RamullakotaRajendra
+The key's randomart image is:
++---[RSA 2048]----+
+|      ..o+..+oooo|
+|     . ..ooo.=  +|
+|      . = o.o .+.|
+|       o =   .. +|
+|      o S   .. o.|
+|       + +   ++.=|
+|      . o o o+o+o|
+|         o .. *E.|
+|             +.+o|
++----[SHA256]-----+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ cd
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~
+$ cd .ssh/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/.ssh
+$ cat id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6sRKW7C8h3RF7o1nPzgoC7vH8CTbq7F8IF75fsmwequ3N6i4qu3JsDzlAfK5p8zZlURv4I4Jq+x5HtvHL9vjEzMZFWYLggooPjK8qKnQBRCDhOoyXUeG27aHEuFgtvIFXgPk08LRgBAR78VlVkpORm8hVCmKhhSNySmvxc6nsTCLhgwCdaqmxgj9o8tTpDnjPAavQDg1/hTqUETP9kVFcrBGT+/AAl1ql/w/2vb1+o/Kxcnud0CP1f9kZBZPppRy/e0+vL+kSfFGSpfODWu56ySpykXbJ4OlhyVASJnwjOFKHNyPcONVNwunrTBeWH4Sf3j9V8iKh8Qo86VRgqrOX Rajamanoheryogi@RamullakotaRajendra
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/.ssh
+$ ls
+id_rsa  id_rsa.pub  known_hosts
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/.ssh
+$ cat>>authorized_keys
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6sRKW7C8h3RF7o1nPzgoC7vH8CTbq7F8IF75fsmwequ3N6i4qu3JsDzlAfK5p8zZlURv4I4Jq+x5HtvHL9vjEzMZFWYLggooPjK8qKnQBRCDhOoyXUeG27aHEuFgtvIFXgPk08LRgBAR78VlVkpORm8hVCmKhhSNySmvxc6nsTCLhgwCdaqmxgj9o8tTpDnjPAavQDg1/hTqUETP9kVFcrBGT+/AAl1ql/w/2vb1+o/Kxcnud0CP1f9kZBZPppRy/e0+vL+kSfFGSpfODWu56ySpykXbJ4OlhyVASJnwjOFKHNyPcONVNwunrTBeWH4Sf3j9V8iKh8Qo86VRgqrOX Rajamanoheryogi@RamullakotaRajendra
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/.ssh
+$ cd ..
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~
+$ cd k8s/kubernetes/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git push origin
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git push origin master
+To https://github.com/rajadevops26/tesst.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/rajadevops26/tesst.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git pull https://github.com/rajadevops26/tesst.git
+From https://github.com/rajadevops26/tesst
+ * branch            HEAD       -> FETCH_HEAD
+fatal: refusing to merge unrelated histories
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git merge FETCH_HEAD
+fatal: refusing to merge unrelated histories
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git pull https://github.com/rajadevops26/tesst.git --allow-unrelated-histories
+From https://github.com/rajadevops26/tesst
+ * branch            HEAD       -> FETCH_HEAD
+CONFLICT (add/add): Merge conflict in README.md
+Auto-merging README.md
+Automatic merge failed; fix conflicts and then commit the result.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master|MERGING)
+$ git merge FETCH_HEAD --allow-unrelated-histories
+error: Merging is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master|MERGING)
+$ ls -a
+./   .git/     .gitignore  docs/                   lxd-provisioning/  rancher/   vagrant-provisioning/
+../  .github/  dashboard/  kubespray-vagrant-env/  misc/              README.md  yamls/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master|MERGING)
+$ cat README.md
+<<<<<<< HEAD
+# kubernetes
+Kubernetes playground
+=======
+# tesst
+>>>>>>> ff810739f63ebfa0dcdb95c36e2e25b27d4b0668
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master|MERGING)
+$ mv README.md ra.md
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master|MERGING)
+$ git pull https://github.com/rajadevops26/tesst.git --allow-unrelated-histories
+error: Pulling is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master|MERGING)
+$ ls -a
+./   .git/     .gitignore  docs/                   lxd-provisioning/  ra.md     vagrant-provisioning/
+../  .github/  dashboard/  kubespray-vagrant-env/  misc/              rancher/  yamls/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master|MERGING)
+$ git pull https://github.com/rajadevops26/tesst.git --allow-unrelated-histories
+error: Pulling is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master|MERGING)
+$ git merge FETCH_HEAD --allow-unrelated-histories
+error: Merging is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master|MERGING)
+$ ls -a
+./   .git/     .gitignore  docs/                   lxd-provisioning/  ra.md     vagrant-provisioning/
+../  .github/  dashboard/  kubespray-vagrant-env/  misc/              rancher/  yamls/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master|MERGING)
+$ git push origin master
+To https://github.com/rajadevops26/tesst.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/rajadevops26/tesst.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master|MERGING)
+$ ls -a
+./   .git/     .gitignore  docs/                   lxd-provisioning/  ra.md     vagrant-provisioning/
+../  .github/  dashboard/  kubespray-vagrant-env/  misc/              rancher/  yamls/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master|MERGING)
+$ cd .github/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.github (master|MERGING)
+$ ls
+ISSUE_TEMPLATE/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.github (master|MERGING)
+$ cd ISSUE_TEMPLATE/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.github/ISSUE_TEMPLATE (master|MERGING)
+$ ls
+bug_report.md
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.github/ISSUE_TEMPLATE (master|MERGING)
+$ cat bug_report.md
+---
+name: Bug report
+about: Create a report to help us improve
+
+---
+
+**Describe the bug**
+
+
+**How To Reproduce**
+
+
+**Expected behavior**
+
+
+**Screenshots (if any)**
+
+
+**Environment (please complete the following information):**
+
+
+**Additional context**
+Add any other context about the problem here.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.github/ISSUE_TEMPLATE (master|MERGING)
+$ cd ..
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes/.github (master|MERGING)
+$ cd ..
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master|MERGING)
+$ ls
+dashboard/  docs/  kubespray-vagrant-env/  lxd-provisioning/  misc/  ra.md  rancher/  vagrant-provisioning/  yamls/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master|MERGING)
+$ ls -a
+./   .git/     .gitignore  docs/                   lxd-provisioning/  ra.md     vagrant-provisioning/
+../  .github/  dashboard/  kubespray-vagrant-env/  misc/              rancher/  yamls/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master|MERGING)
+$ rm -rf .git
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes
+$ rm -rf .github/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes
+$ ls -a
+./   .gitignore  docs/                   lxd-provisioning/  ra.md     vagrant-provisioning/
+../  dashboard/  kubespray-vagrant-env/  misc/              rancher/  yamls/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes
+$ rm -rf .gitignore
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes
+$ ls -a
+./   dashboard/  kubespray-vagrant-env/  misc/  rancher/               yamls/
+../  docs/       lxd-provisioning/       ra.md  vagrant-provisioning/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes
+$ git status
+fatal: not a git repository (or any of the parent directories): .git
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes
+$ git init
+Initialized empty Git repository in C:/Users/Rajamanoheryogi/k8s/kubernetes/.git/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ ls -a
+./   .git/       docs/                   lxd-provisioning/  ra.md     vagrant-provisioning/
+../  dashboard/  kubespray-vagrant-env/  misc/              rancher/  yamls/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        dashboard/
+        docs/
+        kubespray-vagrant-env/
+        lxd-provisioning/
+        misc/
+        ra.md
+        rancher/
+        vagrant-provisioning/
+        yamls/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git remote add origin https://github.com/rajadevops26/tesst.git
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git remote -v
+origin  https://github.com/rajadevops26/tesst.git (fetch)
+origin  https://github.com/rajadevops26/tesst.git (push)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git add .
+warning: LF will be replaced by CRLF in vagrant-provisioning/.vagrant/rgloader/loader.rb.
+The file will have its original line endings in your working directory
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git commit -m "k8s"
+[master (root-commit) eb91fc1] k8s
+ 95 files changed, 2183 insertions(+)
+ create mode 100644 dashboard/dashboard.yaml
+ create mode 100644 dashboard/heapster.yaml
+ create mode 100644 dashboard/influxdb.yaml
+ create mode 100644 dashboard/sa_cluster_admin.yaml
+ create mode 100644 docs/install-cluster.md
+ create mode 100644 kubespray-vagrant-env/Vagrantfile
+ create mode 100644 kubespray-vagrant-env/bootstrap.sh
+ create mode 100644 lxd-provisioning/bootstrap-kube.sh
+ create mode 100644 lxd-provisioning/k8s-profile-config
+ create mode 100644 misc/vagrant-provisioning-by-version/Vagrantfile
+ create mode 100644 misc/vagrant-provisioning-by-version/bootstrap.sh
+ create mode 100644 misc/vagrant-provisioning-by-version/bootstrap_kmaster.sh
+ create mode 100644 misc/vagrant-provisioning-by-version/bootstrap_kworker.sh
+ create mode 100644 misc/vagrant-provisioning-by-version/kube-flannel.yml
+ create mode 100644 ra.md
+ create mode 100644 rancher/docker-compose.yml
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kmaster/virtualbox/action_provision
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kmaster/virtualbox/action_set_name
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kmaster/virtualbox/box_meta
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kmaster/virtualbox/creator_uid
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kmaster/virtualbox/id
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kmaster/virtualbox/index_uuid
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kmaster/virtualbox/private_key
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kmaster/virtualbox/synced_folders
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kmaster/virtualbox/vagrant_cwd
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kworker1/virtualbox/action_provision
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kworker1/virtualbox/action_set_name
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kworker1/virtualbox/box_meta
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kworker1/virtualbox/creator_uid
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kworker1/virtualbox/id
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kworker1/virtualbox/index_uuid
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kworker1/virtualbox/private_key
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kworker1/virtualbox/synced_folders
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kworker1/virtualbox/vagrant_cwd
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kworker2/virtualbox/action_provision
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kworker2/virtualbox/action_set_name
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kworker2/virtualbox/box_meta
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kworker2/virtualbox/creator_uid
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kworker2/virtualbox/id
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kworker2/virtualbox/index_uuid
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kworker2/virtualbox/private_key
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kworker2/virtualbox/synced_folders
+ create mode 100644 vagrant-provisioning/.vagrant/machines/kworker2/virtualbox/vagrant_cwd
+ create mode 100644 vagrant-provisioning/.vagrant/rgloader/loader.rb
+ create mode 100644 vagrant-provisioning/Vagrantfile
+ create mode 100644 vagrant-provisioning/bootstrap.sh
+ create mode 100644 vagrant-provisioning/bootstrap_kmaster.sh
+ create mode 100644 vagrant-provisioning/bootstrap_kworker.sh
+ create mode 100644 vagrant-provisioning/kube-flannel.yml
+ create mode 100644 yamls/1-nginx-daemonset.yaml
+ create mode 100644 yamls/1-nginx-deployment.yaml
+ create mode 100644 yamls/1-nginx-pod.yaml
+ create mode 100644 yamls/1-nginx-replicaset.yaml
+ create mode 100644 yamls/10-hpa.yaml
+ create mode 100644 yamls/11-pdb.yaml
+ create mode 100644 yamls/2-cronjob.yaml
+ create mode 100644 yamls/2-job.yaml
+ create mode 100644 yamls/3-init-container.yaml
+ create mode 100644 yamls/4-busybox-pv-hostpath.yaml
+ create mode 100644 yamls/4-nfs-nginx.yaml
+ create mode 100644 yamls/4-pv-hostpath.yaml
+ create mode 100644 yamls/4-pv-nfs.yaml
+ create mode 100644 yamls/4-pvc-hostpath.yaml
+ create mode 100644 yamls/4-pvc-nfs.yaml
+ create mode 100644 yamls/5-pod-secret-env.yaml
+ create mode 100644 yamls/5-pod-secret-volume.yaml
+ create mode 100644 yamls/5-secrets.yaml
+ create mode 100644 yamls/6-configmap-1.yaml
+ create mode 100644 yamls/6-configmap-2.yaml
+ create mode 100644 yamls/6-pod-configmap-env.yaml
+ create mode 100644 yamls/6-pod-configmap-mysql-volume.yaml
+ create mode 100644 yamls/6-pod-configmap-volume.yaml
+ create mode 100644 yamls/7-pod-quota-mem-exceed.yaml
+ create mode 100644 yamls/7-pod-quota-mem.yaml
+ create mode 100644 yamls/7-quota-count.yaml
+ create mode 100644 yamls/7-quota-limitrange.yaml
+ create mode 100644 yamls/7-quota-mem.yaml
+ create mode 100644 yamls/8-nginx-rolling-update.yaml
+ create mode 100644 yamls/9-sts-nginx.yaml
+ create mode 100644 yamls/9-sts-pv.yaml
+ create mode 100644 yamls/cert-manager-demo/ClusterIssuer.yaml
+ create mode 100644 yamls/cert-manager-demo/haproxy.cfg
+ create mode 100644 yamls/cert-manager-demo/ingress-resource.yaml
+ create mode 100644 yamls/cert-manager-demo/nginx-deployment.yaml
+ create mode 100644 yamls/ingress-demo/haproxy.cfg
+ create mode 100644 yamls/ingress-demo/ingress-resource-1.yaml
+ create mode 100644 yamls/ingress-demo/ingress-resource-2.yaml
+ create mode 100644 yamls/ingress-demo/nginx-deploy-blue.yaml
+ create mode 100644 yamls/ingress-demo/nginx-deploy-green.yaml
+ create mode 100644 yamls/ingress-demo/nginx-deploy-main.yaml
+ create mode 100644 yamls/misc/my.cnf
+ create mode 100644 yamls/nfs-provisioner/class.yaml
+ create mode 100644 yamls/nfs-provisioner/default-sc.yaml
+ create mode 100644 yamls/nfs-provisioner/deployment.yaml
+ create mode 100644 yamls/nfs-provisioner/rbac.yaml
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git pull origin master
+warning: no common commits
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/rajadevops26/tesst
+ * branch            master     -> FETCH_HEAD
+ * [new branch]      master     -> origin/master
+fatal: refusing to merge unrelated histories
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ ls
+dashboard/  docs/  kubespray-vagrant-env/  lxd-provisioning/  misc/  ra.md  rancher/  vagrant-provisioning/  yamls/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git pull origin
+You asked to pull from the remote 'origin', but did not specify
+a branch. Because this is not the default configured remote
+for your current branch, you must specify a branch on the command line.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ ls
+dashboard/  docs/  kubespray-vagrant-env/  lxd-provisioning/  misc/  ra.md  rancher/  vagrant-provisioning/  yamls/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git pull -u origin https://github.com/rajadevops26/tesst.git
+error: unknown switch `u'
+usage: git pull [<options>] [<repository> [<refspec>...]]
+
+    -v, --verbose         be more verbose
+    -q, --quiet           be more quiet
+    --progress            force progress reporting
+    --recurse-submodules[=<on-demand>]
+                          control for recursive fetching of submodules
+
+Options related to merging
+    -r, --rebase[=(false|true|merges|preserve|interactive)]
+                          incorporate changes by rebasing rather than merging
+    -n                    do not show a diffstat at the end of the merge
+    --stat                show a diffstat at the end of the merge
+    --log[=<n>]           add (at most <n>) entries from shortlog to merge commit message
+    --signoff[=...]       add Signed-off-by:
+    --squash              create a single commit instead of doing a merge
+    --commit              perform a commit if the merge succeeds (default)
+    --edit                edit message before committing
+    --ff                  allow fast-forward
+    --ff-only             abort if fast-forward is not possible
+    --verify-signatures   verify that the named commit has a valid GPG signature
+    --autostash           automatically stash/stash pop before and after rebase
+    -s, --strategy <strategy>
+                          merge strategy to use
+    -X, --strategy-option <option=value>
+                          option for selected merge strategy
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+    --allow-unrelated-histories
+                          allow merging unrelated histories
+
+Options related to fetching
+    --all                 fetch from all remotes
+    -a, --append          append to .git/FETCH_HEAD instead of overwriting
+    --upload-pack <path>  path to upload pack on remote end
+    -f, --force           force overwrite of local branch
+    -t, --tags            fetch all tags and associated objects
+    -p, --prune           prune remote-tracking branches no longer on remote
+    -j, --jobs[=<n>]      number of submodules pulled in parallel
+    --dry-run             dry run
+    -k, --keep            keep downloaded pack
+    --depth <depth>       deepen history of shallow clone
+    --unshallow           convert to a complete repository
+    --update-shallow      accept refs that update .git/shallow
+    --refmap <refmap>     specify fetch refmap
+    -4, --ipv4            use IPv4 addresses only
+    -6, --ipv6            use IPv6 addresses only
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git pull  https://github.com/rajadevops26/tesst.git
+From https://github.com/rajadevops26/tesst
+ * branch            HEAD       -> FETCH_HEAD
+fatal: refusing to merge unrelated histories
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git pull https://github.com/rajadevops26/tesst.git --allow-unrelated-histories
+From https://github.com/rajadevops26/tesst
+ * branch            HEAD       -> FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ ls
+dashboard/  kubespray-vagrant-env/  misc/  rancher/   vagrant-provisioning/
+docs/       lxd-provisioning/       ra.md  README.md  yamls/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$ git push https://github.com/rajadevops26/tesst.git
+Enumerating objects: 111, done.
+Counting objects: 100% (111/111), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (90/90), done.
+Writing objects: 100% (110/110), 26.12 KiB | 366.00 KiB/s, done.
+Total 110 (delta 16), reused 0 (delta 0)
+remote: Resolving deltas: 100% (16/16), done.
+To https://github.com/rajadevops26/tesst.git
+   ff81073..c7cc7cb  master -> master
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/kubernetes (master)
+$
