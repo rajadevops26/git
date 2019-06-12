@@ -1,0 +1,62 @@
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$ ls
+COMMIT_EDITMSG  config  description  FETCH_HEAD  HEAD  hooks/  index  info/  logs/  objects/  ORIG_HEAD  refs/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$ cat COMMIT_EDITMSG
+Merge branch 'raja'
+
+# Conflicts:
+#       a1
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#       .git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+# Your branch is ahead of 'origin/master' by 3 commits.
+#   (use "git push" to publish your local commits)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#       modified:   a1
+#
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$ cat config
+[core]
+        repositoryformatversion = 0
+        filemode = false
+        bare = false
+        logallrefupdates = true
+        symlinks = false
+        ignorecase = true
+[remote "origin"]
+        url = https://github.com/rajadevops26/test.git
+        fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+        remote = origin
+        merge = refs/heads/master
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$ cat description
+Unnamed repository; edit this file 'description' to name the repository.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$ cat FETCH_HEAD
+7596d5670731508987477aff5052018c11b1d981                branch 'master' of https://github.com/rajadevops26/test
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$ cat HEAD
+ref: refs/heads/master
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$ cat ORIG_HEAD
+82cac60dc4ec690db75c23868efb71e9edde6888
