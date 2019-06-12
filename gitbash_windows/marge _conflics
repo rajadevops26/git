@@ -1,0 +1,397 @@
+
+in git hub a1 file
+1
+
+2
+
+2
+
+3
+
+3
+
+4
+
+44
+
+44
+
+4444
+
+444444
+
+
+
+
+
+
+
+fsdfsdfs
+
+sddfsdafsdf
+
+ssdfasdf
+
+sdff
+
+dsfsd
+
+
+*****************************************************************************************
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   a1
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git push origin master
+To https://github.com/rajadevops26/test.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/rajadevops26/test.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git pull origin master
+remote: Enumerating objects: 8, done.
+remote: Counting objects: 100% (8/8), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 6 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (6/6), done.
+From https://github.com/rajadevops26/test
+ * branch            master     -> FETCH_HEAD
+   109eb26..f18a67c  master     -> origin/master
+error: Your local changes to the following files would be overwritten by merge:
+        a1
+Please commit your changes or stash them before you merge.
+Aborting
+Updating 109eb26..f18a67c
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ ls
+a1  b1          docs/  kubespray-vagrant-env/  misc/     README.md              yamls/
+a2  dashboard/  f1     lxd-provisioning/       rancher/  vagrant-provisioning/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ cat a1
+fsdfs
+sdfsa
+1
+2
+3
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git push origin master
+To https://github.com/rajadevops26/test.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/rajadevops26/test.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git commit . -m "fdsfsd"
+warning: LF will be replaced by CRLF in a1.
+The file will have its original line endings in your working directory
+[master f7c5660] fdsfsd
+ 1 file changed, 5 insertions(+)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git push origin master
+To https://github.com/rajadevops26/test.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/rajadevops26/test.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git merge FETCH_HEAD
+Auto-merging a1
+CONFLICT (content): Merge conflict in a1
+Automatic merge failed; fix conflicts and then commit the result.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|MERGING)
+$ diff a1
+diff: missing operand after 'a1'
+diff: Try 'diff --help' for more information.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|MERGING)
+$ git diff a1
+warning: LF will be replaced by CRLF in a1.
+The file will have its original line endings in your working directory
+diff --cc a1
+index 094d535,ec249d1..0000000
+--- a/a1
++++ b/a1
+@@@ -1,5 -1,18 +1,26 @@@
+ -1
+ -2
+ -2
+ -3
+ -3
+ -4
+ -44
+ -44
+ -4444
+ -444444
+ -
+ -
+ -
+ -fsdfsdfs
+ -sddfsdafsdf
+ -ssdfasdf
+ -sdff
+ -dsfsd
+++<<<<<<< HEAD
+ +fsdfs
+ +sdfsa
+ +1
+ +2
+ +3
+++=======
+++1
+++2
+++2
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|MERGING)
+$ git push origin master
+To https://github.com/rajadevops26/test.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/rajadevops26/test.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|MERGING)
+$ git status
+On branch master
+Your branch and 'origin/master' have diverged,
+and have 1 and 2 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+
+        both modified:   a1
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|MERGING)
+$
+*********************************************************************************************
+
+solution
+___________________________________________________
+
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|MERGING)
+$ git diff a1
+warning: LF will be replaced by CRLF in a1.
+The file will have its original line endings in your working directory
+diff --cc a1
+index 094d535,ec249d1..0000000
+--- a/a1
++++ b/a1
+@@@ -1,5 -1,18 +1,26 @@@
+ -1
+ -2
+ -2
+ -3
+ -3
+ -4
+ -44
+ -44
+ -4444
+ -444444
+ -
+ -
+ -
+ -fsdfsdfs
+ -sddfsdafsdf
+ -ssdfasdf
+ -sdff
+ -dsfsd
+++<<<<<<< HEAD
+ +fsdfs
+ +sdfsa
+ +1
+ +2
+ +3
+++=======
+++1
+++2
+++2
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|MERGING)
+$ cat a1
+<<<<<<< HEAD
+fsdfs
+sdfsa
+1
+2
+3
+=======
+1
+2
+2
+3
+3
+4
+44
+44
+4444
+444444
+
+
+
+fsdfsdfs
+sddfsdafsdf
+ssdfasdf
+sdff
+dsfsd
+>>>>>>> f18a67c7db669fdf43a18889764618e249eda39c
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|MERGING)
+$ vi a1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|MERGING)
+$ cat a1
+fsdfs
+sdfsa
+1
+2
+3
+=======
+1
+2
+2
+3
+3
+4
+44
+44
+4444
+444444
+
+
+
+fsdfsdfs
+sddfsdafsdf
+ssdfasdf
+sdff
+dsfsd
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|MERGING)
+$ git add .
+warning: LF will be replaced by CRLF in a1.
+The file will have its original line endings in your working directory
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|MERGING)
+$ git status
+On branch master
+Your branch and 'origin/master' have diverged,
+and have 1 and 2 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+
+        modified:   a1
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|MERGING)
+$ git commit a1 -m "merge solved conflics from remote edited file "
+fatal: cannot do a partial commit during a merge.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|MERGING)
+$ git push origin master
+To https://github.com/rajadevops26/test.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/rajadevops26/test.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|MERGING)
+$ git diff a1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|MERGING)
+$ git commit a1
+fatal: cannot do a partial commit during a merge.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|MERGING)
+$ git commit -m "Resolved merge conflict by keeping a1 file."
+[master 5499da6] Resolved merge conflict by keeping a1 file.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ cat a1
+fsdfs
+sdfsa
+1
+2
+3
+=======
+1
+2
+2
+3
+3
+4
+44
+44
+4444
+444444
+
+
+
+fsdfsdfs
+sddfsdafsdf
+ssdfasdf
+sdff
+dsfsd
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git push origin master
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (6/6), 595 bytes | 297.00 KiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+To https://github.com/rajadevops26/test.git
+   f18a67c..5499da6  master -> master
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$
+
