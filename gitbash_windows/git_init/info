@@ -1,0 +1,21 @@
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$ ls
+COMMIT_EDITMSG  config  description  FETCH_HEAD  HEAD  hooks/  index  info/  logs/  objects/  ORIG_HEAD  refs/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$ ls -ltr info/
+total 1
+-rw-r--r-- 1 Rajamanoheryogi 197121 240 Jun 12 12:34 exclude
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$ cat info/exclude
+# git ls-files --others --exclude-from=.git/info/exclude
+# Lines that start with '#' are comments.
+# For a project mostly in C, the following would be a good set of
+# exclude patterns (uncomment them if you want to use them):
+# *.[oa]
+# *~
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$
