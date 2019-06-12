@@ -1,0 +1,1000 @@
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s
+$ alias c='clear'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s
+$ cd test/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test
+$ git status
+fatal: not a git repository (or any of the parent directories): .git
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test
+$ git init
+Initialized empty Git repository in C:/Users/Rajamanoheryogi/k8s/test/.git/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ ls
+dashboard/  docs/  kubespray-vagrant-env/  lxd-provisioning/  misc/  rancher/  vagrant-provisioning/  yamls/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git remote -v
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git remote add https://github.com/rajadevops26/test.git
+usage: git remote add [<options>] <name> <url>
+
+    -f, --fetch           fetch the remote branches
+    --tags                import all tags and associated objects when fetching
+                          or do not fetch any tag at all (--no-tags)
+    -t, --track <branch>  branch(es) to track
+    -m, --master <branch>
+                          master branch
+    --mirror[=(push|fetch)]
+                          set up remote as a mirror to push to or fetch from
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git remote add origin https://github.com/rajadevops26/test.git
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git remote -v
+origin  https://github.com/rajadevops26/test.git (fetch)
+origin  https://github.com/rajadevops26/test.git (push)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git remote show
+origin
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git remote get-url origin
+https://github.com/rajadevops26/test.git
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git pull https://github.com/rajadevops26/test.git
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/rajadevops26/test
+ * branch            HEAD       -> FETCH_HEAD
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ ls
+dashboard/  kubespray-vagrant-env/  misc/     README.md              yamls/
+docs/       lxd-provisioning/       rancher/  vagrant-provisioning/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ cat README.md
+# test
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git push https://github.com/rajadevops26/test.git
+Everything up-to-date
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git branch raja
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git checkout raja
+Switched to branch 'raja'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ ls
+dashboard/  kubespray-vagrant-env/  misc/     README.md              yamls/
+docs/       lxd-provisioning/       rancher/  vagrant-provisioning/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ touch f1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git checkout master
+Switched to branch 'master'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ ls
+dashboard/  f1                      lxd-provisioning/  rancher/   vagrant-provisioning/
+docs/       kubespray-vagrant-env/  misc/              README.md  yamls/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        dashboard/
+        docs/
+        f1
+        kubespray-vagrant-env/
+        lxd-provisioning/
+        misc/
+        rancher/
+        vagrant-provisioning/
+        yamls/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git add .
+warning: LF will be replaced by CRLF in dashboard/dashboard.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in dashboard/heapster.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in dashboard/influxdb.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in dashboard/sa_cluster_admin.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in kubespray-vagrant-env/Vagrantfile.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in kubespray-vagrant-env/bootstrap.sh.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in lxd-provisioning/bootstrap-kube.sh.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in lxd-provisioning/k8s-profile-config.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in misc/vagrant-provisioning-by-version/Vagrantfile.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in misc/vagrant-provisioning-by-version/bootstrap.sh.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in misc/vagrant-provisioning-by-version/bootstrap_kmaster.sh.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in misc/vagrant-provisioning-by-version/bootstrap_kworker.sh.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in misc/vagrant-provisioning-by-version/kube-flannel.yml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in rancher/docker-compose.yml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in vagrant-provisioning/Vagrantfile.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in vagrant-provisioning/bootstrap.sh.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in vagrant-provisioning/bootstrap_kmaster.sh.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in vagrant-provisioning/bootstrap_kworker.sh.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in vagrant-provisioning/kube-flannel.yml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/1-nginx-daemonset.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/1-nginx-deployment.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/1-nginx-pod.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/1-nginx-replicaset.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/10-hpa.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/11-pdb.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/2-cronjob.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/2-job.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/3-init-container.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/4-busybox-pv-hostpath.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/4-nfs-nginx.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/4-pv-hostpath.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/4-pv-nfs.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/4-pvc-hostpath.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/4-pvc-nfs.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/5-pod-secret-env.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/5-pod-secret-volume.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/5-secrets.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/6-configmap-1.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/6-configmap-2.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/6-pod-configmap-env.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/6-pod-configmap-mysql-volume.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/6-pod-configmap-volume.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/7-pod-quota-mem-exceed.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/7-pod-quota-mem.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/7-quota-count.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/7-quota-limitrange.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/7-quota-mem.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/8-nginx-rolling-update.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/9-sts-nginx.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/9-sts-pv.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/cert-manager-demo/ClusterIssuer.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/cert-manager-demo/haproxy.cfg.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/cert-manager-demo/ingress-resource.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/cert-manager-demo/nginx-deployment.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/ingress-demo/haproxy.cfg.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/ingress-demo/ingress-resource-1.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/ingress-demo/ingress-resource-2.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/ingress-demo/nginx-deploy-blue.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/ingress-demo/nginx-deploy-green.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/ingress-demo/nginx-deploy-main.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/misc/my.cnf.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/nfs-provisioner/class.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/nfs-provisioner/default-sc.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/nfs-provisioner/deployment.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in yamls/nfs-provisioner/rbac.yaml.
+The file will have its original line endings in your working directory
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git commit -am "k8s"
+[master 0cd4223] k8s
+ 67 files changed, 2063 insertions(+)
+ create mode 100644 dashboard/dashboard.yaml
+ create mode 100644 dashboard/heapster.yaml
+ create mode 100644 dashboard/influxdb.yaml
+ create mode 100644 dashboard/sa_cluster_admin.yaml
+ create mode 100644 docs/install-cluster.md
+ create mode 100644 f1
+ create mode 100644 kubespray-vagrant-env/Vagrantfile
+ create mode 100644 kubespray-vagrant-env/bootstrap.sh
+ create mode 100644 lxd-provisioning/bootstrap-kube.sh
+ create mode 100644 lxd-provisioning/k8s-profile-config
+ create mode 100644 misc/vagrant-provisioning-by-version/Vagrantfile
+ create mode 100644 misc/vagrant-provisioning-by-version/bootstrap.sh
+ create mode 100644 misc/vagrant-provisioning-by-version/bootstrap_kmaster.sh
+ create mode 100644 misc/vagrant-provisioning-by-version/bootstrap_kworker.sh
+ create mode 100644 misc/vagrant-provisioning-by-version/kube-flannel.yml
+ create mode 100644 rancher/docker-compose.yml
+ create mode 100644 vagrant-provisioning/Vagrantfile
+ create mode 100644 vagrant-provisioning/bootstrap.sh
+ create mode 100644 vagrant-provisioning/bootstrap_kmaster.sh
+ create mode 100644 vagrant-provisioning/bootstrap_kworker.sh
+ create mode 100644 vagrant-provisioning/kube-flannel.yml
+ create mode 100644 yamls/1-nginx-daemonset.yaml
+ create mode 100644 yamls/1-nginx-deployment.yaml
+ create mode 100644 yamls/1-nginx-pod.yaml
+ create mode 100644 yamls/1-nginx-replicaset.yaml
+ create mode 100644 yamls/10-hpa.yaml
+ create mode 100644 yamls/11-pdb.yaml
+ create mode 100644 yamls/2-cronjob.yaml
+ create mode 100644 yamls/2-job.yaml
+ create mode 100644 yamls/3-init-container.yaml
+ create mode 100644 yamls/4-busybox-pv-hostpath.yaml
+ create mode 100644 yamls/4-nfs-nginx.yaml
+ create mode 100644 yamls/4-pv-hostpath.yaml
+ create mode 100644 yamls/4-pv-nfs.yaml
+ create mode 100644 yamls/4-pvc-hostpath.yaml
+ create mode 100644 yamls/4-pvc-nfs.yaml
+ create mode 100644 yamls/5-pod-secret-env.yaml
+ create mode 100644 yamls/5-pod-secret-volume.yaml
+ create mode 100644 yamls/5-secrets.yaml
+ create mode 100644 yamls/6-configmap-1.yaml
+ create mode 100644 yamls/6-configmap-2.yaml
+ create mode 100644 yamls/6-pod-configmap-env.yaml
+ create mode 100644 yamls/6-pod-configmap-mysql-volume.yaml
+ create mode 100644 yamls/6-pod-configmap-volume.yaml
+ create mode 100644 yamls/7-pod-quota-mem-exceed.yaml
+ create mode 100644 yamls/7-pod-quota-mem.yaml
+ create mode 100644 yamls/7-quota-count.yaml
+ create mode 100644 yamls/7-quota-limitrange.yaml
+ create mode 100644 yamls/7-quota-mem.yaml
+ create mode 100644 yamls/8-nginx-rolling-update.yaml
+ create mode 100644 yamls/9-sts-nginx.yaml
+ create mode 100644 yamls/9-sts-pv.yaml
+ create mode 100644 yamls/cert-manager-demo/ClusterIssuer.yaml
+ create mode 100644 yamls/cert-manager-demo/haproxy.cfg
+ create mode 100644 yamls/cert-manager-demo/ingress-resource.yaml
+ create mode 100644 yamls/cert-manager-demo/nginx-deployment.yaml
+ create mode 100644 yamls/ingress-demo/haproxy.cfg
+ create mode 100644 yamls/ingress-demo/ingress-resource-1.yaml
+ create mode 100644 yamls/ingress-demo/ingress-resource-2.yaml
+ create mode 100644 yamls/ingress-demo/nginx-deploy-blue.yaml
+ create mode 100644 yamls/ingress-demo/nginx-deploy-green.yaml
+ create mode 100644 yamls/ingress-demo/nginx-deploy-main.yaml
+ create mode 100644 yamls/misc/my.cnf
+ create mode 100644 yamls/nfs-provisioner/class.yaml
+ create mode 100644 yamls/nfs-provisioner/default-sc.yaml
+ create mode 100644 yamls/nfs-provisioner/deployment.yaml
+ create mode 100644 yamls/nfs-provisioner/rbac.yaml
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ ls
+dashboard/  f1                      lxd-provisioning/  rancher/   vagrant-provisioning/
+docs/       kubespray-vagrant-env/  misc/              README.md  yamls/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git checkout raja
+Switched to branch 'raja'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ ls
+README.md
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git status
+On branch raja
+nothing to commit, working tree clean
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ ls
+README.md
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ toush f2
+bash: toush: command not found
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ touch f2
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ ls
+f2  README.md
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git checkout master
+Switched to branch 'master'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ ls
+dashboard/  f1  kubespray-vagrant-env/  misc/     README.md              yamls/
+docs/       f2  lxd-provisioning/       rancher/  vagrant-provisioning/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git checkout raja
+Switched to branch 'raja'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ ls
+f2  README.md
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git status
+On branch raja
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        f2
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ cat>>f2
+fsdfs
+dfsdfs
+sdfsdfs
+sdfsdfs
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git checkout master
+Switched to branch 'master'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ ls
+dashboard/  f1  kubespray-vagrant-env/  misc/     README.md              yamls/
+docs/       f2  lxd-provisioning/       rancher/  vagrant-provisioning/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ cat f2
+fsdfs
+dfsdfs
+sdfsdfs
+sdfsdfs
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git staus
+git: 'staus' is not a git command. See 'git --help'.
+
+The most similar command is
+        status
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        f2
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ cat discription
+cat: discription: No such file or directory
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ cat description
+cat: description: No such file or directory
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ cat .git/description
+Unnamed repository; edit this file 'description' to name the repository.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ ls .git/description
+.git/description
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ cat>>f1
+a
+b
+c
+d
+e
+f
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git add f1
+warning: LF will be replaced by CRLF in f1.
+The file will have its original line endings in your working directory
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git commit f1 -m "file1"
+warning: LF will be replaced by CRLF in f1.
+The file will have its original line endings in your working directory
+[master 89f8645] file1
+ 1 file changed, 6 insertions(+)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        f2
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git checkout raja
+Switched to branch 'raja'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ ls
+f2  README.md
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git add f2
+warning: LF will be replaced by CRLF in f2.
+The file will have its original line endings in your working directory
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git status
+On branch raja
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   f2
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git rest --soft
+git: 'rest' is not a git command. See 'git --help'.
+
+The most similar command is
+        reset
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git reset --soft
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git staus
+git: 'staus' is not a git command. See 'git --help'.
+
+The most similar command is
+        status
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git status
+On branch raja
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   f2
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git reset --hard
+HEAD is now at 0ad6b9b Initial commit
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git status
+On branch raja
+nothing to commit, working tree clean
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ touch a1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git status
+On branch raja
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        a1
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git reset --soft
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git status
+On branch raja
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        a1
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git add a1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git commit a1 -m "a"
+[raja a620790] a
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 a1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git status
+On branch raja
+nothing to commit, working tree clean
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git reset --soft
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git status
+On branch raja
+nothing to commit, working tree clean
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git reset --soft HEAD~1
+fatal: ambiguous argument 'HEAD~1': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git reset --soft HEAD~2
+fatal: ambiguous argument 'HEAD~2': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ ls
+a1  README.md
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git checkout master
+Switched to branch 'master'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ ls
+dashboard/  f1                      lxd-provisioning/  rancher/   vagrant-provisioning/
+docs/       kubespray-vagrant-env/  misc/              README.md  yamls/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git merge raja
+Merge made by the 'recursive' strategy.
+ a1 | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 a1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ ls
+a1          docs/  kubespray-vagrant-env/  misc/     README.md              yamls/
+dashboard/  f1     lxd-provisioning/       rancher/  vagrant-provisioning/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git checkout raja
+Switched to branch 'raja'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ ls
+a1  README.md
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git reset --soft HEAD~1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ ls
+a1  README.md
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git checkout master
+Switched to branch 'master'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ ls
+a1          docs/  kubespray-vagrant-env/  misc/     README.md              yamls/
+dashboard/  f1     lxd-provisioning/       rancher/  vagrant-provisioning/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset --soft HEAD~1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ ls
+a1          docs/  kubespray-vagrant-env/  misc/     README.md              yamls/
+dashboard/  f1     lxd-provisioning/       rancher/  vagrant-provisioning/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ cat a1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git checkout raja
+Switched to branch 'raja'
+A       a1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ ls
+a1  README.md
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ cat a1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ touch a2
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ touch b1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ ls
+a1  a2  b1  README.md
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git checkout master
+Switched to branch 'master'
+A       a1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ ls
+a1  b1          docs/  kubespray-vagrant-env/  misc/     README.md              yamls/
+a2  dashboard/  f1     lxd-provisioning/       rancher/  vagrant-provisioning/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ cat f1
+a
+b
+c
+d
+e
+f
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ cat>>b1
+sdfsdf
+sdfsdfs
+1
+2
+3
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git checkout raja
+Switched to branch 'raja'
+A       a1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ cat b1
+sdfsdf
+sdfsdfs
+1
+2
+3
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git add .
+warning: LF will be replaced by CRLF in b1.
+The file will have its original line endings in your working directory
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git commit -am "sfdsd"
+[raja c18a2c8] sfdsd
+ 3 files changed, 5 insertions(+)
+ create mode 100644 a1
+ create mode 100644 a2
+ create mode 100644 b1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ cat>>b1
+4
+5
+6
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git checkout master
+error: Your local changes to the following files would be overwritten by checkout:
+        b1
+Please commit your changes or stash them before you switch branches.
+Aborting
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git checkout master
+error: Your local changes to the following files would be overwritten by checkout:
+        b1
+Please commit your changes or stash them before you switch branches.
+Aborting
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git status
+On branch raja
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   b1
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git checkout master
+error: Your local changes to the following files would be overwritten by checkout:
+        b1
+Please commit your changes or stash them before you switch branches.
+Aborting
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git add b1
+warning: LF will be replaced by CRLF in b1.
+The file will have its original line endings in your working directory
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git checkout master
+error: Your local changes to the following files would be overwritten by checkout:
+        b1
+Please commit your changes or stash them before you switch branches.
+Aborting
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git commit -am "dsfs"
+[raja 391f222] dsfs
+ 1 file changed, 3 insertions(+)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git checkout master
+Switched to branch 'master'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ ls
+dashboard/  f1                      lxd-provisioning/  rancher/   vagrant-provisioning/
+docs/       kubespray-vagrant-env/  misc/              README.md  yamls/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git rebase raja
+First, rewinding head to replay your work on top of it...
+Applying: k8s
+Applying: file1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ ls
+a1  b1          docs/  kubespray-vagrant-env/  misc/     README.md              yamls/
+a2  dashboard/  f1     lxd-provisioning/       rancher/  vagrant-provisioning/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git checkout raja
+Switched to branch 'raja'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ ls
+a1  a2  b1  README.md
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ cat>>a1
+fsdfs
+sdfsa
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git checkout master
+Switched to branch 'master'
+M       a1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ ls
+a1  b1          docs/  kubespray-vagrant-env/  misc/     README.md              yamls/
+a2  dashboard/  f1     lxd-provisioning/       rancher/  vagrant-provisioning/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ cat a
+cat: a: No such file or directory
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ cat a1
+fsdfs
+sdfsa
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ cat>>a1
+1
+2
+3
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git add .
+warning: LF will be replaced by CRLF in a1.
+The file will have its original line endings in your working directory
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git checkout raja
+Switched to branch 'raja'
+M       a1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ ls
+a1  a2  b1  README.md
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ cat a1
+fsdfs
+sdfsa
+1
+2
+3
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ touch f1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ ls
+a1  a2  b1  f1  README.md
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ cat f1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ cat>>f1
+merge conflics
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git checkout master
+error: The following untracked working tree files would be overwritten by checkout:
+        f1
+Please move or remove them before you switch branches.
+Aborting
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git diff
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git diff HEAD
+diff --git a/a1 b/a1
+index e69de29..094d535 100644
+--- a/a1
++++ b/a1
+@@ -0,0 +1,5 @@
++fsdfs
++sdfsa
++1
++2
++3
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git diff --help
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git diff --cc f1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git diff --combined  f1
+error: invalid option: --combined
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ cat f1
+merge conflics
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git status
+On branch raja
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   a1
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        f1
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git log --merge
+fatal: --merge without MERGE_HEAD?
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git merge --abort
+fatal: There is no merge to abort (MERGE_HEAD missing).
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git checkout master
+error: The following untracked working tree files would be overwritten by checkout:
+        f1
+Please move or remove them before you switch branches.
+Aborting
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git nerge master
+git: 'nerge' is not a git command. See 'git --help'.
+
+The most similar command is
+        merge
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git merge master
+error: The following untracked working tree files would be overwritten by merge:
+        f1
+Please move or remove them before you merge.
+Aborting
+Updating 391f222..109eb26
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ ls
+a1  a2  b1  f1  README.md
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$ git merge master --abort
+fatal: --abort expects no arguments
+
+usage: git merge [<options>] [<commit>...]
+   or: git merge --abort
+   or: git merge --continue
+
+    -n                    do not show a diffstat at the end of the merge
+    --stat                show a diffstat at the end of the merge
+    --summary             (synonym to --stat)
+    --log[=<n>]           add (at most <n>) entries from shortlog to merge commit message
+    --squash              create a single commit instead of doing a merge
+    --commit              perform a commit if the merge succeeds (default)
+    -e, --edit            edit message before committing
+    --ff                  allow fast-forward (default)
+    --ff-only             abort if fast-forward is not possible
+    --rerere-autoupdate   update the index with reused conflict resolution if possible
+    --verify-signatures   verify that the named commit has a valid GPG signature
+    -s, --strategy <strategy>
+                          merge strategy to use
+    -X, --strategy-option <option=value>
+                          option for selected merge strategy
+    -m, --message <message>
+                          merge commit message (for a non-fast-forward merge)
+    -F, --file <path>     read message from file
+    -v, --verbose         be more verbose
+    -q, --quiet           be more quiet
+    --abort               abort the current in-progress merge
+    --continue            continue the current in-progress merge
+    --allow-unrelated-histories
+                          allow merging unrelated histories
+    --progress            force progress reporting
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+    --overwrite-ignore    update ignored files (default)
+    --signoff             add Signed-off-by:
+    --verify              verify commit-msg hook
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (raja)
+$
