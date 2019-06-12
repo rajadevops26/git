@@ -1,0 +1,147 @@
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$ ls
+COMMIT_EDITMSG  config  description  FETCH_HEAD  HEAD  hooks/  index  info/  logs/  objects/  ORIG_HEAD  refs/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$ ls -ltr objects/
+total 8
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:34 pack/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:34 info/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:35 0a/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 c2/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 c6/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 e8/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 21/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 7e/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 b3/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 47/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 d3/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 90/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 61/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 43/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 3b/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 fc/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 e6/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 2c/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 88/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 e5/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 29/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 5a/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 b0/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 52/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 65/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 d1/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 c7/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 d9/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 2f/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 77/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 ae/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 b7/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 85/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 f6/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 cd/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 67/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 f2/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 ee/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 05/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 84/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 34/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 c0/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 4f/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 60/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 23/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 cc/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 62/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 a8/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 58/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 2d/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 93/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 42/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 e1/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 1e/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 ab/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 4a/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 48/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 9f/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 33/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:37 0c/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:42 a9/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:42 89/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:42 0f/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:46 eb/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:46 a6/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:48 f8/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:52 6b/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:52 7d/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:52 c1/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:53 ca/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:53 fe/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:53 39/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:54 56/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:54 3c/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:54 18/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 12:55 09/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:16 f1/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:16 bc/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:16 ec/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:16 b8/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:16 53/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:17 af/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:17 f7/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:18 72/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:25 f0/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:27 69/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:27 54/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:35 73/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:35 fd/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:37 11/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:37 0e/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:37 6c/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:39 92/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:39 8a/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:40 14/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:42 4e/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:42 2b/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:42 00/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:42 d2/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:43 1a/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:43 f4/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:43 ba/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:46 f5/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:46 55/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:46 10/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:48 ed/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 13:48 82/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 14:17 57/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 14:18 bb/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 14:18 71/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 14:19 5b/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 14:21 04/
+drwxr-xr-x 1 Rajamanoheryogi 197121 0 Jun 12 14:21 75/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$ ls -ltr objects/pack/
+total 0
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$ ls -ltr objects/info/
+total 0
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$ ls -ltr objects/75/
+total 2
+-r--r--r-- 1 Rajamanoheryogi 197121 554 Jun 12 13:46 96d5670731508987477aff5052018c11b1d981
+-r--r--r-- 1 Rajamanoheryogi 197121 193 Jun 12 14:21 8992da60e183ca0344f635b6d9dc076881a287
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$ ls -ltr objects/oa/
+ls: cannot access 'objects/oa/': No such file or directory
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$ ls -ltr objects/0a/
+total 1
+-r--r--r-- 1 Rajamanoheryogi 197121 522 Jun 12 12:35 d6b9ba93d62752e72f2b6e4a7237275f23ec3c
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test/.git (GIT_DIR!)
+$
