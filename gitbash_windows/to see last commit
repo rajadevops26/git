@@ -1,0 +1,820 @@
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ ls -C .git/
+COMMIT_EDITMSG  description  HEAD    index  logs/     ORIG_HEAD  TAG_EDITMSG
+config          FETCH_HEAD   hooks/  info/  objects/  refs/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ cat .git/config
+[core]
+        repositoryformatversion = 0
+        filemode = false
+        bare = false
+        logallrefupdates = true
+        symlinks = false
+        ignorecase = true
+[remote "origin"]
+        url = https://github.com/rajadevops26/test.git
+        fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+        remote = origin
+        merge = refs/heads/master
+[gui]
+        wmstate = normal
+        geometry = 893x435+156+156 175 196
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git hist --max-count=1
+git: 'hist' is not a git command. See 'git --help'.
+
+The most similar command is
+        bisect
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git bisect --max-count=1
+usage: git bisect [help|start|bad|good|new|old|terms|skip|next|reset|visualize|view|replay|log|run]
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git cat-file -p 096
+fatal: Not a valid object name 096
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git cat-file -p 0
+fatal: Not a valid object name 0
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git diff HEAD^..HEAD
+diff --git a/b1 b/b1
+index ca0aadf..d5e3c88 100644
+--- a/b1
++++ b/b1
+@@ -1,8 +1,11 @@
+-sdfsdf
+-sdfsdfs
+-1
+-2
+-3
+-4
+-5
+-6
++sdfsdf^M
++sdfsdfs^M
++1^M
++2^M
++3^M
++4^M
++5^M
++6^M
++dfsdf
++dsfsdf
++^F^F
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git log --name-status HEAD^..HEAD
+commit 278c51e1b49361b7dfd8dd218f75b22ffd99d054 (HEAD -> master, tag: v1.1, origin/master)
+Author: Your Name <you@example.com>
+Date:   Wed Jun 12 15:00:59 2019 +0530
+
+    b1 adee
+
+M       b1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git show --stat
+commit 278c51e1b49361b7dfd8dd218f75b22ffd99d054 (HEAD -> master, tag: v1.1, origin/master)
+Author: Your Name <you@example.com>
+Date:   Wed Jun 12 15:00:59 2019 +0530
+
+    b1 adee
+
+ b1 | 19 +++++++++++--------
+ 1 file changed, 11 insertions(+), 8 deletions(-)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git log -1 --stat
+commit 278c51e1b49361b7dfd8dd218f75b22ffd99d054 (HEAD -> master, tag: v1.1, origin/master)
+Author: Your Name <you@example.com>
+Date:   Wed Jun 12 15:00:59 2019 +0530
+
+    b1 adee
+
+ b1 | 19 +++++++++++--------
+ 1 file changed, 11 insertions(+), 8 deletions(-)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git show --name-only
+commit 278c51e1b49361b7dfd8dd218f75b22ffd99d054 (HEAD -> master, tag: v1.1, origin/master)
+Author: Your Name <you@example.com>
+Date:   Wed Jun 12 15:00:59 2019 +0530
+
+    b1 adee
+
+b1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git log -2
+commit 278c51e1b49361b7dfd8dd218f75b22ffd99d054 (HEAD -> master, tag: v1.1, origin/master)
+Author: Your Name <you@example.com>
+Date:   Wed Jun 12 15:00:59 2019 +0530
+
+    b1 adee
+
+commit 7775b77918c1915b36c7e17e810ea8359e56372a
+Author: Your Name <you@example.com>
+Date:   Wed Jun 12 14:21:47 2019 +0530
+
+    Merge branch 'raja'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git cat-file -p 278c5
+tree fed04d0d9757b271c9f0ab923836f6c619baf7f1
+parent 7775b77918c1915b36c7e17e810ea8359e56372a
+author Your Name <you@example.com> 1560331859 +0530
+committer Your Name <you@example.com> 1560331969 +0530
+
+b1 adee
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git cat-file -t 278c5
+commit
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ $ git diff --name-only HEAD^..HEAD
+bash: $: command not found
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git diff --name-only HEAD^..HEAD
+b1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git log --name-only HEAD^..HEAD
+commit 278c51e1b49361b7dfd8dd218f75b22ffd99d054 (HEAD -> master, tag: v1.1, origin/master)
+Author: Your Name <you@example.com>
+Date:   Wed Jun 12 15:00:59 2019 +0530
+
+    b1 adee
+
+b1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git diff --stat HEAD
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git show HEAD
+commit 278c51e1b49361b7dfd8dd218f75b22ffd99d054 (HEAD -> master, tag: v1.1, origin/master)
+Author: Your Name <you@example.com>
+Date:   Wed Jun 12 15:00:59 2019 +0530
+
+    b1 adee
+
+diff --git a/b1 b/b1
+index ca0aadf..d5e3c88 100644
+--- a/b1
++++ b/b1
+@@ -1,8 +1,11 @@
+-sdfsdf
+-sdfsdfs
+-1
+-2
+-3
+-4
+-5
+-6
++sdfsdf^M
++sdfsdfs^M
++1^M
++2^M
++3^M
++4^M
++5^M
++6^M
++dfsdf
++dsfsdf
++^F^F
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git show HEAD~1
+commit 7775b77918c1915b36c7e17e810ea8359e56372a
+Author: Your Name <you@example.com>
+Date:   Wed Jun 12 14:21:47 2019 +0530
+
+    Merge branch 'raja'
+
+diff --git a/a1 b/a1
+index 1015f33..5b4b919 100644
+--- a/a1
++++ b/a1
+@@ -1,4 +1,5 @@
+ <<<<<<< HEAD
++<<<<<<< HEAD
+ 44
+ 444444
+ sdfsdf
+@@ -22,3 +23,7 @@ files are deleted
+ new lines are added
+ check the merge
+ >>>>>>> 7596d5670731508987477aff5052018c11b1d981
++=======
++sdfsdf
++dfsdf
++>>>>>>> raja
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git show --summary
+commit 278c51e1b49361b7dfd8dd218f75b22ffd99d054 (HEAD -> master, tag: v1.1, origin/master)
+Author: Your Name <you@example.com>
+Date:   Wed Jun 12 15:00:59 2019 +0530
+
+    b1 adee
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git hist --all
+git: 'hist' is not a git command. See 'git --help'.
+
+The most similar command is
+        bisect
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git hist -help
+git: 'hist' is not a git command. See 'git --help'.
+
+The most similar command is
+        bisect
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git log --pretty=format:"%h %s" --graph
+* 278c51e b1 adee
+* 7775b77 Merge branch 'raja'
+*   82cac60 Merge branch 'master' of https://github.com/rajadevops26/test
+|\
+| * 7596d56 sdfs
+* |   bab20db Merge branch 'master' of https://github.com/rajadevops26/test
+|\ \
+| |/
+| * 4ef4a72 d
+* | 14624c0 dsf
+|/
+* 11172e7 done
+* 73e13eb update
+*   5499da6 Resolved merge conflict by keeping a1 file.
+|\
+| * f18a67c conflkiscs
+| * 8277640 done
+* | f7c5660 fdsfsd
+|/
+* 109eb26 file1
+* 3c26a53 k8s
+* 391f222 dsfs
+* c18a2c8 sfdsd
+* 0ad6b9b Initial commit
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset --head 11172e7
+error: unknown option `head'
+usage: git reset [--mixed | --soft | --hard | --merge | --keep] [-q] [<commit>]
+   or: git reset [-q] [<tree-ish>] [--] <paths>...
+   or: EXPERIMENTAL: git reset [-q] [--stdin [-z]] [<tree-ish>]
+   or: git reset --patch [<tree-ish>] [--] [<paths>...]
+
+    -q, --quiet           be quiet, only report errors
+    --mixed               reset HEAD and index
+    --soft                reset only HEAD
+    --hard                reset HEAD, index and working tree
+    --merge               reset HEAD, index and working tree
+    --keep                reset HEAD but keep local changes
+    --recurse-submodules[=<reset>]
+                          control recursive updating of submodules
+    -p, --patch           select hunks interactively
+    -N, --intent-to-add   record only the fact that removed paths will be added later
+    -z                    EXPERIMENTAL: paths are separated with NUL character
+    --stdin               EXPERIMENTAL: read paths from <stdin>
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset --hard 11172e7
+HEAD is now at 11172e7 done
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git log --pretty=format:"%h %s" --graph
+* 11172e7 done
+* 73e13eb update
+*   5499da6 Resolved merge conflict by keeping a1 file.
+|\
+| * f18a67c conflkiscs
+| * 8277640 done
+* | f7c5660 fdsfsd
+|/
+* 109eb26 file1
+* 3c26a53 k8s
+* 391f222 dsfs
+* c18a2c8 sfdsd
+* 0ad6b9b Initial commit
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git reset --hard 5499da6
+HEAD is now at 5499da6 Resolved merge conflict by keeping a1 file.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git log --pretty=format:"%h %s" --graph
+*   5499da6 Resolved merge conflict by keeping a1 file.
+|\
+| * f18a67c conflkiscs
+| * 8277640 done
+* | f7c5660 fdsfsd
+|/
+* 109eb26 file1
+* 3c26a53 k8s
+* 391f222 dsfs
+* c18a2c8 sfdsd
+* 0ad6b9b Initial commit
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git rebase raja
+First, rewinding head to replay your work on top of it...
+Applying: k8s
+Applying: file1
+Applying: fdsfsd
+Using index info to reconstruct a base tree...
+M       a1
+Falling back to patching base and 3-way merge...
+Auto-merging a1
+CONFLICT (content): Merge conflict in a1
+error: Failed to merge in the changes.
+hint: Use 'git am --show-current-patch' to see the failed patch
+Patch failed at 0003 fdsfsd
+Resolve all conflicts manually, mark them as resolved with
+"git add/rm <conflicted_files>", then run "git rebase --continue".
+You can instead skip this commit: run "git rebase --skip".
+To abort and get back to the state before "git rebase", run "git rebase --abort".
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ rm -rf a1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git rebase raja
+fatal: It seems that there is already a rebase-apply directory, and
+I wonder if you are in the middle of another rebase.  If that is the
+case, please try
+        git rebase (--continue | --abort | --skip)
+If that is not the case, please
+        rm -fr ".git/rebase-apply"
+and run me again.  I am stopping in case you still have something
+valuable there.
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git rebase --continue raja
+usage: git rebase [-i] [options] [--exec <cmd>] [--onto <newbase>] [<upstream>] [<branch>]
+   or: git rebase [-i] [options] [--exec <cmd>] [--onto <newbase>] --root [<branch>]
+   or: git rebase --continue | --abort | --skip | --edit-todo
+
+    --onto <revision>     rebase onto given branch instead of upstream
+    --no-verify           allow pre-rebase hook to run
+    -q, --quiet           be quiet. implies --no-stat
+    -v, --verbose         display a diffstat of what changed upstream
+    -n, --no-stat         do not show diffstat of what changed upstream
+    --signoff             add a Signed-off-by: line to each commit
+    --ignore-whitespace   passed to 'git am'
+    --committer-date-is-author-date
+                          passed to 'git am'
+    --ignore-date         passed to 'git am'
+    -C <n>                passed to 'git apply'
+    --whitespace <action>
+                          passed to 'git apply'
+    -f, --force-rebase    cherry-pick all commits, even if unchanged
+    --no-ff               cherry-pick all commits, even if unchanged
+    --continue            continue
+    --skip                skip current patch and continue
+    --abort               abort and check out the original branch
+    --quit                abort but keep HEAD where it is
+    --edit-todo           edit the todo list during an interactive rebase
+    --show-current-patch  show the patch file being applied or merged
+    -m, --merge           use merging strategies to rebase
+    -i, --interactive     let the user edit the list of commits to rebase
+    -p, --preserve-merges
+                          try to recreate merges instead of ignoring them
+    --rerere-autoupdate   allow rerere to update index with resolved conflict
+    -k, --keep-empty      preserve empty commits during rebase
+    --autosquash          move commits that begin with squash!/fixup! under -i
+    -S, --gpg-sign[=<key-id>]
+                          GPG-sign commits
+    --autostash           automatically stash/stash pop before and after
+    -x, --exec <exec>     add exec lines after each commit of the editable list
+    --allow-empty-message
+                          allow rebasing commits with empty messages
+    -r, --rebase-merges[=<mode>]
+                          try to rebase merges instead of skipping them
+    --fork-point          use 'merge-base --fork-point' to refine upstream
+    -s, --strategy <strategy>
+                          use the given merge strategy
+    -X, --strategy-option <option>
+                          pass the argument through to the merge strategy
+    --root                rebase all reachable commits up to the root(s)
+    --reschedule-failed-exec
+                          automatically re-schedule any `exec` that fails
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git rebase --continue
+a1: needs merge
+You must edit all merge conflicts and then
+mark them as resolved using git add
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git status
+rebase in progress; onto 71e6c7e
+You are currently rebasing branch 'master' on '71e6c7e'.
+  (fix conflicts and then run "git rebase --continue")
+  (use "git rebase --skip" to skip this patch)
+  (use "git rebase --abort" to check out the original branch)
+
+Unmerged paths:
+  (use "git reset HEAD <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+
+        both modified:   a1
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git add .
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git commit -am "a1 last"
+[detached HEAD a7bfc4b] a1 last
+ 1 file changed, 2 deletions(-)
+ delete mode 100644 a1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git status
+rebase in progress; onto 71e6c7e
+You are currently rebasing branch 'master' on '71e6c7e'.
+  (all conflicts fixed: run "git rebase --continue")
+
+nothing to commit, working tree clean
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git rebase --continue
+Applying: fdsfsd
+No changes - did you forget to use 'git add'?
+If there is nothing left to stage, chances are that something else
+already introduced the same changes; you might want to skip this patch.
+Resolve all conflicts manually, mark them as resolved with
+"git add/rm <conflicted_files>", then run "git rebase --continue".
+You can instead skip this commit: run "git rebase --skip".
+To abort and get back to the state before "git rebase", run "git rebase --abort".
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git rebase --abort
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git log --pretty=format:"%h %s" --graph
+*   5499da6 Resolved merge conflict by keeping a1 file.
+|\
+| * f18a67c conflkiscs
+| * 8277640 done
+* | f7c5660 fdsfsd
+|/
+* 109eb26 file1
+* 3c26a53 k8s
+* 391f222 dsfs
+* c18a2c8 sfdsd
+* 0ad6b9b Initial commit
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git status
+On branch master
+Your branch is behind 'origin/master' by 9 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+nothing to commit, working tree clean
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git merge raja
+Auto-merging a1
+CONFLICT (content): Merge conflict in a1
+Automatic merge failed; fix conflicts and then commit the result.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|MERGING)
+$ git status
+On branch master
+Your branch is behind 'origin/master' by 9 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+
+        both modified:   a1
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|MERGING)
+$ git add .
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|MERGING)
+$ git commit
+[master 6537fd6] Merge branch 'raja'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ ls
+a1  b1          docs/  kubespray-vagrant-env/  misc/     README.md              yamls/
+a2  dashboard/  f1     lxd-provisioning/       rancher/  vagrant-provisioning/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git log --pretty=format:"%h %s" --graph
+*   6537fd6 Merge branch 'raja'
+|\
+| * 71e6c7e branch merge
+* |   5499da6 Resolved merge conflict by keeping a1 file.
+|\ \
+| * | f18a67c conflkiscs
+| * | 8277640 done
+* | | f7c5660 fdsfsd
+|/ /
+* | 109eb26 file1
+* | 3c26a53 k8s
+|/
+* 391f222 dsfs
+* c18a2c8 sfdsd
+* 0ad6b9b Initial commit
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master)
+$ git rebase raja
+First, rewinding head to replay your work on top of it...
+Applying: k8s
+Applying: file1
+Applying: fdsfsd
+Using index info to reconstruct a base tree...
+M       a1
+Falling back to patching base and 3-way merge...
+Auto-merging a1
+CONFLICT (content): Merge conflict in a1
+error: Failed to merge in the changes.
+hint: Use 'git am --show-current-patch' to see the failed patch
+Patch failed at 0003 fdsfsd
+Resolve all conflicts manually, mark them as resolved with
+"git add/rm <conflicted_files>", then run "git rebase --continue".
+You can instead skip this commit: run "git rebase --skip".
+To abort and get back to the state before "git rebase", run "git rebase --abort".
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git status
+rebase in progress; onto 71e6c7e
+You are currently rebasing branch 'master' on '71e6c7e'.
+  (fix conflicts and then run "git rebase --continue")
+  (use "git rebase --skip" to skip this patch)
+  (use "git rebase --abort" to check out the original branch)
+
+Unmerged paths:
+  (use "git reset HEAD <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+
+        both modified:   a1
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git rm a1
+a1: needs merge
+rm 'a1'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git status
+rebase in progress; onto 71e6c7e
+You are currently rebasing branch 'master' on '71e6c7e'.
+  (all conflicts fixed: run "git rebase --continue")
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        deleted:    a1
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git commit -m "fds"
+[detached HEAD 781a2d7] fds
+ 1 file changed, 2 deletions(-)
+ delete mode 100644 a1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git status
+rebase in progress; onto 71e6c7e
+You are currently rebasing branch 'master' on '71e6c7e'.
+  (all conflicts fixed: run "git rebase --continue")
+
+nothing to commit, working tree clean
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git rebase --continue
+Applying: fdsfsd
+No changes - did you forget to use 'git add'?
+If there is nothing left to stage, chances are that something else
+already introduced the same changes; you might want to skip this patch.
+Resolve all conflicts manually, mark them as resolved with
+"git add/rm <conflicted_files>", then run "git rebase --continue".
+You can instead skip this commit: run "git rebase --skip".
+To abort and get back to the state before "git rebase", run "git rebase --abort".
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git status
+rebase in progress; onto 71e6c7e
+You are currently rebasing branch 'master' on '71e6c7e'.
+  (all conflicts fixed: run "git rebase --continue")
+
+nothing to commit, working tree clean
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git checkout raja
+Warning: you are leaving 3 commits behind, not connected to
+any of your branches:
+
+  781a2d7 fds
+  194347e file1
+  b7fc96f k8s
+
+If you want to keep them by creating a new branch, this may be a good time
+to do so with:
+
+ git branch <new-branch-name> 781a2d7
+
+Switched to branch 'raja'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git branch rani 781a2d7
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git checkout rani
+Switched to branch 'rani'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ ls
+a2  dashboard/  f1                      lxd-provisioning/  rancher/   vagrant-provisioning/
+b1  docs/       kubespray-vagrant-env/  misc/              README.md  yamls/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git log --pretty=format:"%h %s" --graph
+* 781a2d7 fds
+* 194347e file1
+* b7fc96f k8s
+* 71e6c7e branch merge
+* 391f222 dsfs
+* c18a2c8 sfdsd
+* 0ad6b9b Initial commit
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git checkout raja
+Switched to branch 'raja'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git log --pretty=format:"%h %s" --graph
+* 71e6c7e branch merge
+* 391f222 dsfs
+* c18a2c8 sfdsd
+* 0ad6b9b Initial commit
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ ls
+a1  a2  b1  README.md
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git checkout master
+Switched to branch 'master'
+Your branch and 'origin/master' have diverged,
+and have 2 and 9 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git log --pretty=format:"%h %s" --graph
+*   6537fd6 Merge branch 'raja'
+|\
+| * 71e6c7e branch merge
+* |   5499da6 Resolved merge conflict by keeping a1 file.
+|\ \
+| * | f18a67c conflkiscs
+| * | 8277640 done
+* | | f7c5660 fdsfsd
+|/ /
+* | 109eb26 file1
+* | 3c26a53 k8s
+|/
+* 391f222 dsfs
+* c18a2c8 sfdsd
+* 0ad6b9b Initial commit
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ ls
+a1  b1          docs/  kubespray-vagrant-env/  misc/     README.md              yamls/
+a2  dashboard/  f1     lxd-provisioning/       rancher/  vagrant-provisioning/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ rm -rf a1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git status
+On branch master
+Your branch and 'origin/master' have diverged,
+and have 2 and 9 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+You are currently rebasing branch 'master' on '71e6c7e'.
+  (all conflicts fixed: run "git rebase --continue")
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        deleted:    a1
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git commit -am "a1 deleted"
+[master 07c126a] a1 deleted
+ 1 file changed, 29 deletions(-)
+ delete mode 100644 a1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ ls
+a2  dashboard/  f1                      lxd-provisioning/  rancher/   vagrant-provisioning/
+b1  docs/       kubespray-vagrant-env/  misc/              README.md  yamls/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git checkout raja
+Switched to branch 'raja'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ ls
+a1  a2  b1  README.md
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git log --pretty=format:"%h %s" --graph
+* 71e6c7e branch merge
+* 391f222 dsfs
+* c18a2c8 sfdsd
+* 0ad6b9b Initial commit
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git rebase master
+fatal: It seems that there is already a rebase-apply directory, and
+I wonder if you are in the middle of another rebase.  If that is the
+case, please try
+        git rebase (--continue | --abort | --skip)
+If that is not the case, please
+        rm -fr ".git/rebase-apply"
+and run me again.  I am stopping in case you still have something
+valuable there.
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ ls
+a1  a2  b1  README.md
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git status
+On branch raja
+You are currently rebasing branch 'master' on '71e6c7e'.
+  (all conflicts fixed: run "git rebase --continue")
+
+nothing to commit, working tree clean
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git checkout master
+Switched to branch 'master'
+Your branch and 'origin/master' have diverged,
+and have 3 and 9 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ ls
+a2  dashboard/  f1                      lxd-provisioning/  rancher/   vagrant-provisioning/
+b1  docs/       kubespray-vagrant-env/  misc/              README.md  yamls/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$ git log --pretty=format:"%h %s" --graph
+* 07c126a a1 deleted
+*   6537fd6 Merge branch 'raja'
+|\
+| * 71e6c7e branch merge
+* |   5499da6 Resolved merge conflict by keeping a1 file.
+|\ \
+| * | f18a67c conflkiscs
+| * | 8277640 done
+* | | f7c5660 fdsfsd
+|/ /
+* | 109eb26 file1
+* | 3c26a53 k8s
+|/
+* 391f222 dsfs
+* c18a2c8 sfdsd
+* 0ad6b9b Initial commit
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/test (master|REBASE 3/5)
+$
