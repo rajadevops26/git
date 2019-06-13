@@ -1,0 +1,500 @@
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git lfs install
+Updated git hooks.
+Git LFS initialized.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git lfs -help
+Error: unknown shorthand flag: 'e' in -elp
+git lfs <command> [<args>]
+
+Git LFS is a system for managing and versioning large files in
+association with a Git repository.  Instead of storing the large files
+within the Git repository as blobs, Git LFS stores special "pointer
+files" in the repository, while storing the actual file contents on a
+Git LFS server.  The contents of the large file are downloaded
+automatically when needed, for example when a Git branch containing
+the large file is checked out.
+
+Git LFS works by using a "smudge" filter to look up the large file
+contents based on the pointer file, and a "clean" filter to create a
+new version of the pointer file when the large file's contents change.
+It also uses a pre-push hook to upload the large file contents to
+the Git LFS server whenever a commit containing a new large file
+version is about to be pushed to the corresponding Git server.
+
+Commands
+--------
+
+Like Git, Git LFS commands are separated into high level ("porcelain")
+commands and low level ("plumbing") commands.
+
+High level commands
+--------------------
+
+* git lfs env:
+    Display the Git LFS environment.
+* git lfs checkout:
+    Populate working copy with real content from Git LFS files.
+* git lfs fetch:
+    Download Git LFS files from a remote.
+* git lfs fsck:
+    Check Git LFS files for consistency.
+* git lfs install:
+    Install Git LFS configuration.
+* git lfs lock:
+    Set a file as "locked" on the Git LFS server.
+* git lfs locks:
+    List currently "locked" files from the Git LFS server.
+* git lfs logs:
+    Show errors from the Git LFS command.
+* git lfs ls-files:
+    Show information about Git LFS files in the index and working tree.
+* git lfs migrate:
+    Migrate history to or from Git LFS
+* git lfs prune:
+    Delete old Git LFS files from local storage
+* git lfs pull:
+    Fetch Git LFS changes from the remote & checkout any required working tree
+    files.
+* git lfs push:
+    Push queued large files to the Git LFS endpoint.
+* git lfs status:
+    Show the status of Git LFS files in the working tree.
+* git lfs track:
+    View or add Git LFS paths to Git attributes.
+* git lfs uninstall:
+    Uninstall Git LFS by removing hooks and smudge/clean filter configuration.
+* git lfs unlock:
+    Remove "locked" setting for a file on the Git LFS server.
+* git lfs untrack:
+    Remove Git LFS paths from Git Attributes.
+* git lfs update:
+    Update Git hooks for the current Git repository.
+* git lfs version:
+    Report the version number.
+
+Low level commands
+-------------------
+
+* git lfs clean:
+    Git clean filter that converts large files to pointers.
+* git lfs pointer:
+    Build and compare pointers.
+* git lfs pre-push:
+    Git pre-push hook implementation.
+* git lfs filter-process:
+    Git process filter that converts between large files and pointers.
+* git lfs smudge:
+    Git smudge filter that converts pointer in blobs to the actual content.
+
+Examples
+--------
+
+To get started with Git LFS, the following commands can be used.
+
+ 1. Setup Git LFS on your system. You only have to do this once per
+    repository per machine:
+
+        git lfs install
+
+ 2. Choose the type of files you want to track, for examples all ISO
+    images, with git lfs track:
+
+        git lfs track "*.iso"
+
+ 3. The above stores this information in gitattributes(5) files, so
+    that file need to be added to the repository:
+
+        git add .gitattributes
+
+ 3. Commit, push and work with the files normally:
+
+        git add file.iso
+        git commit -m "Add disk image"
+        git push
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git lfs pre-push
+This should be run through Git's pre-push hook.  Run `git lfs update` to install it.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git lfs update
+Updated git hooks.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git lfs env
+git-lfs/2.7.1 (GitHub; windows amd64; go 1.11.5; git 6b7fb6e3)
+git version 2.21.0.windows.1
+
+Endpoint=https://github.com/rajadevops26/vagrant_provisioning.git/info/lfs (auth=basic)
+LocalWorkingDir=C:\Users\Rajamanoheryogi\k8s\vagrant_provisioning_all
+LocalGitDir=C:\Users\Rajamanoheryogi\k8s\vagrant_provisioning_all\.git
+LocalGitStorageDir=C:\Users\Rajamanoheryogi\k8s\vagrant_provisioning_all\.git
+LocalMediaDir=C:\Users\Rajamanoheryogi\k8s\vagrant_provisioning_all\.git\lfs\objects
+LocalReferenceDirs=
+TempDir=C:\Users\Rajamanoheryogi\k8s\vagrant_provisioning_all\.git\lfs\tmp
+ConcurrentTransfers=3
+TusTransfers=false
+BasicTransfersOnly=false
+SkipDownloadErrors=false
+FetchRecentAlways=false
+FetchRecentRefsDays=7
+FetchRecentCommitsDays=0
+FetchRecentRefsIncludeRemotes=true
+PruneOffsetDays=3
+PruneVerifyRemoteAlways=false
+PruneRemoteName=origin
+LfsStorageDir=C:\Users\Rajamanoheryogi\k8s\vagrant_provisioning_all\.git\lfs
+AccessDownload=basic
+AccessUpload=basic
+DownloadTransfers=basic
+UploadTransfers=basic
+GIT_EXEC_PATH=C:/Program Files/Git/mingw64/libexec/git-core
+git config filter.lfs.process = "git-lfs filter-process"
+git config filter.lfs.smudge = "git-lfs smudge -- %f"
+git config filter.lfs.clean = "git-lfs clean -- %f"
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git lfs checkout
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git lfs fetch
+fetch: Fetching reference refs/heads/master
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git lfs lfck
+Error: unknown command "lfck" for "git-lfs"
+
+Did you mean this?
+        fsck
+        lock
+        locks
+
+Run 'git-lfs --help' for usage.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git lfs fsck
+Git LFS fsck OK
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git lfs locks
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git lfs ls-files
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git lfs status
+On branch master
+
+Git LFS objects to be committed:
+
+        .gitattributes (Git: c8212e2)
+        jdk-8u211-linux-x64.rpm (Git: 6e0274e -> File: deleted)
+
+Git LFS objects not staged for commit:
+
+        .gitattributes (File: 9a7c9ec)
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ ls -a
+./   .git/           ansible_server/  docker_vagrant/  jenkins/     README.md
+../  .gitattributes  default/         docker-vagrant/  kubernetes/  vamsm/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git add .
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git commit -am "git large files sharing to github"
+[master e73ddf5] git large files sharing to github
+ 2 files changed, 1 insertion(+)
+ create mode 100644 .gitattributes
+ delete mode 100644 jdk-8u211-linux-x64.rpm
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git lfs version
+git-lfs/2.7.1 (GitHub; windows amd64; go 1.11.5; git 6b7fb6e3)
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ wget https://github.com/git-lfs/git-lfs/releases/download/v2.7.2/git-lfs-windows-v2.7.2.exe
+bash: wget: command not found
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ ls
+ansible_server/  docker_vagrant/  git-lfs-windows-v2.7.2.exe*  kubernetes/  vamsm/
+default/         docker-vagrant/  jenkins/                     README.md
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git add .
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git commit git-lfs-windows-v2.7.2.exe -m " lfs file"
+[master 09557e2]  lfs file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 git-lfs-windows-v2.7.2.exe
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git push origin master
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (9/9), 176.05 MiB | 1.02 MiB/s, done.
+Total 9 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), completed with 1 local object.
+remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.
+remote: error: Trace: 60ee7f44eb81206e3e55337d73c59d4e
+remote: error: See http://git.io/iEPt8g for more information.
+remote: error: File jdk-8u211-linux-x64.rpm is 171.13 MB; this exceeds GitHub's file size limit of 100.00 MB
+To https://github.com/rajadevops26/vagrant_provisioning.git
+ ! [remote rejected] master -> master (pre-receive hook declined)
+error: failed to push some refs to 'https://github.com/rajadevops26/vagrant_provisioning.git'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git rm --chached jdk-8u211-linux-x64.rpm
+error: unknown option `chached'
+usage: git rm [<options>] [--] <file>...
+
+    -n, --dry-run         dry run
+    -q, --quiet           do not list removed files
+    --cached              only remove from the index
+    -f, --force           override the up-to-date check
+    -r                    allow recursive removal
+    --ignore-unmatch      exit with a zero status even if nothing matched
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git rm -f --chached jdk-8u211-linux-x64.rpm
+error: unknown option `chached'
+usage: git rm [<options>] [--] <file>...
+
+    -n, --dry-run         dry run
+    -q, --quiet           do not list removed files
+    --cached              only remove from the index
+    -f, --force           override the up-to-date check
+    -r                    allow recursive removal
+    --ignore-unmatch      exit with a zero status even if nothing matched
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git rm  --chached -f jdk-8u211-linux-x64.rpm
+error: unknown option `chached'
+usage: git rm [<options>] [--] <file>...
+
+    -n, --dry-run         dry run
+    -q, --quiet           do not list removed files
+    --cached              only remove from the index
+    -f, --force           override the up-to-date check
+    -r                    allow recursive removal
+    --ignore-unmatch      exit with a zero status even if nothing matched
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git commit --amend -CHEAD
+[master 1302014]  lfs file
+ Date: Thu Jun 13 14:53:23 2019 +0530
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 git-lfs-windows-v2.7.2.exe
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ ls
+ansible_server/  docker_vagrant/  git-lfs-windows-v2.7.2.exe*  kubernetes/  vamsm/
+default/         docker-vagrant/  jenkins/                     README.md
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git push
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git push origin master
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (8/8), done.
+error: pack-objects died of signal 2iB | 1.09 MiB/s
+fatal: the remote end hung up unexpectedly
+error: failed to push some refs to 'https://github.com/rajadevops26/vagrant_provisioning.git'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git log --pretty=format:"%h %s" --graph
+* 1302014  lfs file
+* e73ddf5 git large files sharing to github
+* 2abcd12 jdk rpm
+*   776bd6d Merge branch 'master' of https://github.com/rajadevops26/vagrant_provisioning
+|\
+| * a302918 Initial commit
+* 6e3abda Raja master ansible/kubernetes/jenkins
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git reset --hard a302918
+HEAD is now at a302918 Initial commit
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ ls
+docker-vagrant/  README.md
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ ls -a
+./  ../  .git/  docker-vagrant/  README.md
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git reset --hard 1302014
+HEAD is now at 1302014  lfs file
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ ls -a
+./   .git/           ansible_server/  docker_vagrant/  git-lfs-windows-v2.7.2.exe*  kubernetes/  vamsm/
+../  .gitattributes  default/         docker-vagrant/  jenkins/                     README.md
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git reset --hard 776bd6d
+HEAD is now at 776bd6d Merge branch 'master' of https://github.com/rajadevops26/vagrant_provisioning
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ ls
+ansible_server/  default/  docker_vagrant/  docker-vagrant/  jenkins/  kubernetes/  README.md  vamsm/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ ls -a
+./  ../  .git/  ansible_server/  default/  docker_vagrant/  docker-vagrant/  jenkins/  kubernetes/  README.md  vamsm/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git push oigin master
+fatal: 'oigin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git push origin master
+Everything up-to-date
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ ls -a
+./  ../  .git/  ansible_server/  default/  docker_vagrant/  docker-vagrant/  jenkins/  kubernetes/  README.md  vamsm/
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git add .
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git commit git-lfs-windows-v2.7.2.exe -m "git large file share for windows"
+[master f626f06] git large file share for windows
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 git-lfs-windows-v2.7.2.exe
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git log -1
+commit f626f06f6cb0bb7f7e966ee50a10f800455d5fbe (HEAD -> master)
+Author: Your Name <you@example.com>
+Date:   Thu Jun 13 15:06:43 2019 +0530
+
+    git large file share for windows
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git push f626f06f6cb0bb7f7e966ee50a10f800455d5fbe:master
+ssh: Could not resolve hostname f626f06f6cb0bb7f7e966ee50a10f800455d5fbe: Name or service not known
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git push origin f626f06f6cb0bb7f7e966ee50a10f800455d5fbe:master
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 5.78 MiB | 815.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/rajadevops26/vagrant_provisioning.git
+   776bd6d..f626f06  f626f06f6cb0bb7f7e966ee50a10f800455d5fbe -> master
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git tag v1.1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git push origin master tag
+fatal: tag shorthand without <tag>
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git push origin master tag:v1.1
+error: src refspec tag does not match any
+error: failed to push some refs to 'https://github.com/rajadevops26/vagrant_provisioning.git'
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git push origin master tag --all
+fatal: --all can't be combined with refspecs
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git tag v1.1 master
+fatal: tag 'v1.1' already exists
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git tag
+v1.1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git push origin v1.1
+Total 0 (delta 0), reused 0 (delta 0)
+To https://github.com/rajadevops26/vagrant_provisioning.git
+ * [new tag]         v1.1 -> v1.1
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git push origin v1.1 --force
+Everything up-to-date
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git push  --tags
+Everything up-to-date
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git push --follow-tags
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git push --set-upstream origin master
+Everything up-to-date
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git push --follow-tags
+Everything up-to-date
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git config --global push.followTags true
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git push --all
+Everything up-to-date
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$ git push --mirror
+Total 0 (delta 0), reused 0 (delta 0)
+To https://github.com/rajadevops26/vagrant_provisioning.git
+ * [new branch]      origin/master -> origin/master
+
+Rajamanoheryogi@RamullakotaRajendra MINGW64 ~/k8s/vagrant_provisioning_all (master)
+$
