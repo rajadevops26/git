@@ -1,0 +1,97 @@
+
+git submodlue init
+git submodule update
+git submodule add <githuburl> cookbook/chef_dk/test.txt -------new file upload on git hub
+git add cookbooks/chef_dk/* .
+
+
+
+root@ip-172-31-46-88:~/chef-repo# ls
+README.md  chef_handlers  cookbooks  nv_backupgit_raja.pem  roles  tss
+root@ip-172-31-46-88:~/chef-repo# cd cookbooks/chef_dk/
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk# ls
+'*.'   1t.txt   CHANGELOG.md   LICENSE   Policyfile.rb   README.md   chefignore   kitchen.yml   metadata.rb   recipes   spec   test
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk# rm -rf 1t.txt
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk# cd ..
+root@ip-172-31-46-88:~/chef-repo/cookbooks# cd ..
+root@ip-172-31-46-88:~/chef-repo# git status
+On branch master
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        deleted:    cookbooks/chef_dk/1t.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@ip-172-31-46-88:~/chef-repo# cd cookbooks/chef_dk/recipes/
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk/recipes# cat default.rb
+#
+# Cookbook:: chef_dk
+# Recipe:: default
+#
+# Copyright:: 2019, The Authors, All Rights Rese
+file 'root/sample.txt' do
+
+        action :delete
+
+        content "this is my first file deletion\n"
+
+end
+
+
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk/recipes# vi default.rb
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk/recipes# cat default.rb
+#
+# Cookbook:: chef_dk
+# Recipe:: default
+#
+# Copyright:: 2019, The Authors, All Rights Rese
+file 'root/sample.txt' do
+
+        action :create
+
+        content "this is my first file testing the connections\n"
+
+end
+
+
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk/recipes# cd ..
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk# cd ..
+root@ip-172-31-46-88:~/chef-repo/cookbooks# cd ..
+root@ip-172-31-46-88:~/chef-repo# git status
+On branch master
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        deleted:    cookbooks/chef_dk/1t.txt
+        modified:   cookbooks/chef_dk/recipes/default.rb
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@ip-172-31-46-88:~/chef-repo# git add cookbooks/chef_dk/* .
+root@ip-172-31-46-88:~/chef-repo# git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        deleted:    cookbooks/chef_dk/1t.txt
+        modified:   cookbooks/chef_dk/recipes/default.rb
+
+root@ip-172-31-46-88:~/chef-repo# git commit -am "git add cookbook/chef_dk/* ."
+[master 1a328e5] git add cookbook/chef_dk/* .
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+ delete mode 100644 cookbooks/chef_dk/1t.txt
+root@ip-172-31-46-88:~/chef-repo# git push s master
+Counting objects: 6, done.
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (6/6), 571 bytes | 571.00 KiB/s, done.
+Total 6 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To github.com:rajadevops26/chef.git
+   ab5aae3..1a328e5  master -> master
+root@ip-172-31-46-88:~/chef-repo# exit
+logout
+ubuntu@ip-172-31-46-88:~$ exit
+logout
+Connection to ec2-54-165-3-112.compute-1.amazonaws.com closed.
+root@RAJA-RANI:/home/raja#
