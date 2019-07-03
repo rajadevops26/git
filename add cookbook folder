@@ -1,0 +1,685 @@
+root@ip-172-31-46-88:~/chef-repo/cookbooks# ls
+chef_dk  chefignore  starter
+root@ip-172-31-46-88:~/chef-repo/cookbooks# cd starter/
+root@ip-172-31-46-88:~/chef-repo/cookbooks/starter# LS
+
+Command 'LS' not found, but can be installed with:
+
+apt install sl
+
+root@ip-172-31-46-88:~/chef-repo/cookbooks/starter# ls
+attributes  files  metadata.rb  recipes  templates
+root@ip-172-31-46-88:~/chef-repo/cookbooks/starter# cd attributes/
+root@ip-172-31-46-88:~/chef-repo/cookbooks/starter/attributes# ls
+default.rb
+root@ip-172-31-46-88:~/chef-repo/cookbooks/starter/attributes#
+root@ip-172-31-46-88:~/chef-repo/cookbooks/starter/attributes#
+root@ip-172-31-46-88:~/chef-repo/cookbooks/starter/attributes#
+root@ip-172-31-46-88:~/chef-repo/cookbooks/starter/attributes#
+root@ip-172-31-46-88:~/chef-repo/cookbooks/starter/attributes#
+root@ip-172-31-46-88:~/chef-repo/cookbooks/starter/attributes# clear
+root@ip-172-31-46-88:~/chef-repo/cookbooks/starter/attributes# Connection reset by 54.165.3.112 port 22
+root@RAJA-RANI:/home/raja# ^C
+root@RAJA-RANI:/home/raja# ssh -i "nv_backupgit_raja.pem" ubuntu@ec2-54-165-3-112.compute-1.amazonaws.com
+Could not create directory '/root/.ssh'.
+The authenticity of host 'ec2-54-165-3-112.compute-1.amazonaws.com (54.165.3.112)' can't be established.
+ECDSA key fingerprint is SHA256:7kKQxZSspNjLiR+X4E56yV/v1IQtIBjGy3imniT685E.
+Are you sure you want to continue connecting (yes/no)? yes
+Failed to add the host to the list of known hosts (/root/.ssh/known_hosts).
+Welcome to Ubuntu 18.04.2 LTS (GNU/Linux 4.15.0-1043-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed Jul  3 10:11:05 UTC 2019
+
+  System load:  0.0               Processes:           100
+  Usage of /:   28.8% of 7.69GB   Users logged in:     1
+  Memory usage: 18%               IP address for eth0: 172.31.46.88
+  Swap usage:   0%
+
+ * MicroK8s 1.15 is out! It has already been installed on more
+   than 14 different distros. Guess which ones?
+
+     https://snapcraft.io/microk8s
+
+39 packages can be updated.
+0 updates are security updates.
+
+
+*** System restart required ***
+Last login: Wed Jul  3 09:56:15 2019 from 183.82.218.221
+ubuntu@ip-172-31-46-88:~$ sudo -i
+root@ip-172-31-46-88:~# cd chef-repo/cookbooks/
+root@ip-172-31-46-88:~/chef-repo/cookbooks# ls
+chef_dk  chefignore  starter
+root@ip-172-31-46-88:~/chef-repo/cookbooks# cd chef_dk/
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk# ls
+CHANGELOG.md  LICENSE  Policyfile.rb  README.md  chefignore  kitchen.yml  metadata.rb  recipes  spec  test
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk# vi metadata.rb
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk# cd recipes/
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk/recipes# ls
+default.rb
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk/recipes# vi default.rb
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk/recipes# knife cookbook upload chef_dk
+/opt/chefdk/embedded/lib/ruby/gems/2.6.0/gems/chef-15.0.300/lib/chef/knife/bootstrap.rb:31: warning: already initialized constant Chef::Knife::Bootstrap::SUPPORTED_CONNECTION_PROTOCOLS
+/opt/chefdk/embedded/lib/ruby/gems/2.6.0/gems/chef-15.0.300/lib/chef/knife/bootstrap.rb:31: warning: previous definition of SUPPORTED_CONNECTION_PROTOCOLS was here
+/opt/chefdk/embedded/lib/ruby/gems/2.6.0/gems/chef-15.0.300/lib/chef/knife/bootstrap.rb:32: warning: already initialized constant Chef::Knife::Bootstrap::WINRM_AUTH_PROTOCOL_LIST
+/opt/chefdk/embedded/lib/ruby/gems/2.6.0/gems/chef-15.0.300/lib/chef/knife/bootstrap.rb:32: warning: previous definition of WINRM_AUTH_PROTOCOL_LIST was here
+/opt/chefdk/embedded/lib/ruby/gems/2.6.0/gems/chef-15.0.300/lib/chef/knife/bootstrap.rb:350: warning: already initialized constant Chef::Knife::Bootstrap::DEPRECATED_FLAGS
+/opt/chefdk/embedded/lib/ruby/gems/2.6.0/gems/chef-15.0.300/lib/chef/knife/bootstrap.rb:350: warning: previous definition of DEPRECATED_FLAGS was here
+Uploading chef_dk        [0.1.1]
+Uploaded 1 cookbook.
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk/recipes# cd ..
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk# cd test/
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk/test# ls
+integration
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk/test# cd integration/
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk/test/integration# ls
+default
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk/test/integration# cd default/
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk/test/integration/default# ls
+default_test.rb
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk/test/integration/default# cat default_test.rb
+# InSpec test for recipe chef_dk::default
+
+# The InSpec reference, with examples and extensive documentation, can be
+# found at https://www.inspec.io/docs/reference/resources/
+
+unless os.windows?
+  # This is an example test, replace with your own test.
+  describe user('root'), :skip do
+    it { should exist }
+  end
+end
+
+# This is an example test, replace it with your own test.
+describe port(80), :skip do
+  it { should_not be_listening }
+end
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk/test/integration/default# cd
+root@ip-172-31-46-88:~# cd chef-repo/
+root@ip-172-31-46-88:~/chef-repo# git add .
+root@ip-172-31-46-88:~/chef-repo# git commit -am "version chenge and upload on chefserver rajadevops"
+[master 91632b4] version chenge and upload on chefserver rajadevops
+ Committer: root <root@ip-172-31-46-88.ec2.internal>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 .chef/syntaxcache/1f56b23ee35c88773e4f75a25cfd91233eb4350c482ac361f73a08556bf28c20
+ create mode 100644 .chef/syntaxcache/2a3676853a83d7af277a21b7a0d3d2c77f8fb5af66d2efa77c4b7b63d2497106
+ create mode 100644 .chef/syntaxcache/6decc47db2f50e9b590f9d0d96d6bf666146964facb227a156014881e0599763
+root@ip-172-31-46-88:~/chef-repo# git statsus
+git: 'statsus' is not a git command. See 'git --help'.
+
+The most similar command is
+        status
+root@ip-172-31-46-88:~/chef-repo# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+        modified:   cookbooks/chef_dk (modified content)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@ip-172-31-46-88:~/chef-repo# git commit -am "version chenge and upload on chefserver rajadevops"
+On branch master
+Changes not staged for commit:
+        modified:   cookbooks/chef_dk (modified content)
+
+no changes added to commit
+root@ip-172-31-46-88:~/chef-repo# git commit -am "version chenge and upload on chefserver rajadevops"
+On branch master
+Changes not staged for commit:
+        modified:   cookbooks/chef_dk (modified content)
+
+no changes added to commit
+root@ip-172-31-46-88:~/chef-repo# git commit package 'apache2' do -m "version chenge and upload on chefserver rajadevops"
+error: pathspec 'package' did not match any file(s) known to git.
+error: pathspec 'apache2' did not match any file(s) known to git.
+error: pathspec 'do' did not match any file(s) known to git.
+root@ip-172-31-46-88:~/chef-repo#
+root@ip-172-31-46-88:~/chef-repo# action :install
+
+Command 'action' not found, did you mean:
+
+  command 'actiona' from deb actiona
+
+Try: apt install <deb name>
+
+root@ip-172-31-46-88:~/chef-repo#
+root@ip-172-31-46-88:~/chef-repo# end
+
+Command 'end' not found, did you mean:
+
+  command 'gnd' from snap gnd (master)
+  command 'snd' from deb snd-gtk-jack
+  command 'snd' from deb snd-gtk-pulse
+  command 'snd' from deb snd-nox
+  command 'send' from deb mailutils-mh
+  command 'send' from deb mmh
+  command 'send' from deb nmh
+  command 'and' from deb and
+  command 'eid' from deb id-utils
+  command 'esd' from deb pulseaudio-esound-compat
+  command 'nd' from deb nd
+  command 'ed' from deb ed
+  command 'ent' from deb ent
+  command 'bnd' from deb bnd
+  command 'env' from deb coreutils
+
+See 'snap info <snapname>' for additional versions.
+
+root@ip-172-31-46-88:~/chef-repo#
+root@ip-172-31-46-88:~/chef-repo# service 'apache2' do
+apache2: unrecognized service
+root@ip-172-31-46-88:~/chef-repo#
+root@ip-172-31-46-88:~/chef-repo# action :start
+
+Command 'action' not found, did you mean:
+
+  command 'actiona' from deb actiona
+
+Try: apt install <deb name>
+
+root@ip-172-31-46-88:~/chef-repo#
+root@ip-172-31-46-88:~/chef-repo# end
+
+Command 'end' not found, did you mean:
+
+  command 'gnd' from snap gnd (master)
+  command 'ent' from deb ent
+  command 'nd' from deb nd
+  command 'and' from deb and
+  command 'env' from deb coreutils
+  command 'bnd' from deb bnd
+  command 'esd' from deb pulseaudio-esound-compat
+  command 'eid' from deb id-utils
+  command 'send' from deb mailutils-mh
+  command 'send' from deb mmh
+  command 'send' from deb nmh
+  command 'ed' from deb ed
+  command 'snd' from deb snd-gtk-jack
+  command 'snd' from deb snd-gtk-pulse
+  command 'snd' from deb snd-nox
+
+See 'snap info <snapname>' for additional versions.
+
+root@ip-172-31-46-88:~/chef-repo#
+root@ip-172-31-46-88:~/chef-repo# template '/var/www/html/index.html' do
+template: command not found
+root@ip-172-31-46-88:~/chef-repo#
+root@ip-172-31-46-88:~/chef-repo# source "index.html.erb"
+-bash: index.html.erb: No such file or directory
+root@ip-172-31-46-88:~/chef-repo#
+root@ip-172-31-46-88:~/chef-repo# git commit -am "version chenge and upload on chefserver rajadevops"
+On branch master
+Changes not staged for commit:
+        modified:   cookbooks/chef_dk (modified content)
+
+no changes added to commit
+root@ip-172-31-46-88:~/chef-repo# git commit -am "version chenge and upload on chefserver rajadevops" cookbooks/chef_dk
+fatal: Paths with -a does not make sense.
+root@ip-172-31-46-88:~/chef-repo# git commit -m "version chenge and upload on chefserver rajadevops" cookbooks/chef_dk
+On branch master
+Changes not staged for commit:
+        modified:   cookbooks/chef_dk (modified content)
+
+no changes added to commit
+root@ip-172-31-46-88:~/chef-repo# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+        modified:   cookbooks/chef_dk (modified content)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@ip-172-31-46-88:~/chef-repo# git add cookbooks/chef_dk
+root@ip-172-31-46-88:~/chef-repo# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+        modified:   cookbooks/chef_dk (modified content)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@ip-172-31-46-88:~/chef-repo# git add cookbooks/chef_dk .
+root@ip-172-31-46-88:~/chef-repo# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+        modified:   cookbooks/chef_dk (modified content)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@ip-172-31-46-88:~/chef-repo# git add cookbooks/chef_dk/metadata.rb
+fatal: Pathspec 'cookbooks/chef_dk/metadata.rb' is in submodule 'cookbooks/chef_dk'
+root@ip-172-31-46-88:~/chef-repo# git add cookbooks/chef_dk/recipes/default.rb
+fatal: Pathspec 'cookbooks/chef_dk/recipes/default.rb' is in submodule 'cookbooks/chef_dk'
+root@ip-172-31-46-88:~/chef-repo# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+        modified:   cookbooks/chef_dk (modified content)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@ip-172-31-46-88:~/chef-repo# git config --global --edit
+root@ip-172-31-46-88:~/chef-repo# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+        modified:   cookbooks/chef_dk (modified content)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@ip-172-31-46-88:~/chef-repo# git add .
+root@ip-172-31-46-88:~/chef-repo# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+        modified:   cookbooks/chef_dk (modified content)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@ip-172-31-46-88:~/chef-repo# git add .
+root@ip-172-31-46-88:~/chef-repo# git add .
+root@ip-172-31-46-88:~/chef-repo# ls'
+> ^C
+root@ip-172-31-46-88:~/chef-repo# ls
+README.md  chef_handlers  cookbooks  nv_backupgit_raja.pem  roles  tss
+root@ip-172-31-46-88:~/chef-repo# git add cookbooks/chef_dk/
+root@ip-172-31-46-88:~/chef-repo# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+        modified:   cookbooks/chef_dk (modified content)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@ip-172-31-46-88:~/chef-repo# ls
+README.md  chef_handlers  cookbooks  nv_backupgit_raja.pem  roles  tss
+root@ip-172-31-46-88:~/chef-repo# ls -a
+.  ..  .chef  .git  .gitignore  README.md  chef_handlers  cookbooks  nv_backupgit_raja.pem  roles  tss
+root@ip-172-31-46-88:~/chef-repo# git add .
+root@ip-172-31-46-88:~/chef-repo# git commit --amend --reset-author
+[master 5ad7871] version chenge and upload on chefserver rajadevops
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 .chef/syntaxcache/1f56b23ee35c88773e4f75a25cfd91233eb4350c482ac361f73a08556bf28c20
+ create mode 100644 .chef/syntaxcache/2a3676853a83d7af277a21b7a0d3d2c77f8fb5af66d2efa77c4b7b63d2497106
+ create mode 100644 .chef/syntaxcache/6decc47db2f50e9b590f9d0d96d6bf666146964facb227a156014881e0599763
+root@ip-172-31-46-88:~/chef-repo# git commit -am "version chenge and upload on chefserver rajadevops"
+On branch master
+Changes not staged for commit:
+        modified:   cookbooks/chef_dk (modified content)
+
+no changes added to commit
+root@ip-172-31-46-88:~/chef-repo# git commit -am "version chenge and upload on chefserver rajadevops"
+On branch master
+Changes not staged for commit:
+        modified:   cookbooks/chef_dk (modified content)
+
+no changes added to commit
+root@ip-172-31-46-88:~/chef-repo# git commit -am "version chenge and upload on chefserver rajadevops"
+On branch master
+Changes not staged for commit:
+        modified:   cookbooks/chef_dk (modified content)
+
+no changes added to commit
+root@ip-172-31-46-88:~/chef-repo# git commit -am "version chenge and upload on chefserver rajadevops"
+On branch master
+Changes not staged for commit:
+        modified:   cookbooks/chef_dk (modified content)
+
+no changes added to commit
+root@ip-172-31-46-88:~/chef-repo# git add cookbooks/chef_dk
+root@ip-172-31-46-88:~/chef-repo# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+        modified:   cookbooks/chef_dk (modified content)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@ip-172-31-46-88:~/chef-repo# git add --all folder/
+fatal: pathspec 'folder/' did not match any files
+root@ip-172-31-46-88:~/chef-repo# git add --all folder/*
+fatal: pathspec 'folder/*' did not match any files
+root@ip-172-31-46-88:~/chef-repo# git add --all cookbooks/*
+root@ip-172-31-46-88:~/chef-repo# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+        modified:   cookbooks/chef_dk (modified content)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@ip-172-31-46-88:~/chef-repo# git add --all cookbooks/
+root@ip-172-31-46-88:~/chef-repo# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+        modified:   cookbooks/chef_dk (modified content)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@ip-172-31-46-88:~/chef-repo# ls
+README.md  chef_handlers  cookbooks  nv_backupgit_raja.pem  roles  tss
+root@ip-172-31-46-88:~/chef-repo# git add --all
+root@ip-172-31-46-88:~/chef-repo# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+        modified:   cookbooks/chef_dk (modified content)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@ip-172-31-46-88:~/chef-repo# git submodule add . cookbooks/chef_dk
+repo URL: '.' must be absolute or begin with ./|../
+root@ip-172-31-46-88:~/chef-repo# git submodule add cookbooks/chef_dk
+repo URL: 'cookbooks/chef_dk' must be absolute or begin with ./|../
+root@ip-172-31-46-88:~/chef-repo# git submodule add git@github.com:rajadevops26/chef.git cookbooks/chef_dk
+'cookbooks/chef_dk' already exists in the index
+root@ip-172-31-46-88:~/chef-repo# git submodule add git@github.com:rajadevops26/chef.git cookbooks/chef_dk/*
+The following path is ignored by one of your .gitignore files:
+cookbooks/chef_dk/CHANGELOG.md
+Use -f if you really want to add it.
+root@ip-172-31-46-88:~/chef-repo# git submodule add -f git@github.com:rajadevops26/chef.git cookbooks/chef_dk/*
+'cookbooks/chef_dk/CHANGELOG.md' already exists and is not a valid git repo
+root@ip-172-31-46-88:~/chef-repo# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+        modified:   cookbooks/chef_dk (modified content)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@ip-172-31-46-88:~/chef-repo#
+root@ip-172-31-46-88:~/chef-repo# git submodule init
+fatal: No url found for submodule path 'cookbooks/chef_dk' in .gitmodules
+root@ip-172-31-46-88:~/chef-repo# git submodule init
+fatal: No url found for submodule path 'cookbooks/chef_dk' in .gitmodules
+root@ip-172-31-46-88:~/chef-repo# git submodule init git@github.com:rajadevops26/chef.git
+error: pathspec 'git@github.com:rajadevops26/chef.git' did not match any file(s) known to git.
+root@ip-172-31-46-88:~/chef-repo# git submodule update
+root@ip-172-31-46-88:~/chef-repo# git submodule add -f git@github.com:rajadevops26/chef.git cookbooks/chef_dk/*
+'cookbooks/chef_dk/CHANGELOG.md' already exists and is not a valid git repo
+root@ip-172-31-46-88:~/chef-repo# git submodule add -f git@github.com:rajadevops26/chef.git cookbooks/chef_dk/* .
+'cookbooks/chef_dk/CHANGELOG.md' already exists and is not a valid git repo
+root@ip-172-31-46-88:~/chef-repo# git submodule add cookbooks/chef_dk/* .
+repo URL: 'cookbooks/chef_dk/CHANGELOG.md' must be absolute or begin with ./|../
+root@ip-172-31-46-88:~/chef-repo# git add cookbooks/chef_dk/* .
+fatal: Pathspec 'cookbooks/chef_dk/CHANGELOG.md' is in submodule 'cookbooks/chef_dk'
+root@ip-172-31-46-88:~/chef-repo# git submodule add -f git@github.com:rajadevops26/chef.git cookbooks/chef_dk/CHANGELOG.md .
+'cookbooks/chef_dk/CHANGELOG.md' already exists and is not a valid git repo
+root@ip-172-31-46-88:~/chef-repo# git submodule add -f git@github.com:rajadevops26/chef.git cookbooks/chef_dk/CHANGELOG.md
+'cookbooks/chef_dk/CHANGELOG.md' already exists and is not a valid git repo
+root@ip-172-31-46-88:~/chef-repo# cd cookbooks/
+root@ip-172-31-46-88:~/chef-repo/cookbooks# cd chef_dk/
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk# LS
+
+Command 'LS' not found, but can be installed with:
+
+apt install sl
+
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk# ls
+CHANGELOG.md  LICENSE  Policyfile.rb  README.md  chefignore  kitchen.yml  metadata.rb  recipes  spec  test
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk# cd recipes/
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk/recipes# ls
+default.rb
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk/recipes# cd ..
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk# text.txt
+text.txt: command not found
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk# touch 1t.txt
+root@ip-172-31-46-88:~/chef-repo/cookbooks/chef_dk# cd ..
+root@ip-172-31-46-88:~/chef-repo/cookbooks# cd ..
+root@ip-172-31-46-88:~/chef-repo# git add .
+root@ip-172-31-46-88:~/chef-repo# git commit -am
+error: switch `m' requires a value
+usage: git commit [<options>] [--] <pathspec>...
+
+    -q, --quiet           suppress summary after successful commit
+    -v, --verbose         show diff in commit message template
+
+Commit message options
+    -F, --file <file>     read message from file
+    --author <author>     override author for commit
+    --date <date>         override date for commit
+    -m, --message <message>
+                          commit message
+    -c, --reedit-message <commit>
+                          reuse and edit message from specified commit
+    -C, --reuse-message <commit>
+                          reuse message from specified commit
+    --fixup <commit>      use autosquash formatted message to fixup specified commit
+    --squash <commit>     use autosquash formatted message to squash specified commit
+    --reset-author        the commit is authored by me now (used with -C/-c/--amend)
+    -s, --signoff         add Signed-off-by:
+    -t, --template <file>
+                          use specified template file
+    -e, --edit            force edit of commit
+    --cleanup <default>   how to strip spaces and #comments from message
+    --status              include status in commit message template
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+
+Commit contents options
+    -a, --all             commit all changed files
+    -i, --include         add specified files to index for commit
+    --interactive         interactively add files
+    -p, --patch           interactively add changes
+    -o, --only            commit only specified files
+    -n, --no-verify       bypass pre-commit and commit-msg hooks
+    --dry-run             show what would be committed
+    --short               show status concisely
+    --branch              show branch information
+    --ahead-behind        compute full ahead/behind values
+    --porcelain           machine-readable output
+    --long                show status in long format (default)
+    -z, --null            terminate entries with NUL
+    --amend               amend previous commit
+    --no-post-rewrite     bypass post-rewrite hook
+    -u, --untracked-files[=<mode>]
+                          show untracked files, optional modes: all, normal, no. (Default: all)
+
+root@ip-172-31-46-88:~/chef-repo# git commit -am "sdfs"
+On branch master
+Changes not staged for commit:
+        modified:   cookbooks/chef_dk (modified content, untracked content)
+
+no changes added to commit
+root@ip-172-31-46-88:~/chef-repo# git add .
+root@ip-172-31-46-88:~/chef-repo# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+        modified:   cookbooks/chef_dk (modified content, untracked content)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@ip-172-31-46-88:~/chef-repo# git branch
+* master
+root@ip-172-31-46-88:~/chef-repo# git submodule add -f git@github.com:rajadevops26/chef.git cookbooks/chef_dk/*.
+Cloning into '/root/chef-repo/cookbooks/chef_dk/*.'...
+remote: Enumerating objects: 58, done.
+remote: Counting objects: 100% (58/58), done.
+remote: Compressing objects: 100% (38/38), done.
+Receiving objects: 100% (58/58), 20.18 KiB | 10.09 MiB/s, done.
+Resolving deltas: 100% (3/3), done.
+remote: Total 58 (delta 3), reused 49 (delta 3), pack-reused 0
+fatal: Pathspec 'cookbooks/chef_dk/*.' is in submodule 'cookbooks/chef_dk'
+Failed to add submodule 'cookbooks/chef_dk/*.'
+root@ip-172-31-46-88:~/chef-repo# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+        modified:   cookbooks/chef_dk (modified content, untracked content)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@ip-172-31-46-88:~/chef-repo# git submodule add -f git@github.com:rajadevops26/chef.git cookbooks/chef_dk/*.
+Adding existing repo at 'cookbooks/chef_dk/*.' to the index
+fatal: Pathspec 'cookbooks/chef_dk/*.' is in submodule 'cookbooks/chef_dk'
+Failed to add submodule 'cookbooks/chef_dk/*.'
+root@ip-172-31-46-88:~/chef-repo# git rm -rf --cached cookbooks/chef_dk/
+rm 'cookbooks/chef_dk'
+root@ip-172-31-46-88:~/chef-repo# ls
+README.md  chef_handlers  cookbooks  nv_backupgit_raja.pem  roles  tss
+root@ip-172-31-46-88:~/chef-repo# git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        deleted:    cookbooks/chef_dk
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        cookbooks/chef_dk/
+
+root@ip-172-31-46-88:~/chef-repo# git add .
+warning: adding embedded git repository: cookbooks/chef_dk
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint:
+hint:   git submodule add <url> cookbooks/chef_dk
+hint:
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint:
+hint:   git rm --cached cookbooks/chef_dk
+hint:
+hint: See "git help submodule" for more information.
+root@ip-172-31-46-88:~/chef-repo# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+        modified:   cookbooks/chef_dk (modified content, untracked content)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@ip-172-31-46-88:~/chef-repo# git rm --cached cookbooks/chef_dk
+rm 'cookbooks/chef_dk'
+root@ip-172-31-46-88:~/chef-repo# git submodule init
+root@ip-172-31-46-88:~/chef-repo# git ls ls lll
+git: 'ls' is not a git command. See 'git --help'.
+
+The most similar command is
+        log
+root@ip-172-31-46-88:~/chef-repo#
+root@ip-172-31-46-88:~/chef-repo# ls
+README.md  chef_handlers  cookbooks  nv_backupgit_raja.pem  roles  tss
+root@ip-172-31-46-88:~/chef-repo# ls -a
+.  ..  .chef  .git  .gitignore  README.md  chef_handlers  cookbooks  nv_backupgit_raja.pem  roles  tss
+root@ip-172-31-46-88:~/chef-repo#
+root@ip-172-31-46-88:~/chef-repo# git add cookbooks/chef_dk/
+warning: adding embedded git repository: cookbooks/chef_dk/*.
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint:
+hint:   git submodule add <url> cookbooks/chef_dk/*.
+hint:
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint:
+hint:   git rm --cached cookbooks/chef_dk/*.
+hint:
+hint: See "git help submodule" for more information.
+root@ip-172-31-46-88:~/chef-repo# git add cookbooks/chef_dk/* .
+root@ip-172-31-46-88:~/chef-repo# git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        deleted:    cookbooks/chef_dk
+        new file:   cookbooks/chef_dk/*.
+        new file:   cookbooks/chef_dk/.delivery/project.toml
+        new file:   cookbooks/chef_dk/.gitignore
+        new file:   cookbooks/chef_dk/1t.txt
+        new file:   cookbooks/chef_dk/CHANGELOG.md
+        new file:   cookbooks/chef_dk/LICENSE
+        new file:   cookbooks/chef_dk/Policyfile.rb
+        new file:   cookbooks/chef_dk/README.md
+        new file:   cookbooks/chef_dk/chefignore
+        new file:   cookbooks/chef_dk/kitchen.yml
+        new file:   cookbooks/chef_dk/metadata.rb
+        new file:   cookbooks/chef_dk/recipes/default.rb
+        new file:   cookbooks/chef_dk/spec/spec_helper.rb
+        new file:   cookbooks/chef_dk/spec/unit/recipes/default_spec.rb
+        new file:   cookbooks/chef_dk/test/integration/default/default_test.rb
+
+root@ip-172-31-46-88:~/chef-repo# git commit -am "version changed in metadata.rd"
+[master ab5aae3] version changed in metadata.rd
+ 16 files changed, 314 insertions(+), 1 deletion(-)
+ delete mode 160000 cookbooks/chef_dk
+ create mode 160000 cookbooks/chef_dk/*.
+ create mode 100644 cookbooks/chef_dk/.delivery/project.toml
+ create mode 100644 cookbooks/chef_dk/.gitignore
+ create mode 100644 cookbooks/chef_dk/1t.txt
+ create mode 100644 cookbooks/chef_dk/CHANGELOG.md
+ create mode 100644 cookbooks/chef_dk/LICENSE
+ create mode 100644 cookbooks/chef_dk/Policyfile.rb
+ create mode 100644 cookbooks/chef_dk/README.md
+ create mode 100644 cookbooks/chef_dk/chefignore
+ create mode 100644 cookbooks/chef_dk/kitchen.yml
+ create mode 100644 cookbooks/chef_dk/metadata.rb
+ create mode 100644 cookbooks/chef_dk/recipes/default.rb
+ create mode 100644 cookbooks/chef_dk/spec/spec_helper.rb
+ create mode 100644 cookbooks/chef_dk/spec/unit/recipes/default_spec.rb
+ create mode 100644 cookbooks/chef_dk/test/integration/default/default_test.rb
+root@ip-172-31-46-88:~/chef-repo# git push s master
+Warning: Permanently added the RSA host key for IP address '140.82.114.4' to the list of known hosts.
+Counting objects: 27, done.
+Compressing objects: 100% (19/19), done.
+Writing objects: 100% (27/27), 4.69 KiB | 1.56 MiB/s, done.
+Total 27 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), completed with 2 local objects.
+To github.com:rajadevops26/chef.git
+   1ef54d0..ab5aae3  master -> master
