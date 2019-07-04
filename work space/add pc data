@@ -1,0 +1,537 @@
+
+Rajamanoheryogi@RAJA-RANI MINGW64 ~
+$ cd e:/
+
+Rajamanoheryogi@RAJA-RANI MINGW64 /e
+$ cd Edu\ \&\ videos/
+
+Rajamanoheryogi@RAJA-RANI MINGW64 /e/Edu & videos
+$ clear
+l
+s
+Rajamanoheryogi@RAJA-RANI MINGW64 /e/Edu & videos
+$ ls
+devops_edu/  devops_videos/
+
+Rajamanoheryogi@RAJA-RANI MINGW64 /e/Edu & videos
+$ cd devops_edu/
+
+Rajamanoheryogi@RAJA-RANI MINGW64 /e/Edu & videos/devops_edu
+$ git init
+Initialized empty Git repository in E:/Edu & videos/devops_edu/.git/
+
+Rajamanoheryogi@RAJA-RANI MINGW64 /e/Edu & videos/devops_edu (master)
+$ ls -a
+./          ansible/  docker.docx              jenkins/       'New folder'/                  sonar/
+../         chef/     git.docx                 kubernetes/    nv_backupgit_raja.pem          'steps for install java.docx'
+.git/       devops/   images/                  linux/         'Private subnet connect.docx'  'Tech Mahindra.docx'
+agile.docx  docker/   IMG_20170725_180107.JPG  mini_project/  programs.rtf
+
+Rajamanoheryogi@RAJA-RANI MINGW64 /e/Edu & videos/devops_edu (master)
+$ git status
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        IMG_20170725_180107.JPG
+        New folder/
+        Private subnet connect.docx
+        Tech Mahindra.docx
+        agile.docx
+        ansible/
+        chef/
+        devops/
+        docker.docx
+        docker/
+        git.docx
+        images/
+        jenkins/
+        kubernetes/
+        linux/
+        mini_project/
+        nv_backupgit_raja.pem
+        programs.rtf
+        sonar/
+        steps for install java.docx
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Rajamanoheryogi@RAJA-RANI MINGW64 /e/Edu & videos/devops_edu (master)
+$ git add .
+warning: LF will be replaced by CRLF in mini_project/docker-compose.yml.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in mini_project/tomcat/Dockerfile.
+The file will have its original line endings in your working directory.
+
+Rajamanoheryogi@RAJA-RANI MINGW64 /e/Edu & videos/devops_edu (master)
+$ git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   IMG_20170725_180107.JPG
+        new file:   New folder/PDFen(1).pdf
+        new file:   New folder/PDFen.pdf
+        new file:   New folder/Pay Slip FNF.pdf
+        new file:   New folder/Unix Questions.docx
+        new file:   New folder/all interview questions.docx
+        new file:   New folder/jenkins interview questions.docx
+        new file:   Private subnet connect.docx
+        new file:   Tech Mahindra.docx
+        new file:   agile.docx
+        new file:   ansible/Ansible Roles tutorial.docx
+        new file:   ansible/Ansible tutorial.docx
+        new file:   ansible/Ansible_s.docx
+        new file:   ansible/Interview Questions On Ansible.docx
+        new file:   ansible/Rds cration in aws.docx
+        new file:   ansible/What is Ansible.docx
+        new file:   ansible/ansible examples.txt
+        new file:   ansible/ansible modules.docx
+        new file:   ansible/ansible overview.docx
+        new file:   ansible/ansible.docx
+        new file:   ansible/ansible_ec2.txt
+        new file:   ansible/ansible_new.docx
+        new file:   ansible/ansible_playbook_roles_galaxy.docx
+        new file:   ansible/complete_ansible.docx
+        new file:   ansible/~$nsible.docx
+        new file:   chef/chef documentation.txt
+        new file:   chef/handlers Chef community.docx
+        new file:   devops/30questions for devops.docx
+        new file:   devops/4 Best Cloud Deployment Models.docx
+        new file:   devops/DEVOPS Rajendra prasad.docx
+        new file:   devops/DevOps200.docx
+        new file:   devops/INTERVIEW  QUESTIONS.docx
+        new file:   devops/Overview of Devops.docx
+        new file:   devops/Simple DevOps Project.docx
+        new file:   devops/cd.docx
+        new file:   devops/cdeploy.docx
+        new file:   devops/cdlivery.docx
+        new file:   devops/ci.docx
+        new file:   devops/cintigra.docx
+        new file:   devops/company questions.docx
+        new file:   devops/ct.docx
+        new file:   devops/devops concepts.docx
+        new file:   devops/devops configuration tools.docx
+        new file:   devops/devops stats.docx
+        new file:   devops/k8s vs docker swarm.docx
+        new file:   docker.docx
+        new file:   docker/CIDR.docx
+        new file:   docker/Cmd vs run vs arg vs entry.docx
+        new file:   docker/DOCKER ARTITECHTURE.docx
+        new file:   docker/DOCKER BUILD AND IMAGE CREATION WITH NETWORK DRIVERS.docx
+        new file:   docker/DOCKER VOLUME.docx
+        new file:   docker/DOCKER.docx
+        new file:   docker/DOCKERFILE VARIOUS INSTRUCTIONS.docx
+        new file:   docker/DOCKERTOOL.docx
+        new file:   docker/Docker Nginix.docx
+        new file:   docker/Docker machine creation in cmd.docx
+        new file:   docker/Docker system commands.docx
+        new file:   docker/Docker_windows_running_tomcat.docx
+        new file:   docker/IP TOOLS.docx
+        new file:   docker/Steps to install docker tool box_ in windows.docx
+        new file:   docker/container log  information.txt
+        new file:   docker/docker machine Child commands.docx
+        new file:   docker/docker-compose_vm_ware.docx
+        new file:   docker/docker-compose_vm_ware_windowns.docx
+        new file:   docker/docker/DOCKER_RAJA.docx
+        new file:   docker/docker/DOCKER_RAJA.pdf
+        new file:   git.docx
+        new file:   images/162a6bf6-9b46-4604-93ec-d818fbfde1f9.png
+        new file:   images/Architecture-of-Jenkins-CI-configured-as-a-scientific-data-processing-platform-A-typical.png
+        new file:   images/Chef-server-devops-interview-questions.png
+        new file:   images/DevOps all picture  ramullakota rajendra prasad at_racherla.jpeg
+        new file:   images/DevOps-Enabler-Tools-v2.png
+        new file:   images/DevOps-solution.png
+        new file:   images/Tools1.3.png
+        new file:   images/architecture.png
+        new file:   images/cloud-and-network-transformation-using-devops-methodology-cisco-live-2015-12-638.jpg
+        new file:   images/continuous-delivery1.png
+        new file:   images/dev.jpg
+        new file:   images/devops-configuration.jpg
+        new file:   images/devops-tools.png
+        new file:   images/devops_offerings.png
+        new file:   images/devopscicd8.jpg
+        new file:   images/devopsjenkins.png
+        new file:   images/devopsjenkins1.png
+        new file:   images/pic1.png
+        new file:   images/sdlc-tools.jpg
+        new file:   images/velotio-devops-expertises.jpg
+        new file:   jenkins/Apache packaging is derived.docx
+        new file:   jenkins/CICD.docx
+        new file:   jenkins/Jenkins with selenium.docx
+        new file:   jenkins/New folder/FREESTYLE PROJECTS.docx
+        new file:   jenkins/New folder/JENKINS.docx
+        new file:   jenkins/New folder/Suggestesd plugins.docx
+        new file:   jenkins/New folder/complete jenkins.docx
+        new file:   jenkins/New folder/console output fail-success.docx
+        new file:   jenkins/New folder/jenkins different types of projects.docx
+        new file:   jenkins/New folder/slave node information.docx
+        new file:   jenkins/build interaction.docx
+        new file:   jenkins/jenkins pipeline.docx
+        new file:   jenkins/jenkins_docker_git_questions.docx
+        new file:   jenkins/pipeline.docx
+        new file:   kubernetes/Best Practices for Kubernetes(google).docx
+        new file:   kubernetes/Kubernetes Minikube.pdf
+        new file:   kubernetes/k8s_Security.docx
+        new file:   kubernetes/kubernetes_questions.docx
+        new file:   linux/Common Linux log files names and usage.docx
+        new file:   linux/linux performence.docx
+        new file:   linux/linux scripts.docx
+        new file:   linux/linux user.docx
+        new file:   linux/paste.docx
+        new file:   linux/sntplinux.docx
+        new file:   mini_project/dcoker
+        new file:   mini_project/docker
+        new file:   mini_project/docker-compose
+        new file:   mini_project/docker-compose.yml
+        new file:   mini_project/docker-compose.yml.y
+        new file:   mini_project/docker-machine
+        new file:   mini_project/nginix/Dockerfile
+        new file:   mini_project/nginix/nginx.conf
+        new file:   mini_project/tomcat/Dockerfile
+        new file:   nv_backupgit_raja.pem
+        new file:   programs.rtf
+        new file:   sonar/Installation SonarQubedocx.docx
+        new file:   sonar/sonar-mobo.txt
+        new file:   sonar/sonar.pdf
+        new file:   sonar/sonar5 minutes.docx
+        new file:   sonar/sonardiagrams.docx
+        new file:   sonar/sonarrqube.txt
+        new file:   steps for install java.docx
+
+
+Rajamanoheryogi@RAJA-RANI MINGW64 /e/Edu & videos/devops_edu (master)
+$ git commit -am "first time move all to private repository"
+[master (root-commit) 5a4db44] first time move all to private repository
+warning: LF will be replaced by CRLF in mini_project/docker-compose.yml.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in mini_project/tomcat/Dockerfile.
+The file will have its original line endings in your working directory.
+ 129 files changed, 53688 insertions(+)
+ create mode 100644 IMG_20170725_180107.JPG
+ create mode 100644 New folder/PDFen(1).pdf
+ create mode 100644 New folder/PDFen.pdf
+ create mode 100644 New folder/Pay Slip FNF.pdf
+ create mode 100644 New folder/Unix Questions.docx
+ create mode 100644 New folder/all interview questions.docx
+ create mode 100644 New folder/jenkins interview questions.docx
+ create mode 100644 Private subnet connect.docx
+ create mode 100644 Tech Mahindra.docx
+ create mode 100644 agile.docx
+ create mode 100644 ansible/Ansible Roles tutorial.docx
+ create mode 100644 ansible/Ansible tutorial.docx
+ create mode 100644 ansible/Ansible_s.docx
+ create mode 100644 ansible/Interview Questions On Ansible.docx
+ create mode 100644 ansible/Rds cration in aws.docx
+ create mode 100644 ansible/What is Ansible.docx
+ create mode 100644 ansible/ansible examples.txt
+ create mode 100644 ansible/ansible modules.docx
+ create mode 100644 ansible/ansible overview.docx
+ create mode 100644 ansible/ansible.docx
+ create mode 100644 ansible/ansible_ec2.txt
+ create mode 100644 ansible/ansible_new.docx
+ create mode 100644 ansible/ansible_playbook_roles_galaxy.docx
+ create mode 100644 ansible/complete_ansible.docx
+ create mode 100644 ansible/~$nsible.docx
+ create mode 100644 chef/chef documentation.txt
+ create mode 100644 chef/handlers Chef community.docx
+ create mode 100644 devops/30questions for devops.docx
+ create mode 100644 devops/4 Best Cloud Deployment Models.docx
+ create mode 100644 devops/DEVOPS Rajendra prasad.docx
+ create mode 100644 devops/DevOps200.docx
+ create mode 100644 devops/INTERVIEW  QUESTIONS.docx
+ create mode 100644 devops/Overview of Devops.docx
+ create mode 100644 devops/Simple DevOps Project.docx
+ create mode 100644 devops/cd.docx
+ create mode 100644 devops/cdeploy.docx
+ create mode 100644 devops/cdlivery.docx
+ create mode 100644 devops/ci.docx
+ create mode 100644 devops/cintigra.docx
+ create mode 100644 devops/company questions.docx
+ create mode 100644 devops/ct.docx
+ create mode 100644 devops/devops concepts.docx
+ create mode 100644 devops/devops configuration tools.docx
+ create mode 100644 devops/devops stats.docx
+ create mode 100644 devops/k8s vs docker swarm.docx
+ create mode 100644 docker.docx
+ create mode 100644 docker/CIDR.docx
+ create mode 100644 docker/Cmd vs run vs arg vs entry.docx
+ create mode 100644 docker/DOCKER ARTITECHTURE.docx
+ create mode 100644 docker/DOCKER BUILD AND IMAGE CREATION WITH NETWORK DRIVERS.docx
+ create mode 100644 docker/DOCKER VOLUME.docx
+ create mode 100644 docker/DOCKER.docx
+ create mode 100644 docker/DOCKERFILE VARIOUS INSTRUCTIONS.docx
+ create mode 100644 docker/DOCKERTOOL.docx
+ create mode 100644 docker/Docker Nginix.docx
+ create mode 100644 docker/Docker machine creation in cmd.docx
+ create mode 100644 docker/Docker system commands.docx
+ create mode 100644 docker/Docker_windows_running_tomcat.docx
+ create mode 100644 docker/IP TOOLS.docx
+ create mode 100644 docker/Steps to install docker tool box_ in windows.docx
+ create mode 100644 docker/container log  information.txt
+ create mode 100644 docker/docker machine Child commands.docx
+ create mode 100644 docker/docker-compose_vm_ware.docx
+ create mode 100644 docker/docker-compose_vm_ware_windowns.docx
+ create mode 100644 docker/docker/DOCKER_RAJA.docx
+ create mode 100644 docker/docker/DOCKER_RAJA.pdf
+ create mode 100644 git.docx
+ create mode 100644 images/162a6bf6-9b46-4604-93ec-d818fbfde1f9.png
+ create mode 100644 images/Architecture-of-Jenkins-CI-configured-as-a-scientific-data-processing-platform-A-typical.png
+ create mode 100644 images/Chef-server-devops-interview-questions.png
+ create mode 100644 images/DevOps all picture  ramullakota rajendra prasad at_racherla.jpeg
+ create mode 100644 images/DevOps-Enabler-Tools-v2.png
+ create mode 100644 images/DevOps-solution.png
+ create mode 100644 images/Tools1.3.png
+ create mode 100644 images/architecture.png
+ create mode 100644 images/cloud-and-network-transformation-using-devops-methodology-cisco-live-2015-12-638.jpg
+ create mode 100644 images/continuous-delivery1.png
+ create mode 100644 images/dev.jpg
+ create mode 100644 images/devops-configuration.jpg
+ create mode 100644 images/devops-tools.png
+ create mode 100644 images/devops_offerings.png
+ create mode 100644 images/devopscicd8.jpg
+ create mode 100644 images/devopsjenkins.png
+ create mode 100644 images/devopsjenkins1.png
+ create mode 100644 images/pic1.png
+ create mode 100644 images/sdlc-tools.jpg
+ create mode 100644 images/velotio-devops-expertises.jpg
+ create mode 100644 jenkins/Apache packaging is derived.docx
+ create mode 100644 jenkins/CICD.docx
+ create mode 100644 jenkins/Jenkins with selenium.docx
+ create mode 100644 jenkins/New folder/FREESTYLE PROJECTS.docx
+ create mode 100644 jenkins/New folder/JENKINS.docx
+ create mode 100644 jenkins/New folder/Suggestesd plugins.docx
+ create mode 100644 jenkins/New folder/complete jenkins.docx
+ create mode 100644 jenkins/New folder/console output fail-success.docx
+ create mode 100644 jenkins/New folder/jenkins different types of projects.docx
+ create mode 100644 jenkins/New folder/slave node information.docx
+ create mode 100644 jenkins/build interaction.docx
+ create mode 100644 jenkins/jenkins pipeline.docx
+ create mode 100644 jenkins/jenkins_docker_git_questions.docx
+ create mode 100644 jenkins/pipeline.docx
+ create mode 100644 kubernetes/Best Practices for Kubernetes(google).docx
+ create mode 100644 kubernetes/Kubernetes Minikube.pdf
+ create mode 100644 kubernetes/k8s_Security.docx
+ create mode 100644 kubernetes/kubernetes_questions.docx
+ create mode 100644 linux/Common Linux log files names and usage.docx
+ create mode 100644 linux/linux performence.docx
+ create mode 100644 linux/linux scripts.docx
+ create mode 100644 linux/linux user.docx
+ create mode 100644 linux/paste.docx
+ create mode 100644 linux/sntplinux.docx
+ create mode 100644 mini_project/dcoker
+ create mode 100644 mini_project/docker
+ create mode 100644 mini_project/docker-compose
+ create mode 100644 mini_project/docker-compose.yml
+ create mode 100644 mini_project/docker-compose.yml.y
+ create mode 100644 mini_project/docker-machine
+ create mode 100644 mini_project/nginix/Dockerfile
+ create mode 100644 mini_project/nginix/nginx.conf
+ create mode 100644 mini_project/tomcat/Dockerfile
+ create mode 100644 nv_backupgit_raja.pem
+ create mode 100644 programs.rtf
+ create mode 100644 sonar/Installation SonarQubedocx.docx
+ create mode 100644 sonar/sonar-mobo.txt
+ create mode 100644 sonar/sonar.pdf
+ create mode 100644 sonar/sonar5 minutes.docx
+ create mode 100644 sonar/sonardiagrams.docx
+ create mode 100644 sonar/sonarrqube.txt
+ create mode 100644 steps for install java.docx
+
+Rajamanoheryogi@RAJA-RANI MINGW64 /e/Edu & videos/devops_edu (master)
+$ git remote add edu https://github.com/rajadevops26/Education.git
+
+Rajamanoheryogi@RAJA-RANI MINGW64 /e/Edu & videos/devops_edu (master)
+$ ls
+agile.docx  docker/      IMG_20170725_180107.JPG  mini_project/                  programs.rtf
+ansible/    docker.docx  jenkins/                 'New folder'/                  sonar/
+chef/       git.docx     kubernetes/              nv_backupgit_raja.pem          'steps for install java.docx'
+devops/     images/      linux/                   'Private subnet connect.docx'  'Tech Mahindra.docx'
+
+Rajamanoheryogi@RAJA-RANI MINGW64 /e/Edu & videos/devops_edu (master)
+$ git pull edu master
+Fatal: HttpRequestException encountered.
+Username for 'https://github.com': *************
+warning: no common commits
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/rajadevops26/Education
+ * branch            master     -> FETCH_HEAD
+ * [new branch]      master     -> edu/master
+fatal: refusing to merge unrelated histories
+
+Rajamanoheryogi@RAJA-RANI MINGW64 /e/Edu & videos/devops_edu (master)
+$ git remote add e git@github.com:rajadevops26/Education.git
+
+Rajamanoheryogi@RAJA-RANI MINGW64 /e/Edu & videos/devops_edu (master)
+$ git push e master
+The authenticity of host 'github.com (13.234.176.102)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,13.234.176.102' (RSA) to the list of known hosts.
+Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+Rajamanoheryogi@RAJA-RANI MINGW64 /e/Edu & videos/devops_edu (master)
+$ pwd
+/e/Edu & videos/devops_edu
+
+Rajamanoheryogi@RAJA-RANI MINGW64 /e/Edu & videos/devops_edu (master)
+$ cd
+
+Rajamanoheryogi@RAJA-RANI MINGW64 ~
+$ ls -a
+./                     Music/
+../                    'My Documents'@
+.bash_history          NetHood@
+.BitLord/              NTUSER.DAT
+.gitconfig             ntuser.dat.LOG1
+.minttyrc              ntuser.dat.LOG2
+.QtWebEngineProcess/   NTUSER.DAT{fe56bb2f-a50f-11e8-a11c-0800271de1eb}.TM.blf
+.ssh/                  NTUSER.DAT{fe56bb2f-a50f-11e8-a11c-0800271de1eb}.TMContainer00000000000000000001.regtrans-ms
+.vagrant.d/            NTUSER.DAT{fe56bb2f-a50f-11e8-a11c-0800271de1eb}.TMContainer00000000000000000002.regtrans-ms
+.viminfo               ntuser.ini
+.VirtualBox/           OneDrive/
+'3D Objects'/          Pictures/
+AppData/               PrintHood@
+'Application Data'@    Recent@
+Contacts/              'Saved Games'/
+Cookies@               Searches/
+Desktop/               SendTo@
+Documents/             'Start Menu'@
+Downloads/             Templates@
+Favorites/             vagrant/
+Links/                 Videos/
+'Local Settings'@      'VirtualBox VMs'/
+MicrosoftEdgeBackups/
+
+Rajamanoheryogi@RAJA-RANI MINGW64 ~
+$ cd .ssh/
+
+Rajamanoheryogi@RAJA-RANI MINGW64 ~/.ssh
+$ ls
+known_hosts
+
+Rajamanoheryogi@RAJA-RANI MINGW64 ~/.ssh
+$ cd
+
+Rajamanoheryogi@RAJA-RANI MINGW64 ~
+$ ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/Rajamanoheryogi/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/Rajamanoheryogi/.ssh/id_rsa.
+Your public key has been saved in /c/Users/Rajamanoheryogi/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:Dk+SHrZKqF4LzicNuw06y2NqmDfaekARX86V+zjXwws Rajamanoheryogi@RAJA-RANI
+The key's randomart image is:
++---[RSA 2048]----+
+| ..  . ..        |
+| .. + ..         |
+|  .. o  .        |
+| .     o         |
+|.     * S o      |
+|.. . o @ E +     |
+|.==.. o = . o    |
+|OOO+..     .     |
+|%&*+.            |
++----[SHA256]-----+
+
+Rajamanoheryogi@RAJA-RANI MINGW64 ~
+$ cd .ssh/
+
+Rajamanoheryogi@RAJA-RANI MINGW64 ~/.ssh
+$ ls
+id_rsa  id_rsa.pub  known_hosts
+
+Rajamanoheryogi@RAJA-RANI MINGW64 ~/.ssh
+$ cat id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDORLFqi3fYifexKQ1PUWq017BvFeH4V9/HlK1vbaOPPHtAdk98m3qfSZeFq8eQ+DCxAVWNzDaNraspRqJl/bBvMB6F4s8BVqn975Dw02N7uXW0Sg5sppXPq5NhG3ERZ2slfe2srb6LxEDKvxWb41g149QvbU+zgm5QYPCA8T5NoIH1OnG69h2BBRxws8qsioh75XcxnWIlgvPQLUi6zdfpyeg4TlIQ3FHekP7rHRk0RAgRY+I1gF0PoNbiqp4N1b9fLev+0nY2JouOVGUfWDQ1kDRF4ffWs2ESUqeWXV7XdDlsRxP4DT7hYHgHOf1V9E3mfbkVAxslVAR5rdZghSZz Rajamanoheryogi@RAJA-RANI
+
+Rajamanoheryogi@RAJA-RANI MINGW64 ~/.ssh
+$ cat>>authorized_keys
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDORLFqi3fYifexKQ1PUWq017BvFeH4V9/HlK1vbaOPPHtAdk98m3qfSZeFq8eQ+DCxAVWNzDaNraspRqJl/bBvMB6F4s8BVqn975Dw02N7uXW0Sg5sppXPq5NhG3ERZ2slfe2srb6LxEDKvxWb41g149QvbU+zgm5QYPCA8T5NoIH1OnG69h2BBRxws8qsioh75XcxnWIlgvPQLUi6zdfpyeg4TlIQ3FHekP7rHRk0RAgRY+I1gF0PoNbiqp4N1b9fLev+0nY2JouOVGUfWDQ1kDRF4ffWs2ESUqeWXV7XdDlsRxP4DT7hYHgHOf1V9E3mfbkVAxslVAR5rdZghSZz Rajamanoheryogi@RAJA-RANI
+
+Rajamanoheryogi@RAJA-RANI MINGW64 ~/.ssh
+$ cd /e/Edu & videos/devops_edu
+[1] 10680
+bash: cd: /e/Edu: No such file or directory
+bash: videos/devops_edu: No such file or directory
+[1]+  Exit 1                  cd /e/Edu
+
+Rajamanoheryogi@RAJA-RANI MINGW64 ~/.ssh
+$ cd e:/
+
+Rajamanoheryogi@RAJA-RANI MINGW64 /e
+$ cd Edu\ \&\ videos/
+
+Rajamanoheryogi@RAJA-RANI MINGW64 /e/Edu & videos
+$ cd devops_edu/
+
+Rajamanoheryogi@RAJA-RANI MINGW64 /e/Edu & videos/devops_edu (master)
+$ ls -a
+./          ansible/  docker.docx              jenkins/       'New folder'/                  sonar/
+../         chef/     git.docx                 kubernetes/    nv_backupgit_raja.pem          'steps for install java.docx'
+.git/       devops/   images/                  linux/         'Private subnet connect.docx'  'Tech Mahindra.docx'
+agile.docx  docker/   IMG_20170725_180107.JPG  mini_project/  programs.rtf
+
+Rajamanoheryogi@RAJA-RANI MINGW64 /e/Edu & videos/devops_edu (master)
+$ git status
+On branch master
+nothing to commit, working directory clean
+
+Rajamanoheryogi@RAJA-RANI MINGW64 /e/Edu & videos/devops_edu (master)
+$ git push e master
+To git@github.com:rajadevops26/Education.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'git@github.com:rajadevops26/Education.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Rajamanoheryogi@RAJA-RANI MINGW64 /e/Edu & videos/devops_edu (master)
+$ git pull e master
+From github.com:rajadevops26/Education
+ * branch            master     -> FETCH_HEAD
+ * [new branch]      master     -> e/master
+fatal: refusing to merge unrelated histories
+
+Rajamanoheryogi@RAJA-RANI MINGW64 /e/Edu & videos/devops_edu (master)
+$ git merge FETCH_HEAD --allow-unrelated-histories
+Merge made by the 'recursive' strategy.
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+
+Rajamanoheryogi@RAJA-RANI MINGW64 /e/Edu & videos/devops_edu (master)
+$ git pull e master
+From github.com:rajadevops26/Education
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+
+Rajamanoheryogi@RAJA-RANI MINGW64 /e/Edu & videos/devops_edu (master)
+$ git push e master
+Counting objects: 144, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (141/141), done.
+Writing objects: 100% (144/144), 81.24 MiB | 2.14 MiB/s, done.
+Total 144 (delta 6), reused 0 (delta 0)
+remote: Resolving deltas: 100% (6/6), done.
+To git@github.com:rajadevops26/Education.git
+   0dcc95c..96f7534  master -> master
+
+Rajamanoheryogi@RAJA-RANI MINGW64 /e/Edu & videos/devops_edu (master)
+$
